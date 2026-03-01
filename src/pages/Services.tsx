@@ -9,24 +9,24 @@ const services = [
     description: 'Comprehensive cloud migration, architecture, and management services for AWS, Azure, and GCP.',
     features: ['Cloud Migration', 'Infrastructure as Code', 'DevOps Implementation', 'Cloud Security'],
   },
-  {
-    icon: Cpu,
-    title: 'AI & Machine Learning',
-    description: 'Custom AI models, natural language processing, computer vision, and predictive analytics.',
-    features: ['Custom ML Models', 'NLP Solutions', 'Computer Vision', 'Predictive Analytics'],
-  },
+    // {
+    //   icon: Cpu,
+    //   title: 'AI & Machine Learning',
+    //   description: 'Custom AI models, natural language processing, computer vision, and predictive analytics.',
+    //   features: ['Custom ML Models', 'NLP Solutions', 'Computer Vision', 'Predictive Analytics'],
+    // },
   {
     icon: Code,
     title: 'Web Development',
     description: 'Modern, responsive web applications built with cutting-edge frameworks and best practices.',
     features: ['React/Next.js', 'TypeScript', 'Progressive Web Apps', 'API Development'],
   },
-  {
-    icon: Database,
-    title: 'Data Engineering',
-    description: 'Big data processing, ETL pipelines, data warehousing, and real-time analytics solutions.',
-    features: ['Data Pipelines', 'ETL Processing', 'Data Warehousing', 'Real-time Analytics'],
-  },
+  // {
+  //   icon: Database,
+  //   title: 'Data Engineering',
+  //   description: 'Big data processing, ETL pipelines, data warehousing, and real-time analytics solutions.',
+  //   features: ['Data Pipelines', 'ETL Processing', 'Data Warehousing', 'Real-time Analytics'],
+  // },
   {
     icon: Shield,
     title: 'Cybersecurity',
