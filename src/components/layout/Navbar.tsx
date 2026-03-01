@@ -24,9 +24,7 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
+  // Remove the effect that synchronously calls setIsOpen on location change
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -53,6 +51,7 @@ export const Navbar: React.FC = () => {
                     ? 'text-electric-blue'
                     : 'text-foreground/70'
                 }`}
+                onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
@@ -107,6 +106,7 @@ export const Navbar: React.FC = () => {
                       ? 'text-electric-blue'
                       : 'text-foreground/70 hover:text-electric-blue'
                   }`}
+                  onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </Link>
