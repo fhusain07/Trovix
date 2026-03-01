@@ -1,6 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
+
+const XIcon = ({ className }: { className?: string }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path d="M18.244 2H21.5l-7.59 8.67L23 22h-7.16l-5.6-7.31L3.6 22H.34l8.11-9.27L1 2h7.29l5.05 6.61L18.244 2Zm-2.51 18h1.98L8.09 4h-2l9.644 16Z" />
+  </svg>
+);
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return (
@@ -15,19 +26,20 @@ export const Footer: React.FC = () => {
               <span className="text-2xl font-display font-bold gradient-text">TROVIX</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Modern IT & Software Solutions for tomorrow's challenges.
+              Modern IT & Software Solutions for tomorrow's challenges.<br />
+              Founded in 2025.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer" aria-label="Twitter">
-                <Twitter className="h-5 w-5" />
+              <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer" aria-label="X (Twitter)">
+                <XIcon className="h-5 w-5" />
               </a>
               <a href="#" className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer" aria-label="GitHub">
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer" aria-label="Email">
+              <a href="" className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -51,8 +63,8 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground">info@trovix.com</li>
-              <li className="text-sm text-muted-foreground">+1 (555) 123-4567</li>
+              <li className="text-sm text-muted-foreground">info@trovixtech.com</li>
+              <li className="text-sm text-muted-foreground">+91 8956121778 - +91 9307927612</li>
               <li><Link to="/contact" className="text-sm text-electric-blue hover:underline cursor-pointer">Get in Touch</Link></li>
             </ul>
           </div>

@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Shield, Cpu, Cloud, Database, Workflow, Code, Users, CheckCircle } from 'lucide-react';
+import { ArrowRight, Zap, Shield, Cpu, Cloud, Database,  Code, Users} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
+
 const features = [
   {
     icon: Zap,
@@ -50,7 +51,7 @@ const services = [
   },
 ];
 const technologies = [
-  'React', 'TypeScript', 'Node.js', 'Python', 'AWS', 'Docker', 'Kubernetes', 'TensorFlow'
+  'React', 'TypeScript', 'Vite', '.NET Web API', 'PostgreSQL', 'Azure', 'Docker'
 ];
 const testimonials = [
   {

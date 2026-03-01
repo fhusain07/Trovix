@@ -59,20 +59,26 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@trovix.com',
-      link: 'mailto:info@trovix.com',
+      content: 'info@trovixtech.com',
+      link: 'mailto:info@trovixtech.com',
     },
     {
       icon: Phone,
       title: 'Phone',
-      content: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      content: '+91 8956121778',
+      link: 'tel:+918956121778',
+    },
+    {
+      icon: Phone,
+      title: 'Alternate Phone',
+      content: '+91 9307927612',
+      link: 'tel:+919307927612',
     },
     {
       icon: MapPin,
-      title: 'Office',
-      content: 'San Francisco, CA',
-      link: '#',
+      title: 'Address',
+      content: 'Nagpur, Maharashtra, India',
+      link: 'https://maps.google.com/?q=Nagpur,+Maharashtra,+India',
     },
   ];
   return (

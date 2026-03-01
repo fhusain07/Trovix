@@ -6,22 +6,22 @@ const values = [
   {
     icon: Target,
     title: 'Mission-Driven',
-    description: 'Focused on delivering exceptional value to our clients',
+    description: 'Engineering high-performance digital infrastructure for innovation and growth.',
   },
   {
     icon: Lightbulb,
-    title: 'Innovation First',
-    description: 'Constantly exploring new technologies and methodologies',
+    title: 'Modern & Innovative',
+    description: 'Combining modern frontend, robust backend, and cloud-native strategies.',
   },
   {
     icon: Award,
     title: 'Excellence',
-    description: 'Committed to the highest standards of quality',
+    description: 'Delivering scalable, secure, and reliable solutions tailored to business needs.',
   },
   {
     icon: Users,
-    title: 'Client-Centric',
-    description: 'Your success is our primary objective',
+    title: 'Client Success',
+    description: 'Your long-term growth and efficiency is our primary objective.',
   },
 ];
 const About: React.FC = () => {
@@ -34,7 +34,7 @@ const About: React.FC = () => {
               About <span className="gradient-text">TROVIX</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We are a cutting-edge technology company dedicated to transforming businesses through innovative software solutions and strategic IT consulting.
+              TROVIX Tech is a modern IT and software solutions company based in Nagpur, Maharashtra, India. We specialize in building scalable, secure, and future-ready digital systems for startups, enterprises, and growing businesses.
             </p>
           </div>
         </AnimatedSection>
@@ -42,13 +42,17 @@ const About: React.FC = () => {
           <GlassCard className="mb-16">
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p className="text-xl mb-6">
-                Founded in 2020, TROVIX has rapidly grown to become a trusted partner for organizations seeking to leverage technology for competitive advantage.
+                Our mission is to engineer high-performance digital infrastructure that drives innovation, efficiency, and long-term growth. We combine modern frontend technologies, robust backend architectures, and cloud-native strategies to deliver reliable software solutions tailored to business needs.
               </p>
               <p className="mb-6">
-                Our team of expert engineers, designers, and consultants brings together decades of combined experience in cloud computing, artificial intelligence, web development, and data engineering. We specialize in building scalable, secure, and innovative solutions that drive real business results.
-              </p>
-              <p>
-                From startups to Fortune 500 companies, we've helped hundreds of organizations navigate digital transformation and achieve their technology goals. Our commitment to excellence, innovation, and client success sets us apart in the competitive technology landscape.
+                <b>We focus on:</b>
+                <ul>
+                  <li>Custom Web Application Development</li>
+                  <li>Enterprise Software Solutions</li>
+                  <li>API & Backend Architecture</li>
+                  <li>Cloud-Ready Infrastructure</li>
+                  <li>Performance Optimization & Scalability</li>
+                </ul>
               </p>
             </div>
           </GlassCard>
