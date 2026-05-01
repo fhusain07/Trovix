@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy: React.FC = () => {
   const lastUpdated = 'May 1, 2026';
@@ -69,7 +70,12 @@ const PrivacyPolicy: React.FC = () => {
           <section>
             <h2 className="text-2xl font-semibold mb-3">7. Data Deletion Requests</h2>
             <p>
-              Users may request data deletion through their school administration or by contacting us at info@trovixtech.com. We will coordinate with the relevant school to process such requests.
+              Users may request data deletion through their school administration or by
+              contacting us at info@trovixtech.com. See our{' '}
+              <Link to="/account-deletion" className="text-electric-blue hover:underline">
+                Account Deletion Request
+              </Link>{' '}
+              page for the steps and expected processing time.
             </p>
           </section>
 

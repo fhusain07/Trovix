@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
+import AccountDeletion from "./pages/AccountDeletion";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./NotFound";
 // CODEROCKET
@@ -69,6 +70,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route path="projects" element={<Projects />} />
             <Route path="careers" element={<Careers />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="account-deletion" element={<AccountDeletion />} />
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
           </Route>
           <Route path="*" element={<NotFound />} />

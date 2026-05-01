@@ -51,6 +51,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/careers" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">Careers</Link></li>
               <li><Link to="/projects" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">Projects</Link></li>
               <li><Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">Privacy Policy</Link></li>
+              <li><Link to="/account-deletion" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">Account Deletion</Link></li>
             </ul>
           </div>
           <div>
