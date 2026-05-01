@@ -50,6 +50,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/about" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">About Us</Link></li>
               <li><Link to="/careers" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">Careers</Link></li>
               <li><Link to="/projects" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">Projects</Link></li>
+              <li><Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer">Privacy Policy</Link></li>
             </ul>
           </div>
           <div>
