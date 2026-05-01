@@ -42,6 +42,7 @@ const About: React.FC = () => {
           <GlassCard className="mb-16">
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p className="text-xl mb-6">
+                {/* policy */}
                 Our mission is to engineer high-performance digital infrastructure that drives innovation, efficiency, and long-term growth. We combine modern frontend technologies, robust backend architectures, and cloud-native strategies to deliver reliable software solutions tailored to business needs.
               </p>
               <p className="mb-6">
