@@ -21,9 +21,9 @@ export const WhatsAppFloatButton: React.FC = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Chat with us on WhatsApp"
-    className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white pl-4 pr-5 py-3 rounded-full shadow-lg hover:bg-[#1fbd5a] hover:scale-105 transition-all duration-200"
+    className="fixed bottom-6 right-6 z-50 hidden md:flex items-center gap-2 bg-[#25D366] text-white pl-4 pr-5 py-3 rounded-full shadow-lg hover:bg-[#1fbd5a] hover:scale-105 transition-all duration-200"
   >
     <WhatsAppIcon className="h-5 w-5 flex-shrink-0" />
-    <span className="text-sm font-semibold hidden sm:inline">WhatsApp Us</span>
+    <span className="text-sm font-semibold">WhatsApp Us</span>
   </a>
 );

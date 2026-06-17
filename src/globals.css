@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -45,6 +46,7 @@
     --ring: 217 33% 17%;
   }
 }
+
 @layer base {
   * {
     @apply border-border;
@@ -66,4 +68,14 @@
   .glow-effect {
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
   }
+}
+
+/* Radix Accordion animations */
+@keyframes accordion-down {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
 }

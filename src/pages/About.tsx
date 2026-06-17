@@ -1,80 +1,106 @@
 import React from 'react';
-import { Target, Lightbulb, Award, Users } from 'lucide-react';
+import { Target, Code, MessageSquare, Handshake } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
+import { FounderSection } from '@/components/sections/FounderSection';
+
 const values = [
   {
     icon: Target,
-    title: 'Mission-Driven',
-    description: 'Engineering high-performance digital infrastructure for innovation and growth.',
+    title: 'Custom Over Generic',
+    description: 'We build systems around your specific workflow — not the other way around. Every product is purpose-built.',
   },
   {
-    icon: Lightbulb,
-    title: 'Modern & Innovative',
-    description: 'Combining modern frontend, robust backend, and cloud-native strategies.',
+    icon: Code,
+    title: 'Production Standards',
+    description: 'React + .NET + PostgreSQL. Clean architecture, typed code, tested endpoints, and documented APIs on every project.',
   },
   {
-    icon: Award,
-    title: 'Excellence',
-    description: 'Delivering scalable, secure, and reliable solutions tailored to business needs.',
+    icon: MessageSquare,
+    title: 'Direct Communication',
+    description: 'You work directly with the developer. No project managers playing telephone — clear, fast decisions throughout.',
   },
   {
-    icon: Users,
-    title: 'Client Success',
-    description: 'Your long-term growth and efficiency is our primary objective.',
+    icon: Handshake,
+    title: 'Long-Term Partnership',
+    description: "We don't disappear after delivery. Post-launch support, maintenance, and WhatsApp access are part of every engagement.",
   },
 ];
+
 const About: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <AnimatedSection>
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
-              About <span className="gradient-text">TROVIX</span>
+              About <span className="gradient-text">Trovix</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              TROVIX Tech is a modern IT and software solutions company based in Nagpur, Maharashtra, India. We specialize in building scalable, secure, and future-ready digital systems for startups, enterprises, and growing businesses.
+              Trovix is a custom software development studio based in Nagpur, Maharashtra, India. We build CRM systems, SaaS platforms, school management portals, and automation tools for businesses that have outgrown their spreadsheets.
             </p>
           </div>
         </AnimatedSection>
+
         <AnimatedSection delay={0.2}>
           <GlassCard className="mb-16">
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="text-xl mb-6">
-                Our mission is to engineer high-performance digital infrastructure that drives innovation, efficiency, and long-term growth. We combine modern frontend technologies, robust backend architectures, and cloud-native strategies to deliver reliable software solutions tailored to business needs.
-              </p>
-              <p className="mb-6">
-                <b>We focus on:</b>
-                <ul>
-                  <li>Custom Web Application Development</li>
-                  <li>Enterprise Software Solutions</li>
-                  <li>API & Backend Architecture</li>
-                  <li>Cloud-Ready Infrastructure</li>
-                  <li>Performance Optimization & Scalability</li>
-                </ul>
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h2 className="text-2xl font-display font-bold mb-4">
+                  Why Trovix <span className="gradient-text">Exists</span>
+                </h2>
+                <div className="space-y-4 text-muted-foreground">
+                  <p>
+                    Most small businesses and growing companies hit the same wall: they're managing their operations in Excel, WhatsApp groups, and a mix of disconnected SaaS tools — none of which actually fits how they work.
+                  </p>
+                  <p>
+                    Trovix was built to solve that specific problem. We build software that mirrors your exact process, integrates with the tools you already use, and is maintained long after it goes live.
+                  </p>
+                  <p>
+                    We focus on a narrow set of products — CRM systems, school portals, SaaS platforms, and business automation — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                {[
+                  { label: 'Projects Delivered', value: '10+' },
+                  { label: 'Years Building React + .NET', value: '3+' },
+                  { label: 'Average Project Timeline', value: '6–8 weeks' },
+                  { label: 'Response Time', value: 'Within 24 hours' },
+                ].map((stat) => (
+                  <div key={stat.label} className="glass-effect rounded-xl px-6 py-4 flex items-center justify-between">
+                    <span className="text-muted-foreground text-sm">{stat.label}</span>
+                    <span className="font-bold text-electric-blue">{stat.value}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </GlassCard>
         </AnimatedSection>
+
         <AnimatedSection delay={0.3}>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-center mb-12">
-            Our <span className="gradient-text">Values</span>
+            How We <span className="gradient-text">Work</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {values.map((value, index) => (
               <AnimatedSection key={index} delay={0.4 + index * 0.1}>
                 <GlassCard className="h-full text-center">
                   <value.icon className="h-12 w-12 text-electric-blue mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.description}</p>
+                  <p className="text-muted-foreground text-sm">{value.description}</p>
                 </GlassCard>
               </AnimatedSection>
             ))}
           </div>
         </AnimatedSection>
+
+        <FounderSection />
+
       </div>
     </div>
   );
 };
+
 export default About;

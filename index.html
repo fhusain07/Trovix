@@ -21,6 +21,68 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>Trovix — Custom CRM, SaaS & School Management Systems | India</title>
+
+    <!-- LocalBusiness + Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.trovixtech.com/#organization",
+          "name": "Trovix",
+          "url": "https://www.trovixtech.com",
+          "logo": "https://www.trovixtech.com/og-image.png",
+          "email": "info@trovixtech.com",
+          "telephone": "+918956121778",
+          "foundingDate": "2025",
+          "description": "Custom CRM, SaaS, and school management systems built with React and .NET. Based in Nagpur, India.",
+          "sameAs": [
+            "https://linkedin.com/company/trovix",
+            "https://github.com/trovixtech",
+            "https://x.com/trovixtech"
+          ]
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://www.trovixtech.com/#localbusiness",
+          "name": "Trovix",
+          "url": "https://www.trovixtech.com",
+          "email": "info@trovixtech.com",
+          "telephone": "+918956121778",
+          "priceRange": "₹₹",
+          "description": "Custom CRM systems, SaaS platforms, school management portals, and business automation software built with React, .NET, and PostgreSQL.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nagpur",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "21.1458",
+            "longitude": "79.0882"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Worldwide"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Software Development Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM Development" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom SaaS Development" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "School Management Systems" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Automation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Lead Ads Integration" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Development" } }
+            ]
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

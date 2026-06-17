@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { WhatsAppFloatButton } from '@/components/shared/WhatsAppFloatButton';
+import { StickyMobileCTA } from '@/components/shared/StickyMobileCTA';
 
 export const Layout: React.FC = () => {
   return (
@@ -12,7 +13,10 @@ export const Layout: React.FC = () => {
         <Outlet />
       </main>
       <Footer />
+      {/* Desktop: floating WhatsApp button — hidden on mobile */}
       <WhatsAppFloatButton />
+      {/* Mobile: sticky bottom bar — hidden on md+ */}
+      <StickyMobileCTA />
     </div>
   );
 };

@@ -12,6 +12,15 @@ import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./NotFound";
+
+// Service landing pages
+import CRMDevelopment from "./pages/services/CRMDevelopment";
+import SaaSDevelopment from "./pages/services/SaaSDevelopment";
+import SchoolManagement from "./pages/services/SchoolManagement";
+import BusinessAutomation from "./pages/services/BusinessAutomation";
+import MetaLeadAds from "./pages/services/MetaLeadAds";
+import WebDevelopment from "./pages/services/WebDevelopment";
+
 // CODEROCKET
 const setupRouteChangeBridge = () => {
   if (typeof window === "undefined") {
@@ -57,6 +66,7 @@ const setupRouteChangeBridge = () => {
 };
 setupRouteChangeBridge();
 // /CODEROCKET
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
@@ -66,6 +76,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="services" element={<Services />} />
+            <Route path="services/crm-development" element={<CRMDevelopment />} />
+            <Route path="services/saas-development" element={<SaaSDevelopment />} />
+            <Route path="services/school-management-system" element={<SchoolManagement />} />
+            <Route path="services/business-automation" element={<BusinessAutomation />} />
+            <Route path="services/meta-lead-ads" element={<MetaLeadAds />} />
+            <Route path="services/web-application-development" element={<WebDevelopment />} />
             <Route path="projects" element={<Projects />} />
             <Route path="careers" element={<Careers />} />
             <Route path="contact" element={<Contact />} />

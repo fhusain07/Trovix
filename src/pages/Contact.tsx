@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as Tabs from '@radix-ui/react-tabs';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
@@ -8,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
+import { CalendlyEmbed } from '@/components/shared/CalendlyEmbed';
 
 // Sign up at https://formspree.io, create a form, and replace this with your form ID.
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID';
@@ -78,9 +80,9 @@ const Contact: React.FC = () => {
     },
     {
       icon: Phone,
-      title: 'Phone',
+      title: 'WhatsApp / Phone',
       content: '+91 89561 21778',
-      link: 'tel:+918956121778',
+      link: 'https://wa.me/918956121778?text=Hi%20Trovix%2C%20I%27d%20like%20to%20discuss%20a%20project.',
     },
     {
       icon: Phone,
@@ -90,7 +92,7 @@ const Contact: React.FC = () => {
     },
     {
       icon: MapPin,
-      title: 'Address',
+      title: 'Location',
       content: 'Nagpur, Maharashtra, India',
       link: 'https://maps.google.com/?q=Nagpur,+Maharashtra,+India',
     },
@@ -118,6 +120,8 @@ const Contact: React.FC = () => {
                 <h3 className="font-semibold mb-2">{info.title}</h3>
                 <a
                   href={info.link}
+                  target={info.link.startsWith('http') ? '_blank' : undefined}
+                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer text-sm"
                 >
                   {info.content}
@@ -128,107 +132,141 @@ const Contact: React.FC = () => {
         </div>
 
         <AnimatedSection delay={0.3}>
-          <GlassCard className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-display font-bold mb-2 text-center">Send Us a Message</h2>
-            <p className="text-sm text-muted-foreground text-center mb-6">We reply within 24 hours.</p>
-
-            {formStatus === 'success' && (
-              <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm text-center">
-                ✓ Message sent successfully — we'll reply within 24 hours.
-              </div>
-            )}
-
-            {formStatus === 'error' && (
-              <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm text-center">
-                Something went wrong. Please email us directly at{' '}
-                <a href="mailto:info@trovixtech.com" className="underline">
-                  info@trovixtech.com
-                </a>
-              </div>
-            )}
-
-            <form onSubmit={formik.handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <Label htmlFor="name">Full Name *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="John Doe"
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.name && formik.errors.name ? formik.errors.name : undefined}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.email && formik.errors.email ? formik.errors.email : undefined}
-                  />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <Label htmlFor="company">Company</Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    placeholder="Your Company"
-                    value={formik.values.company}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.company && formik.errors.company ? formik.errors.company : undefined}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="phone">WhatsApp / Phone</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="+91 98765 43210"
-                    value={formik.values.phone}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched.phone && formik.errors.phone ? formik.errors.phone : undefined}
-                  />
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="message">Tell us about your project *</Label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  placeholder="Describe what you need — e.g. 'I need a CRM for my 5-person sales team to track 200 leads per month' or 'I run a school with 300 students and need a fee and attendance system'."
-                  rows={6}
-                  value={formik.values.message}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  error={formik.touched.message && formik.errors.message ? formik.errors.message : undefined}
-                />
-              </div>
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full cursor-pointer"
-                disabled={formik.isSubmitting}
+          <Tabs.Root defaultValue="call" className="w-full">
+            <Tabs.List className="flex glass-effect rounded-xl p-1 mb-8 max-w-xs mx-auto">
+              <Tabs.Trigger
+                value="call"
+                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-electric-blue data-[state=active]:text-white cursor-pointer"
               >
-                {formik.isSubmitting ? 'Sending...' : 'Send Message'}
-                <Send className="ml-2 h-5 w-5" />
-              </Button>
-            </form>
-          </GlassCard>
+                Book a Call
+              </Tabs.Trigger>
+              <Tabs.Trigger
+                value="message"
+                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-electric-blue data-[state=active]:text-white cursor-pointer"
+              >
+                Send a Message
+              </Tabs.Trigger>
+            </Tabs.List>
+
+            <Tabs.Content value="call">
+              <div className="max-w-3xl mx-auto">
+                <GlassCard className="p-0 overflow-hidden">
+                  <div className="p-6 border-b border-white/10">
+                    <h2 className="text-xl font-display font-bold text-center">Book a Free 30-Minute Discovery Call</h2>
+                    <p className="text-sm text-muted-foreground text-center mt-1">
+                      Pick a time that works for you — we'll discuss your project, ask the right questions, and give you honest advice.
+                    </p>
+                  </div>
+                  <CalendlyEmbed />
+                </GlassCard>
+              </div>
+            </Tabs.Content>
+
+            <Tabs.Content value="message">
+              <GlassCard className="max-w-3xl mx-auto">
+                <h2 className="text-2xl font-display font-bold mb-2 text-center">Send Us a Message</h2>
+                <p className="text-sm text-muted-foreground text-center mb-6">We reply within 24 hours.</p>
+
+                {formStatus === 'success' && (
+                  <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm text-center">
+                    ✓ Message sent successfully — we'll reply within 24 hours.
+                  </div>
+                )}
+
+                {formStatus === 'error' && (
+                  <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm text-center">
+                    Something went wrong. Please email us directly at{' '}
+                    <a href="mailto:info@trovixtech.com" className="underline">
+                      info@trovixtech.com
+                    </a>
+                  </div>
+                )}
+
+                <form onSubmit={formik.handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="John Doe"
+                        value={formik.values.name}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.name && formik.errors.name ? formik.errors.name : undefined}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="john@example.com"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.email && formik.errors.email ? formik.errors.email : undefined}
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="company">Company</Label>
+                      <Input
+                        id="company"
+                        name="company"
+                        type="text"
+                        placeholder="Your Company"
+                        value={formik.values.company}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.company && formik.errors.company ? formik.errors.company : undefined}
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone">WhatsApp / Phone</Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="+91 98765 43210"
+                        value={formik.values.phone}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched.phone && formik.errors.phone ? formik.errors.phone : undefined}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="message">Tell us about your project *</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Describe what you need — e.g. 'I need a CRM for my 5-person sales team to track 200 leads per month' or 'I run a school with 300 students and need a fee and attendance system'."
+                      rows={6}
+                      value={formik.values.message}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      error={formik.touched.message && formik.errors.message ? formik.errors.message : undefined}
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full cursor-pointer"
+                    disabled={formik.isSubmitting}
+                  >
+                    {formik.isSubmitting ? 'Sending...' : 'Send Message'}
+                    <Send className="ml-2 h-5 w-5" />
+                  </Button>
+                </form>
+              </GlassCard>
+            </Tabs.Content>
+          </Tabs.Root>
         </AnimatedSection>
+
       </div>
     </div>
   );
