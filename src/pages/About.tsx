@@ -51,7 +51,6 @@ const About: React.FC = () => {
 
         <AnimatedSection delay={0.2}>
           <GlassCard className="mb-16">
-<<<<<<< HEAD
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
                 <h2 className="text-2xl font-display font-bold mb-4">
@@ -82,7 +81,7 @@ const About: React.FC = () => {
                   </div>
                 ))}
               </div>
-=======
+              </div>
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p className="text-xl mb-6">
                 {/* policy */}
@@ -98,7 +97,6 @@ const About: React.FC = () => {
                   <li>Performance Optimization & Scalability</li>
                 </ul>
               </p>
->>>>>>> fe3542384877516b7ca4da14de58aa86e3fdc647
             </div>
           </GlassCard>
         </AnimatedSection>
@@ -126,8 +124,5 @@ const About: React.FC = () => {
     </div>
   );
 };
-<<<<<<< HEAD
 
-=======
->>>>>>> fe3542384877516b7ca4da14de58aa86e3fdc647
 export default About;

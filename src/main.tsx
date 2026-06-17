@@ -4,19 +4,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./globals.css";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { Layout } from "./components/layout/Layout";
-<<<<<<< HEAD
 import { ErrorBoundary } from "./components/shared/ErrorBoundary";
 import { PageLoader } from "./components/shared/PageLoader";
-=======
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Projects from "./pages/Projects";
-import Careers from "./pages/Careers";
-import Contact from "./pages/Contact";
-import AccountDeletion from "./pages/AccountDeletion";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
->>>>>>> fe3542384877516b7ca4da14de58aa86e3fdc647
+// import Home from "./pages/Home";
+// import About from "./pages/About";
+// import Services from "./pages/Services";
+// import Projects from "./pages/Projects";
+// import Careers from "./pages/Careers";
+// import Contact from "./pages/Contact";
+// import AccountDeletion from "./pages/AccountDeletion";
+// import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./NotFound";
 
 // Lazy-loaded pages — each becomes its own JS chunk for faster initial load
@@ -87,7 +84,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
       <BrowserRouter>
-<<<<<<< HEAD
         <ErrorBoundary>
           <Suspense fallback={<PageLoader />}>
             <Routes>
@@ -111,8 +107,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             </Routes>
           </Suspense>
         </ErrorBoundary>
-=======
-        <Routes>
+        {/* <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
@@ -124,8 +119,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route path="privacy-policy" element={<PrivacyPolicy />} />
           </Route>
           <Route path="*" element={<NotFound />} />
-        </Routes>
->>>>>>> fe3542384877516b7ca4da14de58aa86e3fdc647
+        </Routes> */}
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>,
