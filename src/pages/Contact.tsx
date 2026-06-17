@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
@@ -8,6 +8,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
+
+// Sign up at https://formspree.io, create a form, and replace this with your form ID.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID';
+
 interface ContactFormValues {
   name: string;
   email: string;
@@ -15,6 +19,9 @@ interface ContactFormValues {
   phone: string;
   message: string;
 }
+
+type FormStatus = 'idle' | 'success' | 'error';
+
 const validationSchema = Yup.object({
   name: Yup.string()
     .min(2, 'Name must be at least 2 characters')
@@ -30,7 +37,10 @@ const validationSchema = Yup.object({
     .min(10, 'Message must be at least 10 characters')
     .required('Message is required'),
 });
+
 const Contact: React.FC = () => {
+  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+
   const formik = useFormik<ContactFormValues>({
     initialValues: {
       name: '',
@@ -41,20 +51,24 @@ const Contact: React.FC = () => {
     },
     validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
+      setFormStatus('idle');
       try {
-        // API call would go here
-        console.log('Form submitted:', values);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        alert('Thank you for contacting us! We will get back to you soon.');
+        const response = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(values),
+        });
+        if (!response.ok) throw new Error('Submission failed');
+        setFormStatus('success');
         resetForm();
-      } catch (error) {
-        console.error('Submission error:', error);
-        alert('Something went wrong. Please try again.');
+      } catch {
+        setFormStatus('error');
       } finally {
         setSubmitting(false);
       }
     },
   });
+
   const contactInfo = [
     {
       icon: Mail,
@@ -65,13 +79,13 @@ const Contact: React.FC = () => {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+91 8956121778',
+      content: '+91 89561 21778',
       link: 'tel:+918956121778',
     },
     {
       icon: Phone,
       title: 'Alternate Phone',
-      content: '+91 9307927612',
+      content: '+91 93079 27612',
       link: 'tel:+919307927612',
     },
     {
@@ -81,6 +95,7 @@ const Contact: React.FC = () => {
       link: 'https://maps.google.com/?q=Nagpur,+Maharashtra,+India',
     },
   ];
+
   return (
     <div className="min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,19 +105,20 @@ const Contact: React.FC = () => {
               Get in <span className="gradient-text">Touch</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? Let's discuss how we can help transform your ideas into reality.
+              Tell us about your project and we'll get back to you within 24 hours with a free estimate. No commitment required.
             </p>
           </div>
         </AnimatedSection>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
           {contactInfo.map((info, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard hover={false} className="text-center">
                 <info.icon className="h-10 w-10 text-electric-blue mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{info.title}</h3>
-                <a 
-                  href={info.link} 
-                  className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer"
+                <a
+                  href={info.link}
+                  className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer text-sm"
                 >
                   {info.content}
                 </a>
@@ -110,9 +126,27 @@ const Contact: React.FC = () => {
             </AnimatedSection>
           ))}
         </div>
+
         <AnimatedSection delay={0.3}>
           <GlassCard className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-display font-bold mb-6 text-center">Send us a Message</h2>
+            <h2 className="text-2xl font-display font-bold mb-2 text-center">Send Us a Message</h2>
+            <p className="text-sm text-muted-foreground text-center mb-6">We reply within 24 hours.</p>
+
+            {formStatus === 'success' && (
+              <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm text-center">
+                ✓ Message sent successfully — we'll reply within 24 hours.
+              </div>
+            )}
+
+            {formStatus === 'error' && (
+              <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm text-center">
+                Something went wrong. Please email us directly at{' '}
+                <a href="mailto:info@trovixtech.com" className="underline">
+                  info@trovixtech.com
+                </a>
+              </div>
+            )}
+
             <form onSubmit={formik.handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
@@ -157,12 +191,12 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="phone">Phone</Label>
+                  <Label htmlFor="phone">WhatsApp / Phone</Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+91 98765 43210"
                     value={formik.values.phone}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -171,11 +205,11 @@ const Contact: React.FC = () => {
                 </div>
               </div>
               <div>
-                <Label htmlFor="message">Message *</Label>
+                <Label htmlFor="message">Tell us about your project *</Label>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Tell us about your project..."
+                  placeholder="Describe what you need — e.g. 'I need a CRM for my 5-person sales team to track 200 leads per month' or 'I run a school with 300 students and need a fee and attendance system'."
                   rows={6}
                   value={formik.values.message}
                   onChange={formik.handleChange}
@@ -199,4 +233,5 @@ const Contact: React.FC = () => {
     </div>
   );
 };
+
 export default Contact;

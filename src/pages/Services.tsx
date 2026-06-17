@@ -1,45 +1,49 @@
 import React from 'react';
-import { Cloud, Cpu, Code, Database, Shield, Workflow } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Users, Cloud, BookOpen, Workflow, Zap, Code, ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
+import { Button } from '@/components/ui/button';
+
 const services = [
   {
+    icon: Users,
+    title: 'CRM Development',
+    description: 'Stop managing leads in spreadsheets. We build custom CRM systems tailored to your exact sales process — lead capture, pipeline tracking, follow-up automation, and reporting dashboards.',
+    features: ['Lead & Contact Management', 'Sales Pipeline Tracking', 'Follow-up Automation', 'Custom Reporting Dashboards'],
+  },
+  {
     icon: Cloud,
-    title: 'Cloud Solutions',
-    description: 'Comprehensive cloud migration, architecture, and management services for AWS, Azure, and GCP.',
-    features: ['Cloud Migration', 'Infrastructure as Code', 'DevOps Implementation', 'Cloud Security'],
+    title: 'Custom SaaS Development',
+    description: "Can't find a SaaS tool that fits your business model? We build B2B SaaS platforms from scratch — multi-tenant architecture, subscription billing, user roles, and admin dashboards.",
+    features: ['Multi-tenant Architecture', 'Subscription & Billing Integration', 'User Roles & Permissions', 'Admin & Analytics Dashboards'],
   },
-    // {
-    //   icon: Cpu,
-    //   title: 'AI & Machine Learning',
-    //   description: 'Custom AI models, natural language processing, computer vision, and predictive analytics.',
-    //   features: ['Custom ML Models', 'NLP Solutions', 'Computer Vision', 'Predictive Analytics'],
-    // },
   {
-    icon: Code,
-    title: 'Web Development',
-    description: 'Modern, responsive web applications built with cutting-edge frameworks and best practices.',
-    features: ['React/Next.js', 'TypeScript', 'Progressive Web Apps', 'API Development'],
-  },
-  // {
-  //   icon: Database,
-  //   title: 'Data Engineering',
-  //   description: 'Big data processing, ETL pipelines, data warehousing, and real-time analytics solutions.',
-  //   features: ['Data Pipelines', 'ETL Processing', 'Data Warehousing', 'Real-time Analytics'],
-  // },
-  {
-    icon: Shield,
-    title: 'Cybersecurity',
-    description: 'Comprehensive security audits, penetration testing, and security infrastructure design.',
-    features: ['Security Audits', 'Penetration Testing', 'Compliance', 'Incident Response'],
+    icon: BookOpen,
+    title: 'School Management Systems',
+    description: 'Purpose-built portals for schools and educational institutions — replacing Excel and paper with a single system that handles everything from student registration to fee collection.',
+    features: ['Student Registration & Profiles', 'Attendance Tracking', 'Fee Management & Receipts', 'Exam Results & Report Cards'],
   },
   {
     icon: Workflow,
-    title: 'Process Automation',
-    description: 'Intelligent automation solutions to streamline workflows and increase operational efficiency.',
-    features: ['RPA Implementation', 'Workflow Optimization', 'Integration Services', 'Custom Automation'],
+    title: 'Business Automation',
+    description: 'Identify the repetitive tasks consuming your team\'s time and automate them. From lead intake to invoice generation, we connect your tools and build workflows that run without manual effort.',
+    features: ['Lead Capture Automation', 'Invoice & Payment Workflows', 'Notification & Reminder Systems', 'Third-party Integrations'],
+  },
+  {
+    icon: Zap,
+    title: 'Meta Lead Ads Integration',
+    description: 'Every lead from your Facebook and Instagram ads should land in your CRM instantly — not in a spreadsheet download days later. We build the real-time integration between Meta and your system.',
+    features: ['Facebook & Instagram Ads Integration', 'Real-time CRM Sync', 'Automated Lead Qualification', 'Lead Source Tracking & Reporting'],
+  },
+  {
+    icon: Code,
+    title: 'Web Application Development',
+    description: 'Full-stack web applications built on a modern, reliable foundation. React frontends that are fast and responsive, .NET Web API backends that are secure and scalable, PostgreSQL for solid data management.',
+    features: ['React + TypeScript Frontends', '.NET Web API Backends', 'PostgreSQL Database Design', 'REST API Development'],
   },
 ];
+
 const Services: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
@@ -47,14 +51,15 @@ const Services: React.FC = () => {
         <AnimatedSection>
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
-              Our <span className="gradient-text">Services</span>
+              What We <span className="gradient-text">Build</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive technology solutions tailored to your unique business needs and objectives.
+              We specialise in a focused set of software products for growing businesses, schools, and startups. Every project is custom-built — no templates, no off-the-shelf tools adapted to fit.
             </p>
           </div>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard className="h-full">
@@ -64,7 +69,7 @@ const Services: React.FC = () => {
                 <div className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-electric-blue mr-2" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-electric-blue mr-2 flex-shrink-0" />
                       {feature}
                     </div>
                   ))}
@@ -73,8 +78,26 @@ const Services: React.FC = () => {
             </AnimatedSection>
           ))}
         </div>
+
+        <AnimatedSection delay={0.3}>
+          <GlassCard className="text-center py-12">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold mb-4">
+              Not Sure What You Need?
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+              Describe your problem in plain language and we'll recommend the right solution. Free 30-minute discovery call, no commitment.
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="cursor-pointer group">
+                Book a Free Discovery Call
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </GlassCard>
+        </AnimatedSection>
       </div>
     </div>
   );
 };
+
 export default Services;

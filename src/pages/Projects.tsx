@@ -1,46 +1,10 @@
 import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Briefcase, ArrowRight, Mail } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
-const projects = [
-  {
-    title: 'Enterprise Cloud Migration',
-    client: 'Fortune 500 Retailer',
-    description: 'Complete AWS cloud migration for a major retail chain, reducing infrastructure costs by 40%.',
-    tags: ['AWS', 'Kubernetes', 'Terraform', 'Microservices'],
-  },
-  {
-    title: 'AI-Powered Analytics Platform',
-    client: 'Financial Services Company',
-    description: 'Custom machine learning platform for fraud detection with 95% accuracy rate.',
-    tags: ['Python', 'TensorFlow', 'React', 'PostgreSQL'],
-  },
-  {
-    title: 'Real-time Collaboration Tool',
-    client: 'Tech Startup',
-    description: 'Modern SaaS platform supporting 100K+ concurrent users with real-time features.',
-    tags: ['React', 'Node.js', 'WebSockets', 'MongoDB'],
-  },
-  {
-    title: 'Healthcare Data Pipeline',
-    client: 'Medical Research Institute',
-    description: 'Secure data processing pipeline handling 10M+ records daily for medical research.',
-    tags: ['Apache Kafka', 'Spark', 'Python', 'HIPAA Compliant'],
-  },
-  {
-    title: 'E-commerce Platform',
-    client: 'D2C Fashion Brand',
-    description: 'Headless commerce solution with advanced personalization and recommendations.',
-    tags: ['Next.js', 'Shopify', 'GraphQL', 'Vercel'],
-  },
-  {
-    title: 'IoT Monitoring System',
-    client: 'Manufacturing Company',
-    description: 'Real-time IoT monitoring and predictive maintenance system for factory equipment.',
-    tags: ['IoT', 'Azure', 'Time-series DB', 'React'],
-  },
-];
+
 const Projects: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
@@ -48,44 +12,57 @@ const Projects: React.FC = () => {
         <AnimatedSection>
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
-              Our <span className="gradient-text">Projects</span>
+              Our <span className="gradient-text">Work</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A showcase of successful projects and innovative solutions we've delivered for our clients.
+              We're assembling detailed case studies for our completed projects. Reach out to see relevant work samples and discuss what we can build for you.
             </p>
           </div>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <GlassCard className="h-full flex flex-col">
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-sm text-electric-blue mb-3">{project.client}</p>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex gap-2 mt-4">
-                  <Button variant="outline" size="sm" className="cursor-pointer flex-1">
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    View Case Study
-                  </Button>
-                </div>
-              </GlassCard>
-            </AnimatedSection>
-          ))}
-        </div>
+
+        <AnimatedSection delay={0.2}>
+          <GlassCard className="text-center py-20 mb-8">
+            <Briefcase className="h-16 w-16 text-electric-blue mx-auto mb-6 opacity-60" />
+            <h2 className="text-2xl font-display font-bold mb-4">Case Studies Coming Soon</h2>
+            <p className="text-muted-foreground max-w-lg mx-auto mb-8">
+              We're documenting our projects with full case studies — covering the problem, our solution, the tech stack used, and measurable outcomes. In the meantime, contact us and we'll share relevant work samples directly.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button className="cursor-pointer group">
+                  Request Work Samples
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <a href="mailto:info@trovixtech.com">
+                <Button variant="outline" className="cursor-pointer">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email Us Directly
+                </Button>
+              </a>
+            </div>
+          </GlassCard>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.3}>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {[
+              { label: 'CRM & SaaS Platforms', description: 'Custom CRM systems and SaaS tools for sales teams and service businesses.' },
+              { label: 'School Management Portals', description: 'Student, fee, and attendance management systems for educational institutions.' },
+              { label: 'Business Automation Tools', description: 'Workflow automation connecting Meta ads, CRMs, invoicing, and notifications.' },
+            ].map((area, index) => (
+              <AnimatedSection key={index} delay={0.4 + index * 0.1}>
+                <GlassCard hover={false} className="text-center h-full">
+                  <h3 className="font-semibold text-electric-blue mb-2">{area.label}</h3>
+                  <p className="text-sm text-muted-foreground">{area.description}</p>
+                </GlassCard>
+              </AnimatedSection>
+            ))}
+          </div>
+        </AnimatedSection>
       </div>
     </div>
   );
 };
+
 export default Projects;

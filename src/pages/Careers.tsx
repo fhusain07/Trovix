@@ -4,40 +4,43 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+
 const positions = [
   {
-    title: 'Senior Full Stack Engineer',
-    location: 'San Francisco, CA',
+    title: 'React Frontend Developer',
+    location: 'Nagpur, India / Remote',
     type: 'Full-time',
-    description: 'Build scalable web applications with React, Node.js, and cloud technologies.',
+    description: 'Build modern React applications with TypeScript and Tailwind CSS for our client projects — CRM dashboards, school portals, and SaaS products.',
   },
   {
-    title: 'Machine Learning Engineer',
-    location: 'Remote',
+    title: '.NET Backend Developer',
+    location: 'Nagpur, India / Remote',
     type: 'Full-time',
-    description: 'Develop and deploy ML models for production-scale applications.',
+    description: 'Develop REST APIs using .NET Web API with PostgreSQL, handling business logic for SaaS platforms and CRM systems.',
   },
   {
-    title: 'DevOps Engineer',
-    location: 'San Francisco, CA',
+    title: 'Full Stack Developer',
+    location: 'Nagpur, India / Remote',
     type: 'Full-time',
-    description: 'Manage cloud infrastructure and CI/CD pipelines using modern tools.',
+    description: 'Work across React frontends and .NET backends, contributing to CRM systems, school management portals, and business automation tools.',
   },
   {
     title: 'UI/UX Designer',
     location: 'Remote',
-    type: 'Full-time',
-    description: 'Create beautiful, user-centered designs for web and mobile applications.',
+    type: 'Freelance / Contract',
+    description: 'Design intuitive interfaces for web applications — dashboards, CRM portals, school portals, and admin panels.',
   },
 ];
+
 const benefits = [
-  'Competitive salary and equity',
-  'Comprehensive health insurance',
-  'Flexible remote work options',
-  'Professional development budget',
-  'Latest tech equipment',
-  'Unlimited PTO',
+  'Competitive compensation',
+  'Remote-friendly work environment',
+  'Direct mentorship from founders',
+  'Real client projects from day one',
+  'Flexible working hours',
+  'Room to grow with the company',
 ];
+
 const Careers: React.FC = () => {
   return (
     <div className="min-h-screen pt-32 pb-20">
@@ -45,26 +48,28 @@ const Careers: React.FC = () => {
         <AnimatedSection>
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
-              Join <span className="gradient-text">TROVIX</span>
+              Join <span className="gradient-text">Trovix</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Help us build the future of technology. Work with cutting-edge tools, talented people, and solve challenging problems.
+              We're a small, focused team based in Nagpur, India building real products for real clients. If you want to work directly on CRM systems, SaaS platforms, and school portals — we'd like to hear from you.
             </p>
           </div>
         </AnimatedSection>
+
         <AnimatedSection delay={0.2}>
           <GlassCard className="mb-16">
-            <h2 className="text-2xl font-display font-bold mb-6">Why Work With Us?</h2>
+            <h2 className="text-2xl font-display font-bold mb-6">Why Work With Us</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center text-muted-foreground">
-                  <div className="w-2 h-2 rounded-full bg-electric-blue mr-3" />
+                  <div className="w-2 h-2 rounded-full bg-electric-blue mr-3 flex-shrink-0" />
                   {benefit}
                 </div>
               ))}
             </div>
           </GlassCard>
         </AnimatedSection>
+
         <AnimatedSection delay={0.3}>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-center mb-12">
             Open <span className="gradient-text">Positions</span>
@@ -104,4 +109,5 @@ const Careers: React.FC = () => {
     </div>
   );
 };
+
 export default Careers;

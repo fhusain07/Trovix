@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
+
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
@@ -12,11 +13,13 @@ const navLinks = [
   { name: 'Careers', path: '/careers' },
   { name: 'Contact', path: '/contact' },
 ];
+
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -24,7 +27,7 @@ export const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  // Remove the effect that synchronously calls setIsOpen on location change
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -41,7 +44,8 @@ export const Navbar: React.FC = () => {
             </div>
             <span className="text-2xl font-display font-bold gradient-text">TROVIX</span>
           </Link>
-          <div className="hidden md:flex items-center space-x-8">
+
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -65,7 +69,13 @@ export const Navbar: React.FC = () => {
             >
               {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
+            <Link to="/contact">
+              <Button size="sm" className="cursor-pointer">
+                Book a Free Call
+              </Button>
+            </Link>
           </div>
+
           <div className="md:hidden flex items-center space-x-2">
             <Button
               variant="ghost"
@@ -88,6 +98,7 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -111,6 +122,11 @@ export const Navbar: React.FC = () => {
                   {link.name}
                 </Link>
               ))}
+              <Link to="/contact" onClick={() => setIsOpen(false)}>
+                <Button className="cursor-pointer w-full mt-2">
+                  Book a Free Call
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}
