@@ -5,6 +5,7 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
 import { HowWeWork } from '@/components/sections/HowWeWork';
+import { useSEO } from '@/hooks/useSEO';
 
 const services = [
   {
@@ -52,6 +53,11 @@ const services = [
 ];
 
 const Services: React.FC = () => {
+  useSEO({
+    title: 'Services — CRM Development, SaaS, School Management & More | Trovix',
+    description: 'Custom CRM development, SaaS platforms, school management systems, business automation, Meta Lead Ads integration, and web application development.',
+    canonical: 'https://www.trovixtech.com/services',
+  });
   return (
     <div className="min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

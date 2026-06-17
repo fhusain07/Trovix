@@ -3,6 +3,7 @@ import { Target, Code, MessageSquare, Handshake } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { FounderSection } from '@/components/sections/FounderSection';
+import { useSEO } from '@/hooks/useSEO';
 
 const values = [
   {
@@ -28,6 +29,11 @@ const values = [
 ];
 
 const About: React.FC = () => {
+  useSEO({
+    title: 'About Trovix — Custom Software Development Studio, Nagpur India',
+    description: 'Trovix is a software development studio in Nagpur, India. We build CRM systems, SaaS platforms, and school management portals using React and .NET.',
+    canonical: 'https://www.trovixtech.com/about',
+  });
   return (
     <div className="min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

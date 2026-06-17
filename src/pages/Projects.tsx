@@ -4,6 +4,7 @@ import { ArrowRight, Mail, Clock, Users, BookOpen, Zap } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
+import { useSEO } from '@/hooks/useSEO';
 
 interface CaseStudy {
   icon: React.ElementType;
@@ -75,6 +76,11 @@ const caseStudies: CaseStudy[] = [
 ];
 
 const Projects: React.FC = () => {
+  useSEO({
+    title: 'Work & Case Studies — CRM, School Portal, Meta Ads | Trovix',
+    description: 'Real case studies from Trovix: multi-branch CRM for retail, school management portal for CBSE institute, Meta Lead Ads integration for real estate.',
+    canonical: 'https://www.trovixtech.com/projects',
+  });
   return (
     <div className="min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

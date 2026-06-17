@@ -23,13 +23,17 @@ export const useSEO = ({ title, description, canonical }: SEOOptions): void => {
     setMeta('meta[property="og:description"]', 'content', description);
     setMeta('meta[name="twitter:title"]', 'content', title);
     setMeta('meta[name="twitter:description"]', 'content', description);
-    if (canonical) setMeta('link[rel="canonical"]', 'href', canonical);
+    if (canonical) {
+      setMeta('link[rel="canonical"]', 'href', canonical);
+      setMeta('meta[property="og:url"]', 'content', canonical);
+    }
 
     return () => {
       document.title = BASE_TITLE;
       setMeta('meta[name="description"]', 'content', BASE_DESC);
       setMeta('meta[property="og:title"]', 'content', BASE_TITLE);
       setMeta('meta[property="og:description"]', 'content', BASE_DESC);
+      setMeta('meta[property="og:url"]', 'content', 'https://www.trovixtech.com');
       setMeta('meta[name="twitter:title"]', 'content', BASE_TITLE);
       setMeta('meta[name="twitter:description"]', 'content', BASE_DESC);
     };

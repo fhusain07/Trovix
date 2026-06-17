@@ -8,6 +8,7 @@ import { GlassCard } from '@/components/shared/GlassCard';
 import { HowWeWork } from '@/components/sections/HowWeWork';
 import { FounderSection } from '@/components/sections/FounderSection';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { useSEO } from '@/hooks/useSEO';
 
 const trustItems = [
   '10+ Projects Delivered',
@@ -101,7 +102,13 @@ const technologies = [
   'React', 'TypeScript', '.NET Web API', 'PostgreSQL', 'Azure', 'Docker', 'Vite',
 ];
 
-const Home: React.FC = () => (
+const Home: React.FC = () => {
+  useSEO({
+    title: 'Trovix — Custom CRM, SaaS & School Management Systems | India',
+    description: 'We build custom CRM systems, SaaS platforms, and school management portals using React & .NET. Based in Nagpur, India. Free estimate in 24 hours.',
+    canonical: 'https://www.trovixtech.com/',
+  });
+  return (
   <div className="min-h-screen">
 
     {/* Hero */}
@@ -283,6 +290,7 @@ const Home: React.FC = () => (
     </AnimatedSection>
 
   </div>
-);
+  );
+};
 
 export default Home;

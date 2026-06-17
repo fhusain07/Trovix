@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as Tabs from '@radix-ui/react-tabs';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -10,6 +11,8 @@ import { Label } from '@/components/ui/label';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { CalendlyEmbed } from '@/components/shared/CalendlyEmbed';
+import { useSEO } from '@/hooks/useSEO';
+import { trackEvent } from '@/lib/analytics';
 
 // Sign up at https://formspree.io, create a form, and replace this with your form ID.
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID';
@@ -41,7 +44,14 @@ const validationSchema = Yup.object({
 });
 
 const Contact: React.FC = () => {
+  const navigate = useNavigate();
   const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+
+  useSEO({
+    title: 'Contact Trovix — Book a Free Discovery Call',
+    description: 'Book a free 30-minute discovery call or send us a message. We reply within 24 hours with a free project estimate. No commitment required.',
+    canonical: 'https://www.trovixtech.com/contact',
+  });
 
   const formik = useFormik<ContactFormValues>({
     initialValues: {
@@ -61,8 +71,9 @@ const Contact: React.FC = () => {
           body: JSON.stringify(values),
         });
         if (!response.ok) throw new Error('Submission failed');
-        setFormStatus('success');
+        trackEvent('contact_form_submitted');
         resetForm();
+        navigate('/thank-you');
       } catch {
         setFormStatus('error');
       } finally {
@@ -166,12 +177,6 @@ const Contact: React.FC = () => {
               <GlassCard className="max-w-3xl mx-auto">
                 <h2 className="text-2xl font-display font-bold mb-2 text-center">Send Us a Message</h2>
                 <p className="text-sm text-muted-foreground text-center mb-6">We reply within 24 hours.</p>
-
-                {formStatus === 'success' && (
-                  <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-sm text-center">
-                    ✓ Message sent successfully — we'll reply within 24 hours.
-                  </div>
-                )}
 
                 {formStatus === 'error' && (
                   <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm text-center">

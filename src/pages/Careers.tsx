@@ -4,6 +4,7 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useSEO } from '@/hooks/useSEO';
 
 const positions = [
   {
@@ -42,6 +43,11 @@ const benefits = [
 ];
 
 const Careers: React.FC = () => {
+  useSEO({
+    title: 'Careers at Trovix — React & .NET Developers, Nagpur India',
+    description: 'Join Trovix. We hire React developers, .NET backend developers, full stack developers, and UI/UX designers. Remote-friendly, based in Nagpur, India.',
+    canonical: 'https://www.trovixtech.com/careers',
+  });
   return (
     <div className="min-h-screen pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

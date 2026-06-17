@@ -4,12 +4,18 @@
     <meta charset="UTF-8" />
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#00D4FF" />
+    <meta name="author" content="Trovix" />
+    <!-- Google Search Console — replace with your verification code from Search Console -->
+    <meta name="google-site-verification" content="REPLACE_WITH_SEARCH_CONSOLE_CODE" />
     <meta name="description" content="Trovix builds custom CRM systems, SaaS platforms, and school management portals using React and .NET. Based in Nagpur, India. Get a free project estimate in 24 hours." />
     <meta name="keywords" content="CRM development India, custom SaaS development, school management system software, business automation India, React .NET development company, web application development Nagpur" />
     <meta property="og:title" content="Trovix — Custom CRM, SaaS & School Management Systems" />
     <meta property="og:description" content="We build CRM systems, SaaS platforms, and school portals using React & .NET. Based in Nagpur, India. Get a free estimate in 24 hours." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.trovixtech.com" />
+    <meta property="og:locale" content="en_IN" />
     <meta property="og:image" content="https://www.trovixtech.com/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Trovix — Custom CRM, SaaS & School Management Systems" />
@@ -22,11 +28,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>Trovix — Custom CRM, SaaS & School Management Systems | India</title>
 
-    <!-- LocalBusiness + Organization Schema -->
+    <!-- Structured Data: WebSite + Organization + LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.trovixtech.com/#website",
+          "url": "https://www.trovixtech.com",
+          "name": "Trovix",
+          "description": "Custom CRM, SaaS & school management systems for growing businesses",
+          "publisher": { "@id": "https://www.trovixtech.com/#organization" },
+          "inLanguage": "en-IN"
+        },
         {
           "@type": "Organization",
           "@id": "https://www.trovixtech.com/#organization",
@@ -82,6 +97,24 @@
         }
       ]
     }
+    </script>
+
+    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
+    </script>
+
+    <!-- Microsoft Clarity — replace YOUR_CLARITY_ID with your project ID from clarity.microsoft.com -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
     </script>
   </head>
   <body>
