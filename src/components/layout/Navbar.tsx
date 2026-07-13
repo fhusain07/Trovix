@@ -32,9 +32,8 @@ export const Navbar: React.FC = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
@@ -50,11 +49,10 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors cursor-pointer hover:text-electric-blue ${
-                  location.pathname === link.path
+                className={`text-sm font-medium transition-colors cursor-pointer hover:text-electric-blue ${location.pathname === link.path
                     ? 'text-electric-blue'
                     : 'text-foreground/70'
-                }`}
+                  }`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -112,11 +110,10 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`block py-2 text-base font-medium transition-colors cursor-pointer ${
-                    location.pathname === link.path
+                  className={`block py-2 text-base font-medium transition-colors cursor-pointer ${location.pathname === link.path
                       ? 'text-electric-blue'
                       : 'text-foreground/70 hover:text-electric-blue'
-                  }`}
+                    }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

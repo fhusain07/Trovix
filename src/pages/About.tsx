@@ -51,54 +51,57 @@ const About: React.FC = () => {
 
         <AnimatedSection delay={0.2}>
           <GlassCard className="mb-16">
-<<<<<<< HEAD
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="text-2xl font-display font-bold mb-4">
-                  Why Trovix <span className="gradient-text">Exists</span>
-                </h2>
-                <div className="space-y-4 text-muted-foreground">
-                  <p>
-                    Most small businesses and growing companies hit the same wall: they're managing their operations in Excel, WhatsApp groups, and a mix of disconnected SaaS tools — none of which actually fits how they work.
-                  </p>
-                  <p>
-                    Trovix was built to solve that specific problem. We build software that mirrors your exact process, integrates with the tools you already use, and is maintained long after it goes live.
-                  </p>
-                  <p>
-                    We focus on a narrow set of products — CRM systems, school portals, SaaS platforms, and business automation — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
-                  </p>
+            <div className="space-y-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h2 className="text-2xl font-display font-bold mb-4">
+                    Why Trovix <span className="gradient-text">Exists</span>
+                  </h2>
+                  <div className="space-y-4 text-muted-foreground">
+                    <p>
+                      Most small businesses and growing companies hit the same wall: they're managing their operations in Excel, WhatsApp groups, and a mix of disconnected SaaS tools — none of which actually fits how they work.
+                    </p>
+                    <p>
+                      Trovix was built to solve that specific problem. We build software that mirrors your exact process, integrates with the tools you already use, and is maintained long after it goes live.
+                    </p>
+                    <p>
+                      We focus on a narrow set of products — CRM systems, school portals, SaaS platforms, and business automation — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
+                    </p>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    { label: 'Projects Delivered', value: '10+' },
+                    { label: 'Years Building React + .NET', value: '3+' },
+                    { label: 'Average Project Timeline', value: '6–8 weeks' },
+                    { label: 'Response Time', value: 'Within 24 hours' },
+                  ].map((stat) => (
+                    <div key={stat.label} className="glass-effect rounded-xl px-6 py-4 flex items-center justify-between">
+                      <span className="text-muted-foreground text-sm">{stat.label}</span>
+                      <span className="font-bold text-electric-blue">{stat.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="space-y-4">
-                {[
-                  { label: 'Projects Delivered', value: '10+' },
-                  { label: 'Years Building React + .NET', value: '3+' },
-                  { label: 'Average Project Timeline', value: '6–8 weeks' },
-                  { label: 'Response Time', value: 'Within 24 hours' },
-                ].map((stat) => (
-                  <div key={stat.label} className="glass-effect rounded-xl px-6 py-4 flex items-center justify-between">
-                    <span className="text-muted-foreground text-sm">{stat.label}</span>
-                    <span className="font-bold text-electric-blue">{stat.value}</span>
-                  </div>
-                ))}
+
+              <div className="pt-8 border-t border-slate-800/60 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-white">Our Mission</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Our mission is to engineer high-performance digital infrastructure that drives innovation, efficiency, and long-term growth. We combine modern frontend technologies, robust backend architectures, and cloud-native strategies to deliver reliable software solutions tailored to business needs.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-white">What We Focus On</h3>
+                  <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm">
+                    <li>Custom Web Application Development</li>
+                    <li>Enterprise Software Solutions</li>
+                    <li>API & Backend Architecture</li>
+                    <li>Cloud-Ready Infrastructure</li>
+                    <li>Performance Optimization & Scalability</li>
+                  </ul>
+                </div>
               </div>
-=======
-            <div className="prose prose-lg max-w-none text-muted-foreground">
-              <p className="text-xl mb-6">
-                {/* policy */}
-                Our mission is to engineer high-performance digital infrastructure that drives innovation, efficiency, and long-term growth. We combine modern frontend technologies, robust backend architectures, and cloud-native strategies to deliver reliable software solutions tailored to business needs.
-              </p>
-              <p className="mb-6">
-                <b>We focus on:</b>
-                <ul>
-                  <li>Custom Web Application Development</li>
-                  <li>Enterprise Software Solutions</li>
-                  <li>API & Backend Architecture</li>
-                  <li>Cloud-Ready Infrastructure</li>
-                  <li>Performance Optimization & Scalability</li>
-                </ul>
-              </p>
->>>>>>> fe3542384877516b7ca4da14de58aa86e3fdc647
             </div>
           </GlassCard>
         </AnimatedSection>
@@ -126,8 +129,4 @@ const About: React.FC = () => {
     </div>
   );
 };
-<<<<<<< HEAD
-
-=======
->>>>>>> fe3542384877516b7ca4da14de58aa86e3fdc647
 export default About;

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Code, Users, Cloud, Workflow, BookOpen, Target, Clock, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
+import { ParticleBackground } from '@/components/shared/ParticleBackground';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { HowWeWork } from '@/components/sections/HowWeWork';
 import { FounderSection } from '@/components/sections/FounderSection';
@@ -114,10 +115,7 @@ const Home: React.FC = () => {
     {/* Hero */}
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 via-transparent to-electric-violet/10" />
-      <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-electric-blue/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-violet/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-      </div>
+      <ParticleBackground />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
