@@ -18,6 +18,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const AccountDeletion = lazy(() => import("./pages/AccountDeletion"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 // Service landing pages
 const CRMDevelopment = lazy(() => import("./pages/services/CRMDevelopment"));
@@ -95,7 +96,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Route path="contact" element={<Contact />} />
                 <Route path="thank-you" element={<ThankYou />} />
                 <Route path="account-deletion" element={<AccountDeletion />} />
+                <Route path="data-deletion" element={<AccountDeletion />} />
+                <Route path="data-deletion-instructions" element={<AccountDeletion />} />
                 <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="terms-of-service" element={<TermsOfService />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
