@@ -58,11 +58,22 @@ const AccountDeletion: React.FC = () => {
           </section>
 
           <section>
+            <h3 className="text-xl font-semibold mb-3">Meta Platform Users</h3>
+            <p>
+              If your request relates to data obtained through Meta technologies, including Facebook
+              Login, Facebook Lead Ads, Instagram, Messenger, or the WhatsApp Business Platform, please
+              mention this in your request so that we can identify the relevant records more efficiently
+              and process your request without unnecessary delay.
+            </p>
+          </section>
+
+          <section>
             <h2 className="text-2xl font-semibold mb-3">2. Meta Login Users</h2>
             <p>
-              If you signed in to a Trovix LLP product using your Meta account (including "Continue with
-              Facebook" or "Continue with Instagram"), you can request deletion of the data we obtained
-              through that login in either of the following ways:
+              If you signed in to a Trovix LLP product using Facebook Login or another Meta-supported
+              authentication method made available by the relevant Trovix LLP Service, you may request
+              deletion of the personal data obtained through that authentication using either of the
+              following methods.
             </p>
             <ul className="list-disc pl-6 mt-3 space-y-2">
               <li>
@@ -134,9 +145,11 @@ const AccountDeletion: React.FC = () => {
               </li>
             </ol>
             <p className="mt-3">
-              We will locate and delete the WhatsApp conversation data associated with your phone number
-              within the systems we operate on behalf of the relevant business, subject to that business's
-              own retention instructions and the legal retention exceptions described in Section 8.
+              Where Trovix LLP acts as a data processor on behalf of a Business Customer, we will assist
+              that Business Customer in processing and fulfilling deletion requests in accordance with
+              our contractual obligations, applicable law, and the Business Customer's documented
+              instructions. Where Trovix LLP acts as the data controller for information under its own
+              control, we will process deletion requests directly in accordance with this policy.
             </p>
           </section>
 
@@ -203,7 +216,7 @@ const AccountDeletion: React.FC = () => {
               retention is necessary to:
             </p>
             <ul className="list-disc pl-6 mt-3 space-y-2">
-              <li>Comply with a legal, tax, or accounting obligation applicable to us under Indian law, including recordkeeping requirements under applicable tax and corporate law;</li>
+              <li>Comply with applicable legal, tax, accounting, regulatory, or corporate obligations, including obligations arising under the Digital Personal Data Protection Act, 2023 (India), the Information Technology Act, 2000, applicable tax laws, corporate laws, or other applicable legal requirements;</li>
               <li>Establish, exercise, or defend legal claims;</li>
               <li>Prevent fraud, abuse, or violations of our Terms of Service; or</li>
               <li>Fulfill an obligation specifically required by applicable law or by a competent regulatory or judicial authority.</li>
@@ -222,9 +235,10 @@ const AccountDeletion: React.FC = () => {
               exist temporarily in encrypted backup and disaster-recovery systems, which are maintained
               solely for business continuity purposes, are access-restricted, and are not used to restore
               or reintroduce deleted data into production systems except in the course of disaster
-              recovery. Backup copies are overwritten or purged in the ordinary course of our backup
-              rotation cycle, no later than one hundred eighty (180) days after deletion from production
-              systems.
+              recovery. Backup copies are typically overwritten or securely purged during our normal
+              backup rotation cycle, generally within one hundred eighty (180) days after deletion from
+              production systems, subject to our documented backup retention schedule and any applicable
+              legal obligations.
             </p>
           </section>
 
@@ -252,9 +266,13 @@ const AccountDeletion: React.FC = () => {
               </a>{' '}
               with the subject line "Data Deletion Appeal" within thirty (30) days, explaining the basis
               for your appeal. We will review the appeal and provide a final written determination within
-              a reasonable period. If you remain dissatisfied, you may contact our Grievance Officer as
-              described in our Privacy Policy, or lodge a complaint with the competent data protection
-              authority in your jurisdiction.
+              a reasonable period. If you remain dissatisfied, you may contact us at{' '}
+              <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+                info@trovixtech.com
+              </a>{' '}
+              or by using the contact details provided in our Privacy Policy. Where applicable law
+              requires the appointment of a Grievance Officer or similar contact, the details published in
+              our Privacy Policy shall apply.
             </p>
           </section>
 
@@ -265,7 +283,7 @@ const AccountDeletion: React.FC = () => {
             </p>
             <p className="mt-3">
               Trovix LLP<br />
-              India<br />
+              Nagpur, Maharashtra, India<br />
               Email:{' '}
               <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
                 info@trovixtech.com
@@ -286,10 +304,11 @@ const AccountDeletion: React.FC = () => {
 
         <footer className="mt-12 pt-6 border-t border-white/10 text-sm text-muted-foreground">
           <p>
-            These Data Deletion Instructions apply to www.trovixtech.com and to all present and future
-            software products, applications, platforms, and services developed and operated by Trovix
-            LLP, including all integrations with Meta Login, Facebook Login, Facebook Lead Ads, Instagram,
-            Messenger, and the WhatsApp Business Platform.
+            These Data Deletion Instructions apply to the Trovix LLP website and to any current or future
+            software products, software applications, APIs, cloud services, SaaS platforms, integrations,
+            websites, or business solutions developed, operated, maintained, or provided by Trovix LLP,
+            including integrations with Facebook Login, Facebook Lead Ads, Instagram, Messenger, the
+            WhatsApp Business Platform, and other supported third-party services.
           </p>
         </footer>
       </section>
