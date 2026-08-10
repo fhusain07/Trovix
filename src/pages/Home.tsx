@@ -114,7 +114,7 @@ const Home: React.FC = () => {
 
     {/* Hero */}
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 via-transparent to-electric-violet/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gold/10 via-transparent to-charcoal/10" />
       <ParticleBackground />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
@@ -150,7 +150,7 @@ const Home: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 mt-10">
             {trustItems.map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-electric-blue flex-shrink-0 inline-block" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 inline-block" />
                 <span>{item}</span>
               </div>
             ))}
@@ -169,7 +169,7 @@ const Home: React.FC = () => {
           {differentiators.map((item, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard>
-                <item.icon className="h-12 w-12 text-electric-blue mb-4" />
+                <item.icon className="h-12 w-12 text-gold mb-4" />
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
                 <p className="text-muted-foreground">{item.description}</p>
               </GlassCard>
@@ -189,12 +189,12 @@ const Home: React.FC = () => {
           {services.map((service, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard className="h-full">
-                <service.icon className="h-10 w-10 text-electric-blue mb-4" />
+                <service.icon className="h-10 w-10 text-gold mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
                 <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
                 <Link
                   to={service.href}
-                  className="text-electric-blue hover:underline cursor-pointer inline-flex items-center text-sm"
+                  className="text-gold hover:underline cursor-pointer inline-flex items-center text-sm"
                 >
                   Learn more <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
@@ -218,7 +218,7 @@ const Home: React.FC = () => {
           {whoWeHelp.map((client, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard hover={false} className="h-full">
-                <h3 className="text-lg font-semibold mb-3 text-electric-blue">{client.title}</h3>
+                <h3 className="text-lg font-semibold mb-3 text-gold">{client.title}</h3>
                 <p className="text-muted-foreground text-sm">{client.description}</p>
               </GlassCard>
             </AnimatedSection>

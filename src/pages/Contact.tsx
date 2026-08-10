@@ -127,13 +127,13 @@ const Contact: React.FC = () => {
           {contactInfo.map((info, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard hover={false} className="text-center">
-                <info.icon className="h-10 w-10 text-electric-blue mx-auto mb-4" />
+                <info.icon className="h-10 w-10 text-gold mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{info.title}</h3>
                 <a
                   href={info.link}
                   target={info.link.startsWith('http') ? '_blank' : undefined}
                   rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-muted-foreground hover:text-electric-blue transition-colors cursor-pointer text-sm"
+                  className="text-muted-foreground hover:text-gold transition-colors cursor-pointer text-sm"
                 >
                   {info.content}
                 </a>
@@ -147,13 +147,13 @@ const Contact: React.FC = () => {
             <Tabs.List className="flex glass-effect rounded-xl p-1 mb-8 max-w-xs mx-auto">
               <Tabs.Trigger
                 value="call"
-                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-electric-blue data-[state=active]:text-white cursor-pointer"
+                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-gold data-[state=active]:text-charcoal cursor-pointer"
               >
                 Book a Call
               </Tabs.Trigger>
               <Tabs.Trigger
                 value="message"
-                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-electric-blue data-[state=active]:text-white cursor-pointer"
+                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-gold data-[state=active]:text-charcoal cursor-pointer"
               >
                 Send a Message
               </Tabs.Trigger>
@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
             <Tabs.Content value="call">
               <div className="max-w-3xl mx-auto">
                 <GlassCard className="p-0 overflow-hidden">
-                  <div className="p-6 border-b border-white/10">
+                  <div className="p-6 border-b border-border">
                     <h2 className="text-xl font-display font-bold text-center">Book a Free 30-Minute Discovery Call</h2>
                     <p className="text-sm text-muted-foreground text-center mt-1">
                       Pick a time that works for you — we'll discuss your project, ask the right questions, and give you honest advice.

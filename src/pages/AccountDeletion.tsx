@@ -35,7 +35,7 @@ const AccountDeletion: React.FC = () => {
             <ol className="list-decimal pl-6 mt-3 space-y-2">
               <li>
                 Sending an email to{' '}
-                <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+                <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                   info@trovixtech.com
                 </a>{' '}
                 with the subject line "Data Deletion Request";
@@ -78,7 +78,7 @@ const AccountDeletion: React.FC = () => {
             <ul className="list-disc pl-6 mt-3 space-y-2">
               <li>
                 <strong>Directly through Trovix LLP:</strong> email{' '}
-                <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+                <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                   info@trovixtech.com
                 </a>{' '}
                 with the subject line "Data Deletion Request," including the name or email address
@@ -105,7 +105,7 @@ const AccountDeletion: React.FC = () => {
             <ol className="list-decimal pl-6 mt-3 space-y-2">
               <li>
                 Email{' '}
-                <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+                <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                   info@trovixtech.com
                 </a>{' '}
                 with the subject line "Data Deletion Request — Facebook Login," including the name,
@@ -133,7 +133,7 @@ const AccountDeletion: React.FC = () => {
             <ol className="list-decimal pl-6 mt-3 space-y-2">
               <li>
                 Emailing{' '}
-                <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+                <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                   info@trovixtech.com
                 </a>{' '}
                 with the subject line "Data Deletion Request — WhatsApp," including the WhatsApp phone
@@ -163,7 +163,7 @@ const AccountDeletion: React.FC = () => {
             <ol className="list-decimal pl-6 mt-3 space-y-2">
               <li>
                 Emailing{' '}
-                <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+                <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                   info@trovixtech.com
                 </a>{' '}
                 from an email address associated with an authorized administrator on the account, with the
@@ -261,13 +261,13 @@ const AccountDeletion: React.FC = () => {
               If your deletion request is declined, or only partially fulfilled because a legal retention
               exception applies, we will explain the reason in our response. If you disagree with that
               outcome, you may appeal by replying to our response, or by emailing{' '}
-              <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+              <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                 info@trovixtech.com
               </a>{' '}
               with the subject line "Data Deletion Appeal" within thirty (30) days, explaining the basis
               for your appeal. We will review the appeal and provide a final written determination within
               a reasonable period. If you remain dissatisfied, you may contact us at{' '}
-              <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+              <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                 info@trovixtech.com
               </a>{' '}
               or by using the contact details provided in our Privacy Policy. Where applicable law
@@ -285,14 +285,14 @@ const AccountDeletion: React.FC = () => {
               Trovix LLP<br />
               Nagpur, Maharashtra, India<br />
               Email:{' '}
-              <a href="mailto:info@trovixtech.com" className="text-electric-blue hover:underline">
+              <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
                 info@trovixtech.com
               </a>
               <br />
               Website:{' '}
               <a
                 href="https://www.trovixtech.com"
-                className="text-electric-blue hover:underline"
+                className="text-gold hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -302,7 +302,7 @@ const AccountDeletion: React.FC = () => {
           </section>
         </div>
 
-        <footer className="mt-12 pt-6 border-t border-white/10 text-sm text-muted-foreground">
+        <footer className="mt-12 pt-6 border-t border-border text-sm text-muted-foreground">
           <p>
             These Data Deletion Instructions apply to the Trovix LLP website and to any current or future
             software products, software applications, APIs, cloud services, SaaS platforms, integrations,

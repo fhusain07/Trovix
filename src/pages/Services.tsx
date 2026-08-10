@@ -76,20 +76,20 @@ const Services: React.FC = () => {
           {services.map((service, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard className="h-full flex flex-col">
-                <service.icon className="h-12 w-12 text-electric-blue mb-4" />
+                <service.icon className="h-12 w-12 text-gold mb-4" />
                 <h3 className="text-2xl font-semibold mb-3">{service.title}</h3>
                 <p className="text-muted-foreground mb-6">{service.description}</p>
                 <div className="space-y-2 mb-6 flex-1">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-electric-blue mr-2 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-gold mr-2 flex-shrink-0" />
                       {feature}
                     </div>
                   ))}
                 </div>
                 <Link
                   to={service.href}
-                  className="inline-flex items-center text-sm text-electric-blue hover:underline cursor-pointer mt-auto"
+                  className="inline-flex items-center text-sm text-gold hover:underline cursor-pointer mt-auto"
                 >
                   Learn more about {service.title}
                   <ArrowRight className="ml-1 h-4 w-4" />

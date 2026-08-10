@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
@@ -17,7 +17,7 @@ export const StickyMobileCTA: React.FC = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden glass-effect border-t border-white/10 p-3 flex gap-2">
+    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden glass-effect border-t border-border p-3 flex gap-2">
       <Link to="/contact" className="flex-1">
         <Button size="sm" className="w-full cursor-pointer text-xs font-semibold">
           Book a Free Call

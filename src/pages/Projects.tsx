@@ -105,10 +105,10 @@ const Projects: React.FC = () => {
                   {/* Left column: meta */}
                   <div className="lg:col-span-1 space-y-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-electric-blue/10 flex items-center justify-center flex-shrink-0">
-                        <study.icon className="h-6 w-6 text-electric-blue" />
+                      <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0">
+                        <study.icon className="h-6 w-6 text-gold" />
                       </div>
-                      <span className="text-xs font-semibold text-electric-blue uppercase tracking-wider px-3 py-1 rounded-full bg-electric-blue/10">
+                      <span className="text-xs font-semibold text-gold uppercase tracking-wider px-3 py-1 rounded-full bg-gold/10">
                         {study.label}
                       </span>
                     </div>
@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
                       <p className="text-sm text-muted-foreground">{study.client}</p>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Clock className="h-4 w-4 text-electric-blue flex-shrink-0" />
+                      <Clock className="h-4 w-4 text-gold flex-shrink-0" />
                       <span>Delivered in {study.timeline}</span>
                     </div>
                     <div>
@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
                       <ul className="space-y-2">
                         {study.outcomes.map((outcome, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <span className="w-1.5 h-1.5 rounded-full bg-electric-blue flex-shrink-0 mt-1.5" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />
                             {outcome}
                           </li>
                         ))}

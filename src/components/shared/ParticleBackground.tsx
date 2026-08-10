@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useTheme } from '@/contexts/ThemeContext';
+import { getParticleGradientStops } from '@/theme/tokens';
 
 interface ParticleBackgroundProps {
   className?: string;
@@ -15,7 +16,7 @@ interface Particle {
   angle: number;
   radiusFraction: number; // 0 (center) - 1 (edge)
   radius: number; // dot size in px
-  hueT: number; // 0 = blue, 0.5 = violet, 1 = pink
+  hueT: number; // 0 = light gold, 0.5 = deep gold, 1 = charcoal
   wanderAmp: number;
   wanderSpeed: number;
   wanderPhase: number;
@@ -32,21 +33,18 @@ const CURSOR_INFLUENCE_RADIUS = 160;
 const CURSOR_MAX_PUSH = 34;
 const CURSOR_EASE = 0.12;
 
-// Brand gradient: electric blue -> electric violet -> pink/magenta
-const COLOR_STOPS: Array<{ stop: number; rgb: [number, number, number] }> = [
-  { stop: 0, rgb: [0, 212, 255] },
-  { stop: 0.5, rgb: [139, 92, 246] },
-  { stop: 1, rgb: [236, 72, 153] },
-];
+type ColorStop = { stop: number; rgb: [number, number, number] };
 
-function colorAt(t: number): [number, number, number] {
+// Brand gradient: light gold -> Trovix gold -> charcoal, read live from
+// theme.css via src/theme/tokens.ts (see colorStops in the effect below).
+function colorAt(t: number, colorStops: ColorStop[]): [number, number, number] {
   const clamped = Math.min(1, Math.max(0, t));
-  let lower = COLOR_STOPS[0];
-  let upper = COLOR_STOPS[COLOR_STOPS.length - 1];
-  for (let i = 0; i < COLOR_STOPS.length - 1; i++) {
-    if (clamped >= COLOR_STOPS[i].stop && clamped <= COLOR_STOPS[i + 1].stop) {
-      lower = COLOR_STOPS[i];
-      upper = COLOR_STOPS[i + 1];
+  let lower = colorStops[0];
+  let upper = colorStops[colorStops.length - 1];
+  for (let i = 0; i < colorStops.length - 1; i++) {
+    if (clamped >= colorStops[i].stop && clamped <= colorStops[i + 1].stop) {
+      lower = colorStops[i];
+      upper = colorStops[i + 1];
       break;
     }
   }
@@ -100,6 +98,9 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
     if (!ctx) return;
 
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // Read once per mount — theme.css's brand primitives don't change between
+    // light/dark, so there's no need to re-read on every frame or theme toggle.
+    const colorStops = getParticleGradientStops();
 
     let particles: Particle[] = [];
     let width = 0;
@@ -174,7 +175,7 @@ export const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
         const alpha = (alphaMin + (alphaMax - alphaMin) * falloff) * p.alphaScale * pulse + proximityGlow * 0.4;
         const drawRadius = p.radius + proximityGlow * 1.6;
 
-        const [r255, g255, b255] = colorAt(p.hueT * 0.5 + p.radiusFraction * 0.5);
+        const [r255, g255, b255] = colorAt(p.hueT * 0.5 + p.radiusFraction * 0.5, colorStops);
         ctx.beginPath();
         ctx.fillStyle = `rgba(${r255}, ${g255}, ${b255}, ${Math.max(0, Math.min(1, alpha))})`;
         ctx.arc(x, y, drawRadius, 0, Math.PI * 2);

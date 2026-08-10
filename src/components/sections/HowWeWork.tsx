@@ -39,17 +39,17 @@ export const HowWeWork: React.FC = () => (
         {/* Connector line — desktop only */}
         <div
           aria-hidden="true"
-          className="hidden md:block absolute top-10 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] h-px bg-gradient-to-r from-electric-blue/40 via-electric-violet/40 to-electric-blue/40"
+          className="hidden md:block absolute top-10 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] h-px bg-gradient-to-r from-gold/40 via-charcoal/40 to-gold/40"
         />
 
         {steps.map((step, index) => (
           <AnimatedSection key={index} delay={index * 0.15}>
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-electric-blue/20 to-electric-violet/20 border border-electric-blue/30 flex items-center justify-center mb-6 relative z-10 flex-shrink-0">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold/20 to-charcoal/20 border border-gold/30 flex items-center justify-center mb-6 relative z-10 flex-shrink-0">
                 <span className="text-2xl font-display font-bold gradient-text">{step.number}</span>
               </div>
               <h3 className="text-xl font-display font-bold mb-1">{step.title}</h3>
-              <p className="text-electric-blue text-sm font-semibold mb-3">{step.subtitle}</p>
+              <p className="text-gold text-sm font-semibold mb-3">{step.subtitle}</p>
               <p className="text-muted-foreground leading-relaxed text-sm">{step.description}</p>
             </div>
           </AnimatedSection>

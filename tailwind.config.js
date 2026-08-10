@@ -18,6 +18,7 @@ module.exports = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -43,9 +44,14 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        electric: {
-          blue: '#00D4FF',
-          violet: '#8B5CF6',
+        gold: {
+          DEFAULT: "hsl(var(--brand-gold))",
+          light: "hsl(var(--brand-gold-light))",
+          dark: "hsl(var(--brand-gold-dark))",
+        },
+        charcoal: {
+          DEFAULT: "hsl(var(--brand-charcoal))",
+          light: "hsl(var(--brand-charcoal-light))",
         },
       },
       borderRadius: {

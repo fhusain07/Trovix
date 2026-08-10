@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useSEO } from '@/hooks/useSEO';
@@ -49,8 +49,8 @@ export const ServicePageTemplate: React.FC<ServicePageProps> = ({
         <AnimatedSection>
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 glass-effect rounded-full px-4 py-2 mb-6">
-              <Icon className="h-4 w-4 text-electric-blue" />
-              <span className="text-sm font-semibold text-electric-blue">{badge}</span>
+              <Icon className="h-4 w-4 text-gold" />
+              <span className="text-sm font-semibold text-gold">{badge}</span>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
               {title}
@@ -89,7 +89,7 @@ export const ServicePageTemplate: React.FC<ServicePageProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {problems.map((problem, index) => (
                 <AnimatedSection key={index} delay={index * 0.1}>
-                  <GlassCard hover={false} className="h-full border-l-2 border-electric-blue/40">
+                  <GlassCard hover={false} className="h-full border-l-2 border-gold/40">
                     <h3 className="font-semibold mb-2 text-foreground">{problem.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{problem.description}</p>
                   </GlassCard>
@@ -109,7 +109,7 @@ export const ServicePageTemplate: React.FC<ServicePageProps> = ({
               {features.map((feature, index) => (
                 <AnimatedSection key={index} delay={index * 0.08}>
                   <GlassCard hover={false} className="flex gap-4 h-full">
-                    <div className="w-2 h-2 rounded-full bg-electric-blue mt-2 flex-shrink-0" />
+                    <div className="w-2 h-2 rounded-full bg-gold mt-2 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-1">{feature.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>

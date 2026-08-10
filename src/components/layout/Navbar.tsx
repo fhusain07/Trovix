@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
+import { BrandLogo } from '@/theme/BrandLogo';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -37,11 +38,8 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link to="/" className="flex items-center space-x-2 group cursor-pointer">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-electric-blue to-electric-violet flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="text-white font-bold text-xl">T</span>
-            </div>
-            <span className="text-2xl font-display font-bold gradient-text">TROVIX</span>
+          <Link to="/" className="group cursor-pointer">
+            <BrandLogo className="group-hover:scale-110 transition-transform" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-6">
@@ -49,8 +47,8 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors cursor-pointer hover:text-electric-blue ${location.pathname === link.path
-                    ? 'text-electric-blue'
+                className={`text-sm font-medium transition-colors cursor-pointer hover:text-gold ${location.pathname === link.path
+                    ? 'text-gold'
                     : 'text-foreground/70'
                   }`}
                 onClick={() => setIsOpen(false)}
@@ -103,7 +101,7 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-effect border-t border-white/10"
+            className="md:hidden glass-effect border-t border-border"
           >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
@@ -111,8 +109,8 @@ export const Navbar: React.FC = () => {
                   key={link.path}
                   to={link.path}
                   className={`block py-2 text-base font-medium transition-colors cursor-pointer ${location.pathname === link.path
-                      ? 'text-electric-blue'
-                      : 'text-foreground/70 hover:text-electric-blue'
+                      ? 'text-gold'
+                      : 'text-foreground/70 hover:text-gold'
                     }`}
                   onClick={() => setIsOpen(false)}
                 >

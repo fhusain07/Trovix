@@ -68,7 +68,7 @@ const Careers: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center text-muted-foreground">
-                  <div className="w-2 h-2 rounded-full bg-electric-blue mr-3 flex-shrink-0" />
+                  <div className="w-2 h-2 rounded-full bg-gold mr-3 flex-shrink-0" />
                   {benefit}
                 </div>
               ))}
@@ -90,11 +90,11 @@ const Careers: React.FC = () => {
                       <p className="text-muted-foreground mb-4">{position.description}</p>
                       <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                         <div className="flex items-center">
-                          <MapPin className="h-4 w-4 mr-1 text-electric-blue" />
+                          <MapPin className="h-4 w-4 mr-1 text-gold" />
                           {position.location}
                         </div>
                         <div className="flex items-center">
-                          <Clock className="h-4 w-4 mr-1 text-electric-blue" />
+                          <Clock className="h-4 w-4 mr-1 text-gold" />
                           {position.type}
                         </div>
                       </div>

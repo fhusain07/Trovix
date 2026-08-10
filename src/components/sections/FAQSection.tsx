@@ -79,9 +79,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
           >
             <Accordion.Header asChild>
               <div>
-                <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold hover:text-electric-blue transition-colors">
+                <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold hover:text-gold transition-colors">
                   <span>{faq.question}</span>
-                  <ChevronDown className="h-5 w-5 flex-shrink-0 text-electric-blue transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                  <ChevronDown className="h-5 w-5 flex-shrink-0 text-gold transition-transform duration-200 group-data-[state=open]:rotate-180" />
                 </Accordion.Trigger>
               </div>
             </Accordion.Header>

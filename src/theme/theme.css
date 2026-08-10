@@ -1,0 +1,80 @@
+/**
+ * Trovix design tokens — single source of truth for brand color, surfaces,
+ * borders, and shadows. Change the brand here; Tailwind (tailwind.config.js),
+ * globals.css utilities (.gradient-text/.glow-effect/.glass-effect), and
+ * src/theme/tokens.ts all read from these values.
+ *
+ * All color tokens are raw "H S% L%" triplets (no hsl() wrapper) so they can
+ * be consumed as `hsl(var(--token))` or `hsl(var(--token) / <alpha>)`.
+ */
+
+@layer base {
+  :root {
+    /* ---- Brand primitives ------------------------------------------- */
+    --brand-gold: 46 65% 52%;        /* #D4AF37 */
+    --brand-gold-light: 45 74% 65%;  /* #E8C766 */
+    --brand-gold-dark: 43 61% 45%;   /* #B8912C */
+    --brand-charcoal: 221 39% 11%;   /* #111827 */
+    --brand-charcoal-light: 215 28% 17%; /* #1F2937 */
+    --brand-white: 0 0% 100%;
+    --brand-surface: 220 14% 96%;    /* #F3F4F6 */
+    --brand-border: 220 13% 90%;
+
+    /* ---- Semantic role tokens (light theme) -------------------------- */
+    --background: var(--brand-white);
+    --foreground: var(--brand-charcoal);
+    --muted: var(--brand-surface);
+    --muted-foreground: 220 9% 40%;
+    --popover: var(--brand-white);
+    --popover-foreground: var(--brand-charcoal);
+    --border: var(--brand-border);
+    --input: var(--brand-border);
+    --card: 220 20% 98%;
+    --card-foreground: var(--brand-charcoal);
+    --primary: var(--brand-gold);
+    --primary-foreground: var(--brand-charcoal);
+    --primary-hover: var(--brand-gold-dark);
+    --secondary: var(--brand-surface);
+    --secondary-foreground: var(--brand-charcoal);
+    --accent: var(--brand-surface);
+    --accent-foreground: var(--brand-charcoal);
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: var(--brand-gold);
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222 39% 6%;
+    --foreground: 210 20% 97%;
+    --muted: 222 25% 14%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 222 25% 16%;
+    --accent-foreground: 210 20% 97%;
+    --popover: 222 35% 8%;
+    --popover-foreground: 210 20% 97%;
+    --border: 222 20% 20%;
+    --input: 222 20% 20%;
+    --card: 222 30% 10%;
+    --card-foreground: 210 20% 97%;
+    --primary: var(--brand-gold);
+    --primary-foreground: var(--brand-charcoal);
+    --primary-hover: var(--brand-gold-light);
+    --secondary: 222 25% 16%;
+    --secondary-foreground: 210 20% 97%;
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: var(--brand-gold);
+  }
+
+  /* ---- Brand utility classes -------------------------------------- */
+  .glass-effect {
+    @apply bg-card/90 backdrop-blur-xl border border-border;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-gold-dark via-gold-light to-gold-dark bg-clip-text text-transparent;
+  }
+  .glow-effect {
+    box-shadow: 0 0 20px hsl(var(--brand-gold) / 0.35);
+  }
+}

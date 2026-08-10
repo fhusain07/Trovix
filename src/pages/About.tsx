@@ -78,7 +78,7 @@ const About: React.FC = () => {
                   ].map((stat) => (
                     <div key={stat.label} className="glass-effect rounded-xl px-6 py-4 flex items-center justify-between">
                       <span className="text-muted-foreground text-sm">{stat.label}</span>
-                      <span className="font-bold text-electric-blue">{stat.value}</span>
+                      <span className="font-bold text-gold">{stat.value}</span>
                     </div>
                   ))}
                 </div>
@@ -114,7 +114,7 @@ const About: React.FC = () => {
             {values.map((value, index) => (
               <AnimatedSection key={index} delay={0.4 + index * 0.1}>
                 <GlassCard className="h-full text-center">
-                  <value.icon className="h-12 w-12 text-electric-blue mx-auto mb-4" />
+                  <value.icon className="h-12 w-12 text-gold mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                   <p className="text-muted-foreground text-sm">{value.description}</p>
                 </GlassCard>
