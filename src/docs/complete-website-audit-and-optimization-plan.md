@@ -28,7 +28,7 @@ P3 — The 5-second test fails. A small business owner visiting to ask "can thes
 P4 — Positioning is undefined. The site positions as a generic "IT company" but the business serves a specific, valuable niche: custom SaaS for SMBs, CRM for growing companies, and school systems. That niche is worth €200–€500K/year in contracts and is completely invisible.
 
 Replacement Hero (verbatim):
-H1: "Custom CRM, SaaS & School Management Systems — Built for Growing Businesses"
+H1: "Custom Softwares, SaaS & School Management Systems — Built for Growing Businesses"
 
 Subheadline: "We design and build web applications that automate your operations. React frontends, .NET backends, PostgreSQL databases — delivered in weeks, not months."
 
@@ -71,7 +71,7 @@ Data Engineering	Commented out	Remove
 Cybersecurity / Pen Testing	You don't do this	Remove immediately
 Process Automation	✓ Matches Business Automation	Rewrite specifically
 Services You Should Be Showing:
-CRM Development — "Custom CRM systems that replace spreadsheets and siloed tools"
+CRM Development — "Custom Softwares systems that replace spreadsheets and siloed tools"
 Custom SaaS Development — "SaaS platforms for agencies, startups, and B2B companies"
 School Management Systems — "Portals for student data, attendance, fees, and staff"
 Business Automation — "Automate lead capture, invoicing, and reporting workflows"
@@ -285,7 +285,7 @@ Complete Section Order & Specifications:
 ┌─────────────────────────────────────────────────────┐
 │ SECTION 1: HERO                                      │
 │ ─────────────────────────────────────────────────── │
-│ H1: "Custom CRM, SaaS & School Systems              │
+│ H1: "Custom Softwares, SaaS & School Systems              │
 │      for Growing Businesses"                         │
 │                                                      │
 │ Sub: "We build React + .NET web applications that   │
@@ -452,7 +452,7 @@ This is a qualification funnel, not just a contact form.
 L6 — Inline homepage lead capture. Add a minimal email capture above the footer: "Get a free project estimate in 24 hours — enter your email."
 
 Tier 3 — Medium Term:
-L7 — Lead magnet. Create a simple PDF: "5 Signs Your Business Needs a Custom CRM" or "CRM vs. Spreadsheet: The Cost Comparison." Gate it behind an email form. Drives targeted traffic from exactly the clients you want.
+L7 — Lead magnet. Create a simple PDF: "5 Signs Your Business Needs a Custom Softwares" or "CRM vs. Spreadsheet: The Cost Comparison." Gate it behind an email form. Drives targeted traffic from exactly the clients you want.
 
 L8 — Register on Clutch.co and GoodFirms. Free profiles on both. Once you have 3 real reviews, add "4.9 ★ on Clutch" to your hero section. This single change has been shown to increase conversion by 15–25% for agency sites.
 

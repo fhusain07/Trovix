@@ -4,14 +4,14 @@ import { ServicePageTemplate, type ServicePageProps } from '@/components/templat
 
 const data: ServicePageProps = {
   seo: {
-    title: 'CRM Development India | Custom CRM Systems for Small Business | Trovix',
+    title: 'CRM Development India | Custom Softwares Systems for Small Business | Trovix',
     description:
-      'Custom CRM systems built for your exact sales process — lead tracking, pipeline management, and follow-up automation. React + .NET + PostgreSQL. Based in Nagpur, India.',
+      'Custom Softwares systems built for your exact sales process — lead tracking, pipeline management, and follow-up automation. React + .NET + PostgreSQL. Based in Nagpur, India.',
     canonical: 'https://www.trovixtech.com/services/crm-development',
   },
   icon: Users,
   badge: 'CRM Development',
-  title: 'Custom CRM Systems',
+  title: 'Custom Softwares Systems',
   titleGradient: 'Built for Your Sales Process',
   description:
     'Stop managing leads in spreadsheets shared across five people. We build CRM systems that match the way your sales team actually works — lead capture, pipeline tracking, follow-up automation, and management dashboards, all in one place.',

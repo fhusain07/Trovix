@@ -55,7 +55,7 @@ const services = [
 const Services: React.FC = () => {
   useSEO({
     title: 'Services — CRM Development, SaaS, School Management & More | Trovix',
-    description: 'Custom CRM development, SaaS platforms, school management systems, business automation, Meta Lead Ads integration, and web application development.',
+    description: 'Custom Softwares development, SaaS platforms, school management systems, business automation, Meta Lead Ads integration, and web application development.',
     canonical: 'https://www.trovixtech.com/services',
   });
   return (

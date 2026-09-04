@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <BrandLogo />
             <p className="text-sm text-gray-400">
-              Custom CRM, SaaS &amp; school management systems for growing businesses.<br />
+              Custom Softwares, SaaS &amp; school management systems for growing businesses.<br />
               Based in Nagpur, India. Founded in 2025.
             </p>
             <div className="flex space-x-4">

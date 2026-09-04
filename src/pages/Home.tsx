@@ -44,7 +44,7 @@ const differentiators = [
 const services = [
   {
     title: 'CRM Development',
-    description: 'Custom CRM systems that replace spreadsheets — lead tracking, sales pipelines, and client management tailored to your workflow.',
+    description: 'Custom Softwares systems that replace spreadsheets — lead tracking, sales pipelines, and client management tailored to your workflow.',
     icon: Users,
     href: '/services/crm-development',
   },
@@ -105,7 +105,7 @@ const technologies = [
 
 const Home: React.FC = () => {
   useSEO({
-    title: 'Trovix — Custom CRM, SaaS & School Management Systems | India',
+    title: 'Trovix — Custom Softwares, SaaS & School Management Systems | India',
     description: 'We build custom CRM systems, SaaS platforms, and school management portals using React & .NET. Based in Nagpur, India. Free estimate in 24 hours.',
     canonical: 'https://www.trovixtech.com/',
   });
@@ -123,7 +123,7 @@ const Home: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight">
-            <span className="gradient-text">Custom CRM, SaaS</span>
+            <span className="gradient-text">Custom Softwares, SaaS</span>
             <br />
             <span className="text-foreground">&amp; School Systems</span>
             <br />
