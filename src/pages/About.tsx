@@ -2,7 +2,7 @@ import React from 'react';
 import { Target, Code, MessageSquare, Handshake } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
-import { FounderSection } from '@/components/sections/FounderSection';
+// import { FounderSection } from '@/components/sections/FounderSection';
 import { useSEO } from '@/hooks/useSEO';
 
 const values = [
@@ -123,7 +123,7 @@ const About: React.FC = () => {
           </div>
         </AnimatedSection>
 
-        <FounderSection />
+        {/* <FounderSection /> */}
 
       </div>
     </div>

@@ -7,7 +7,7 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ParticleBackground } from '@/components/shared/ParticleBackground';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { HowWeWork } from '@/components/sections/HowWeWork';
-import { FounderSection } from '@/components/sections/FounderSection';
+// import { FounderSection } from '@/components/sections/FounderSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { useSEO } from '@/hooks/useSEO';
 
@@ -228,7 +228,7 @@ const Home: React.FC = () => {
     </AnimatedSection>
 
     {/* Founder */}
-    <FounderSection />
+    {/* <FounderSection /> */}
 
     {/* Tech Stack */}
     <AnimatedSection>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as Tabs from '@radix-ui/react-tabs';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -89,18 +89,18 @@ const Contact: React.FC = () => {
       content: 'info@trovixtech.com',
       link: 'mailto:info@trovixtech.com',
     },
-    {
-      icon: Phone,
-      title: 'WhatsApp / Phone',
-      content: '+91 89561 21778',
-      link: 'https://wa.me/918956121778?text=Hi%20Trovix%2C%20I%27d%20like%20to%20discuss%20a%20project.',
-    },
-    {
-      icon: Phone,
-      title: 'Alternate Phone',
-      content: '+91 93079 27612',
-      link: 'tel:+919307927612',
-    },
+    // {
+    //   icon: Phone,
+    //   title: 'WhatsApp / Phone',
+    //   content: '+91 89561 21778',
+    //   link: 'https://wa.me/918956121778?text=Hi%20Trovix%2C%20I%27d%20like%20to%20discuss%20a%20project.',
+    // },
+    // {
+    //   icon: Phone,
+    //   title: 'Alternate Phone',
+    //   content: '+91 93079 27612',
+    //   link: 'tel:+919307927612',
+    // },
     {
       icon: MapPin,
       title: 'Location',

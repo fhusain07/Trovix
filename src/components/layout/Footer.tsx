@@ -91,8 +91,8 @@ export const Footer: React.FC = () => {
             <h3 className="font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-2">
               <li className="text-sm text-gray-400">info@trovixtech.com</li>
-              <li className="text-sm text-gray-400">+91 89561 21778</li>
-              <li className="text-sm text-gray-400">+91 93079 27612</li>
+              {/* <li className="text-sm text-gray-400">+91 89561 21778</li> */}
+              {/* <li className="text-sm text-gray-400">+91 93079 27612</li> */}
               <li className="text-sm text-gray-400">Nagpur, Maharashtra, India</li>
               <li><Link to="/contact" className="text-sm text-gold hover:underline cursor-pointer">Get in Touch →</Link></li>
             </ul>
