@@ -8,7 +8,7 @@ interface SEOOptions {
 
 const BASE_TITLE = 'Trovix — Custom Softwares, SaaS & School Management Systems | India';
 const BASE_DESC =
-  'Trovix builds custom CRM systems, SaaS platforms, and school management portals using React and .NET. Based in Nagpur, India. Get a free project estimate in 24 hours.';
+  'Trovix builds custom softwares systems, SaaS platforms, and school management portals using React and .NET. Based in Nagpur, India. Get a free project estimate in 24 hours.';
 
 function setMeta(selector: string, attr: string, value: string): void {
   const el = document.querySelector(selector);

@@ -674,7 +674,7 @@ Lead magnet	"CRM vs Excel: Cost Comparison PDF"	Next month	Free
 F. SEO IMPROVEMENTS
 Fix	Impact	Priority
 Title: "CRM & SaaS Development Company India | Trovix"	High	P0
-Description: "Trovix builds custom CRM, SaaS, and school management systems using React and .NET. Based in Nagpur, India. Get a free estimate in 24 hours."	High	P0
+Description: "Trovix builds custom softwares, SaaS, and school management systems using React and .NET. Based in Nagpur, India. Get a free estimate in 24 hours."	High	P0
 Add og:image (1200×630px branded image)	High	P0
 Add Twitter Card meta tags	Medium	P0
 Add Schema.org LocalBusiness JSON-LD	High	P1

@@ -106,7 +106,7 @@ const technologies = [
 const Home: React.FC = () => {
   useSEO({
     title: 'Trovix — Custom Softwares, SaaS & School Management Systems | India',
-    description: 'We build custom CRM systems, SaaS platforms, and school management portals using React & .NET. Based in Nagpur, India. Free estimate in 24 hours.',
+    description: 'We build custom softwares systems, SaaS platforms, and school management portals using React & .NET. Based in Nagpur, India. Free estimate in 24 hours.',
     canonical: 'https://www.trovixtech.com/',
   });
   return (

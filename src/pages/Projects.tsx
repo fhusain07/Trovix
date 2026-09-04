@@ -29,7 +29,7 @@ const caseStudies: CaseStudy[] = [
     problem:
       'The client was managing leads across 4 branches using WhatsApp groups and Excel sheets. Leads were being missed, duplicate follow-ups were common, and there was no visibility into which branch was performing.',
     solution:
-      'We built a custom CRM with branch-level lead management, a shared pipeline view for management, automated follow-up reminders, and daily summary reports delivered by email.',
+      'We built a custom softwares with branch-level lead management, a shared pipeline view for management, automated follow-up reminders, and daily summary reports delivered by email.',
     outcomes: [
       'All leads from all 4 branches tracked in one place',
       '40% reduction in missed follow-ups within the first month',

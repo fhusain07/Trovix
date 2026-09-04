@@ -11,7 +11,7 @@ const services = [
   {
     icon: Users,
     title: 'CRM Development',
-    description: 'Stop managing leads in spreadsheets. We build custom CRM systems tailored to your exact sales process — lead capture, pipeline tracking, follow-up automation, and reporting dashboards.',
+    description: 'Stop managing leads in spreadsheets. We build custom softwares systems tailored to your exact sales process — lead capture, pipeline tracking, follow-up automation, and reporting dashboards.',
     features: ['Lead & Contact Management', 'Sales Pipeline Tracking', 'Follow-up Automation', 'Custom Reporting Dashboards'],
     href: '/services/crm-development',
   },
