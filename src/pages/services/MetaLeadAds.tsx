@@ -4,17 +4,17 @@ import { ServicePageTemplate, type ServicePageProps } from '@/components/templat
 
 const data: ServicePageProps = {
   seo: {
-    title: 'Meta Lead Ads CRM Integration India | Facebook Instagram Lead Sync | Trovix',
+    title: 'Meta Lead Ads Sales Software Integration India | Facebook Instagram Lead Sync | Trovix',
     description:
-      'Connect Facebook and Instagram lead ads directly to your CRM in real time. No manual downloads, instant follow-up. Built with Meta Graph API + .NET. Nagpur, India.',
+      'Connect Facebook and Instagram lead ads directly to your sales management system in real time. No manual downloads, instant follow-up. Built with Meta Graph API + .NET. Nagpur, India.',
     canonical: 'https://www.trovixtech.com/services/meta-lead-ads',
   },
   icon: Zap,
   badge: 'Meta Lead Ads Integration',
   title: 'Facebook & Instagram Leads',
-  titleGradient: 'Into Your CRM in Real Time',
+  titleGradient: 'Into Your Sales System in Real Time',
   description:
-    "Every lead from your Facebook and Instagram ad campaigns should arrive in your CRM within seconds — not sitting in Meta's Lead Centre waiting to be downloaded days later. We build the real-time integration that makes this happen.",
+    "Every lead from your Facebook and Instagram ad campaigns should arrive in your sales pipeline within seconds — not sitting in Meta's Lead Centre waiting to be downloaded days later. We build the real-time integration that makes this happen.",
   problems: [
     {
       title: 'Leads Sitting in Meta\'s Lead Centre',
@@ -36,7 +36,7 @@ const data: ServicePageProps = {
     {
       title: 'Real-Time Lead Sync via Webhook',
       description:
-        'Every lead form submission on Facebook or Instagram arrives in your CRM within 30 seconds via the Meta Graph API webhook. No delays, no manual steps.',
+        'Every lead form submission on Facebook or Instagram arrives in your sales pipeline within 30 seconds via the Meta Graph API webhook. No delays, no manual steps.',
     },
     {
       title: 'Instant Agent WhatsApp Notification',
@@ -49,9 +49,9 @@ const data: ServicePageProps = {
         'Every lead is tagged with the campaign name, ad set, and ad creative that generated it. Track conversion rates and revenue per campaign without any manual attribution.',
     },
     {
-      title: 'CRM Pipeline Entry',
+      title: 'Sales Pipeline Entry',
       description:
-        'New leads enter the CRM pipeline at the correct stage automatically, with all Meta form fields mapped to CRM fields — no copy-pasting from one system to another.',
+        'New leads enter the sales pipeline at the correct stage automatically, with all Meta form fields mapped to system fields — no copy-pasting from one system to another.',
     },
     {
       title: 'Campaign ROI Dashboard',
@@ -61,20 +61,20 @@ const data: ServicePageProps = {
     {
       title: 'Multi-Page & Multi-Ad Account Support',
       description:
-        'Connect multiple Facebook Pages, Instagram accounts, and ad accounts to a single CRM instance. All leads centralised, all attribution preserved.',
+        'Connect multiple Facebook Pages, Instagram accounts, and ad accounts to a single sales management system. All leads centralised, all attribution preserved.',
     },
   ],
   techStack: ['React', 'TypeScript', '.NET Web API', 'PostgreSQL', 'Meta Graph API', 'WhatsApp Business API'],
   faqs: [
     {
-      question: 'Does this work with my existing CRM or do I need a new one?',
+      question: 'Does this work with my existing sales system or do I need a new one?',
       answer:
-        'If you have a CRM with a webhook or REST API, we can integrate Meta leads directly into it. If you don\'t have a CRM yet, we can build one as part of the same project — which is usually the most cost-effective approach.',
+        'If you have a sales management system with a webhook or REST API, we can integrate Meta leads directly into it. If you don\'t have one yet, we can build one as part of the same project — which is usually the most cost-effective approach.',
     },
     {
       question: 'How does Meta lead access work technically?',
       answer:
-        'We register a webhook with the Meta Graph API on your Facebook Page. When a user submits a lead form, Meta sends the lead data to our endpoint instantly, which processes and inserts it into your CRM.',
+        'We register a webhook with the Meta Graph API on your Facebook Page. When a user submits a lead form, Meta sends the lead data to our endpoint instantly, which processes and inserts it into your sales pipeline.',
     },
     {
       question: 'Can this handle high volumes of leads?',
@@ -95,7 +95,7 @@ const data: ServicePageProps = {
   cta: {
     headline: 'Stop Losing Leads to Slow Follow-Up',
     description:
-      "Tell us how many leads you generate per month and which CRM you're using (or if you need one built). We'll send a proposal within 24 hours.",
+      "Tell us how many leads you generate per month and which sales system you're using (or if you need one built). We'll send a proposal within 24 hours.",
   },
 };
 

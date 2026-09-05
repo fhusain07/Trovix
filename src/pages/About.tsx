@@ -31,7 +31,7 @@ const values = [
 const About: React.FC = () => {
   useSEO({
     title: 'About Trovix — Custom Software Development Studio, Nagpur India',
-    description: 'Trovix is a software development studio in Nagpur, India. We build CRM systems, SaaS platforms, and school management portals using React and .NET.',
+    description: 'Trovix is a software development studio in Nagpur, India. We build sales management software, SaaS platforms, and school management portals using React and .NET.',
     canonical: 'https://www.trovixtech.com/about',
   });
   return (
@@ -44,7 +44,7 @@ const About: React.FC = () => {
               About <span className="gradient-text">Trovix</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Trovix is a custom software development studio based in Nagpur, Maharashtra, India. We build CRM systems, SaaS platforms, school management portals, and automation tools for businesses that have outgrown their spreadsheets.
+              Trovix is a custom software development studio based in Nagpur, Maharashtra, India. We build sales management software, SaaS platforms, school management portals, and automation tools for businesses that have outgrown their spreadsheets.
             </p>
           </div>
         </AnimatedSection>
@@ -65,7 +65,7 @@ const About: React.FC = () => {
                       Trovix was built to solve that specific problem. We build software that mirrors your exact process, integrates with the tools you already use, and is maintained long after it goes live.
                     </p>
                     <p>
-                      We focus on a narrow set of products — CRM systems, school portals, SaaS platforms, and business automation — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
+                      We focus on a narrow set of products — sales management software, school portals, SaaS platforms, and business automation — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
                     </p>
                   </div>
                 </div>

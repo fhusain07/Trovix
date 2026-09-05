@@ -12,12 +12,12 @@ const defaultFAQs: FAQItem[] = [
   {
     question: 'How long does a typical project take?',
     answer:
-      'Simple CRM systems and automation tools typically take 4–6 weeks. School management portals and SaaS platforms with complex features take 8–16 weeks. We provide an accurate timeline in the proposal — not a vague range.',
+      'Simple sales management software and automation tools typically take 4–6 weeks. School management portals and SaaS platforms with complex features take 8–16 weeks. We provide an accurate timeline in the proposal — not a vague range.',
   },
   {
     question: 'What does a project typically cost?',
     answer:
-      'Projects start from ₹50,000 for focused automation tools and simple CRMs. Full school management systems and SaaS platforms typically range from ₹1,50,000–₹5,00,000 depending on scope. We provide a fixed-price quote upfront — no surprise invoices.',
+      'Projects start from ₹50,000 for focused automation tools and simple sales management systems. Full school management systems and SaaS platforms typically range from ₹1,50,000–₹5,00,000 depending on scope. We provide a fixed-price quote upfront — no surprise invoices.',
   },
   {
     question: 'Do we own the code after delivery?',

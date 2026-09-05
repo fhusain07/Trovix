@@ -21,8 +21,8 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     icon: Users,
-    label: 'CRM Development',
-    title: 'Multi-Branch CRM for Retail Business',
+    label: 'Sales Management Software',
+    title: 'Multi-Branch Sales Management Software for Retail Business',
     client: 'Retail distributor with 4 branches across Maharashtra',
     timeline: '6 weeks',
     stack: ['React', 'TypeScript', '.NET Web API', 'PostgreSQL', 'Azure'],
@@ -58,14 +58,14 @@ const caseStudies: CaseStudy[] = [
   {
     icon: Zap,
     label: 'Meta Lead Ads Integration',
-    title: 'Facebook Ads → CRM Pipeline for Real Estate Agency',
+    title: 'Facebook Ads → Sales Pipeline for Real Estate Agency',
     client: 'Real estate agency running Facebook & Instagram lead generation ads',
     timeline: '5 weeks',
     stack: ['Meta Lead Ads Webhook', '.NET Web API', 'PostgreSQL', 'WhatsApp Business API'],
     problem:
       'The agency was downloading leads from Meta Ads Manager manually every morning. By the time the sales team called, leads were already 4–12 hours old. Competitors were calling within minutes.',
     solution:
-      'We built a real-time webhook integration that pushes every new Meta lead directly into their CRM the moment the ad form is submitted, triggers an automated WhatsApp message to the lead, and notifies the assigned sales rep.',
+      'We built a real-time webhook integration that pushes every new Meta lead directly into their sales pipeline the moment the ad form is submitted, triggers an automated WhatsApp message to the lead, and notifies the assigned sales rep.',
     outcomes: [
       'Average lead response time dropped from 4+ hours to under 4 minutes',
       'Zero manual downloads from Meta Ads Manager',
@@ -77,8 +77,8 @@ const caseStudies: CaseStudy[] = [
 
 const Projects: React.FC = () => {
   useSEO({
-    title: 'Work & Case Studies — CRM, School Portal, Meta Ads | Trovix',
-    description: 'Real case studies from Trovix: multi-branch CRM for retail, school management portal for CBSE institute, Meta Lead Ads integration for real estate.',
+    title: 'Work & Case Studies — Sales Software, School Portal, Meta Ads | Trovix',
+    description: 'Real case studies from Trovix: multi-branch sales management software for retail, school management portal for CBSE institute, Meta Lead Ads integration for real estate.',
     canonical: 'https://www.trovixtech.com/projects',
   });
   return (

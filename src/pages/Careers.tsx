@@ -11,25 +11,25 @@ const positions = [
     title: 'React Frontend Developer',
     location: 'Nagpur, India / Remote',
     type: 'Full-time',
-    description: 'Build modern React applications with TypeScript and Tailwind CSS for our client projects — CRM dashboards, school portals, and SaaS products.',
+    description: 'Build modern React applications with TypeScript and Tailwind CSS for our client projects — sales management dashboards, school portals, and SaaS products.',
   },
   {
     title: '.NET Backend Developer',
     location: 'Nagpur, India / Remote',
     type: 'Full-time',
-    description: 'Develop REST APIs using .NET Web API with PostgreSQL, handling business logic for SaaS platforms and CRM systems.',
+    description: 'Develop REST APIs using .NET Web API with PostgreSQL, handling business logic for SaaS platforms and sales management software.',
   },
   {
     title: 'Full Stack Developer',
     location: 'Nagpur, India / Remote',
     type: 'Full-time',
-    description: 'Work across React frontends and .NET backends, contributing to CRM systems, school management portals, and business automation tools.',
+    description: 'Work across React frontends and .NET backends, contributing to sales management software, school management portals, and business automation tools.',
   },
   {
     title: 'UI/UX Designer',
     location: 'Remote',
     type: 'Freelance / Contract',
-    description: 'Design intuitive interfaces for web applications — dashboards, CRM portals, school portals, and admin panels.',
+    description: 'Design intuitive interfaces for web applications — dashboards, sales management portals, school portals, and admin panels.',
   },
 ];
 
@@ -57,7 +57,7 @@ const Careers: React.FC = () => {
               Join <span className="gradient-text">Trovix</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We're a small, focused team based in Nagpur, India building real products for real clients. If you want to work directly on CRM systems, SaaS platforms, and school portals — we'd like to hear from you.
+              We're a small, focused team based in Nagpur, India building real products for real clients. If you want to work directly on sales management software, SaaS platforms, and school portals — we'd like to hear from you.
             </p>
           </div>
         </AnimatedSection>

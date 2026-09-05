@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="font-semibold mb-4 text-white">Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">CRM Development</Link></li>
+              <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Sales Management Software</Link></li>
               <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Custom SaaS Development</Link></li>
               <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">School Management Systems</Link></li>
               <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Business Automation</Link></li>

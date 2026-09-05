@@ -43,10 +43,10 @@ const differentiators = [
 
 const services = [
   {
-    title: 'CRM Development',
+    title: 'Sales Management Software',
     description: 'Custom Softwares systems that replace spreadsheets — lead tracking, sales pipelines, and client management tailored to your workflow.',
     icon: Users,
-    href: '/services/crm-development',
+    href: '/services/sales-management-software',
   },
   {
     title: 'Custom SaaS Development',
@@ -68,7 +68,7 @@ const services = [
   },
   {
     title: 'Meta Lead Ads Integration',
-    description: 'Connect Facebook and Instagram lead ads directly to your CRM. Zero manual entry, instant automated follow-up.',
+    description: 'Connect Facebook and Instagram lead ads directly to your sales management system. Zero manual entry, instant automated follow-up.',
     icon: Zap,
     href: '/services/meta-lead-ads',
   },
@@ -83,7 +83,7 @@ const services = [
 const whoWeHelp = [
   {
     title: 'Small Businesses',
-    description: 'Replace spreadsheets and manual tracking with a CRM that fits your exact sales process and team size.',
+    description: 'Replace spreadsheets and manual tracking with sales management software that fits your exact sales process and team size.',
   },
   {
     title: 'Schools & Institutions',
@@ -130,7 +130,7 @@ const Home: React.FC = () => {
             <span className="text-foreground">for Growing Businesses</span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            We build web applications that automate your operations — CRM systems, school portals, and business tools — using React &amp; .NET, delivered in weeks, not months.
+            We build web applications that automate your operations — sales management software, school portals, and business tools — using React &amp; .NET, delivered in weeks, not months.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">

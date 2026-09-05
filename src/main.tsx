@@ -21,7 +21,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 
 // Service landing pages
-const CRMDevelopment = lazy(() => import("./pages/services/CRMDevelopment"));
+const SalesManagementSoftware = lazy(() => import("./pages/services/SalesManagementSoftware"));
 const SaaSDevelopment = lazy(() => import("./pages/services/SaaSDevelopment"));
 const SchoolManagement = lazy(() => import("./pages/services/SchoolManagement"));
 const BusinessAutomation = lazy(() => import("./pages/services/BusinessAutomation"));
@@ -85,7 +85,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Route index element={<Home />} />
                 <Route path="about" element={<About />} />
                 <Route path="services" element={<Services />} />
-                <Route path="services/crm-development" element={<CRMDevelopment />} />
+                <Route path="services/sales-management-software" element={<SalesManagementSoftware />} />
                 <Route path="services/saas-development" element={<SaaSDevelopment />} />
                 <Route path="services/school-management-system" element={<SchoolManagement />} />
                 <Route path="services/business-automation" element={<BusinessAutomation />} />

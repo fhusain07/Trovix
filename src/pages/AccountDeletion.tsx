@@ -154,10 +154,10 @@ const AccountDeletion: React.FC = () => {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-3">5. CRM Customers and Other Business Accounts</h2>
+            <h2 className="text-2xl font-semibold mb-3">5. Sales Software Customers and Other Business Accounts</h2>
             <p>
               If you are a business, professional, or organization using a Trovix LLP product such as a
-              CRM, school management system, or business automation platform ("Business Customer"), you
+              sales management system, school management system, or business automation platform ("Business Customer"), you
               may request deletion of your business account and the associated data by:
             </p>
             <ol className="list-decimal pl-6 mt-3 space-y-2">
@@ -177,7 +177,7 @@ const AccountDeletion: React.FC = () => {
             <p className="mt-3">
               Where an individual end user asks us to delete their data but that data was submitted to us
               by a Business Customer (for example, a lead captured through Facebook Lead Ads, or a
-              contact record in a CRM), we will, where appropriate, direct the request to the relevant
+              contact record in a sales management system), we will, where appropriate, direct the request to the relevant
               Business Customer and support that Business Customer in fulfilling it, consistent with our
               role as a data processor acting on the Business Customer's instructions.
             </p>

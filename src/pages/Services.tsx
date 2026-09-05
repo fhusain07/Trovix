@@ -10,10 +10,10 @@ import { useSEO } from '@/hooks/useSEO';
 const services = [
   {
     icon: Users,
-    title: 'CRM Development',
+    title: 'Sales Management Software',
     description: 'Stop managing leads in spreadsheets. We build custom softwares systems tailored to your exact sales process — lead capture, pipeline tracking, follow-up automation, and reporting dashboards.',
     features: ['Lead & Contact Management', 'Sales Pipeline Tracking', 'Follow-up Automation', 'Custom Reporting Dashboards'],
-    href: '/services/crm-development',
+    href: '/services/sales-management-software',
   },
   {
     icon: Cloud,
@@ -39,8 +39,8 @@ const services = [
   {
     icon: Zap,
     title: 'Meta Lead Ads Integration',
-    description: 'Every lead from your Facebook and Instagram ads should land in your CRM instantly — not in a spreadsheet download days later. We build the real-time integration between Meta and your system.',
-    features: ['Facebook & Instagram Ads Integration', 'Real-time CRM Sync', 'Automated Lead Qualification', 'Lead Source Tracking & Reporting'],
+    description: 'Every lead from your Facebook and Instagram ads should land in your sales pipeline instantly — not in a spreadsheet download days later. We build the real-time integration between Meta and your system.',
+    features: ['Facebook & Instagram Ads Integration', 'Real-time Sales Pipeline Sync', 'Automated Lead Qualification', 'Lead Source Tracking & Reporting'],
     href: '/services/meta-lead-ads',
   },
   {
@@ -54,7 +54,7 @@ const services = [
 
 const Services: React.FC = () => {
   useSEO({
-    title: 'Services — CRM Development, SaaS, School Management & More | Trovix',
+    title: 'Services — Sales Management Software, SaaS, School Management & More | Trovix',
     description: 'Custom Softwares development, SaaS platforms, school management systems, business automation, Meta Lead Ads integration, and web application development.',
     canonical: 'https://www.trovixtech.com/services',
   });

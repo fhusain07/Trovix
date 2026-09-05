@@ -4,17 +4,17 @@ import { ServicePageTemplate, type ServicePageProps } from '@/components/templat
 
 const data: ServicePageProps = {
   seo: {
-    title: 'CRM Development India | Custom Softwares Systems for Small Business | Trovix',
+    title: 'Sales Management Software India | Custom Softwares Systems for Small Business | Trovix',
     description:
       'Custom Softwares systems built for your exact sales process — lead tracking, pipeline management, and follow-up automation. React + .NET + PostgreSQL. Based in Nagpur, India.',
-    canonical: 'https://www.trovixtech.com/services/crm-development',
+    canonical: 'https://www.trovixtech.com/services/sales-management-software',
   },
   icon: Users,
-  badge: 'CRM Development',
+  badge: 'Sales Management Software',
   title: 'Custom Softwares Systems',
   titleGradient: 'Built for Your Sales Process',
   description:
-    'Stop managing leads in spreadsheets shared across five people. We build CRM systems that match the way your sales team actually works — lead capture, pipeline tracking, follow-up automation, and management dashboards, all in one place.',
+    'Stop managing leads in spreadsheets shared across five people. We build sales management software that matches the way your sales team actually works — lead capture, pipeline tracking, follow-up automation, and management dashboards, all in one place.',
   problems: [
     {
       title: 'Leads Falling Through the Cracks',
@@ -27,7 +27,7 @@ const data: ServicePageProps = {
         'Managers have no real-time view of what\'s in the pipeline, which salesperson is overloaded, or why deals are getting stuck. Reporting means asking someone to compile a spreadsheet at the end of the month.',
     },
     {
-      title: 'Generic CRMs Don\'t Fit',
+      title: 'Generic Sales Tools Don\'t Fit',
       description:
         'Salesforce is built for enterprise companies. Zoho has 200 features you\'ll never use. Neither works the way your team actually sells. You spend more time configuring the tool than using it.',
     },
@@ -67,14 +67,14 @@ const data: ServicePageProps = {
   techStack: ['React', 'TypeScript', '.NET Web API', 'PostgreSQL', 'WhatsApp Business API'],
   faqs: [
     {
-      question: 'Can I import my existing Excel data into the new CRM?',
+      question: 'Can I import my existing Excel data into the new system?',
       answer:
-        'Yes. We build a data import tool into every CRM project. Your existing spreadsheet is cleaned, mapped, and imported — so you start with your full history intact, not from zero.',
+        'Yes. We build a data import tool into every project. Your existing spreadsheet is cleaned, mapped, and imported — so you start with your full history intact, not from zero.',
     },
     {
-      question: 'Can the CRM capture leads from Facebook and Instagram ads?',
+      question: 'Can the system capture leads from Facebook and Instagram ads?',
       answer:
-        'Yes. We integrate Meta Lead Ads directly into your CRM via the Meta Graph API. Every new lead arrives in real time — within 30 seconds of the form being submitted.',
+        'Yes. We integrate Meta Lead Ads directly into your sales pipeline via the Meta Graph API. Every new lead arrives in real time — within 30 seconds of the form being submitted.',
     },
     {
       question: 'Can we customise the pipeline stages to match our sales process?',
@@ -84,12 +84,12 @@ const data: ServicePageProps = {
     {
       question: 'What if our sales process changes after launch?',
       answer:
-        'We build CRMs to be flexible. Adding a new pipeline stage, a new lead source, or a new report is a small change — not a rebuild. Post-launch changes are quoted separately and handled quickly.',
+        'We build these systems to be flexible. Adding a new pipeline stage, a new lead source, or a new report is a small change — not a rebuild. Post-launch changes are quoted separately and handled quickly.',
     },
     {
-      question: 'Does the CRM work on mobile?',
+      question: 'Does the system work on mobile?',
       answer:
-        'Yes. Every CRM we build is fully responsive and works on any device. Salespeople can update leads from their phone in the field without needing to open a laptop.',
+        'Yes. Every system we build is fully responsive and works on any device. Salespeople can update leads from their phone in the field without needing to open a laptop.',
     },
   ],
   cta: {
@@ -99,5 +99,5 @@ const data: ServicePageProps = {
   },
 };
 
-const CRMDevelopment: React.FC = () => <ServicePageTemplate {...data} />;
-export default CRMDevelopment;
+const SalesManagementSoftware: React.FC = () => <ServicePageTemplate {...data} />;
+export default SalesManagementSoftware;

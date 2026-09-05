@@ -249,7 +249,7 @@ const Contact: React.FC = () => {
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Describe what you need — e.g. 'I need a CRM for my 5-person sales team to track 200 leads per month' or 'I run a school with 300 students and need a fee and attendance system'."
+                      placeholder="Describe what you need — e.g. 'I need a sales management system for my 5-person sales team to track 200 leads per month' or 'I run a school with 300 students and need a fee and attendance system'."
                       rows={6}
                       value={formik.values.message}
                       onChange={formik.handleChange}

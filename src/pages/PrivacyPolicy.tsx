@@ -26,8 +26,8 @@ const PrivacyPolicy: React.FC = () => {
             <h2 className="text-2xl font-semibold mb-3">1. Scope of This Policy</h2>
             <p>
               This Privacy Policy applies to www.trovixtech.com and to all products and services
-              developed or operated by Trovix LLP, including but not limited to customer relationship
-              management (CRM) systems, school and institutional management software, business and
+              developed or operated by Trovix LLP, including but not limited to sales management
+              systems, school and institutional management software, business and
               marketing automation tools, artificial intelligence assistants, communication platforms,
               WhatsApp Business Platform integrations, Facebook Login integrations, Facebook Lead Ads
               integrations, Instagram messaging integrations, Messenger integrations, email and voice
@@ -107,7 +107,7 @@ const PrivacyPolicy: React.FC = () => {
             <h3 className="text-xl font-semibold mt-5 mb-2">3.2 Business Customer Data</h3>
             <p>
               Business Customers may upload, input, or transmit data into our Services in the course of
-              using them — for example, contact lists, sales or CRM records, student and staff records,
+              using them — for example, contact lists, sales or customer records, student and staff records,
               message templates, campaign configurations, and workflow or automation rules. Trovix LLP
               processes this data solely to provide, maintain, and support the relevant Service, and in
               accordance with the Business Customer's instructions and its agreement with us. The
@@ -123,7 +123,7 @@ const PrivacyPolicy: React.FC = () => {
               on the Business Customer's behalf. This may include names, phone numbers, email addresses,
               message content, engagement history, and records specific to the relevant product (for
               example, attendance or fee records in a school management platform, or lead records in a
-              CRM). End Users should refer to the privacy notice of the relevant Business Customer for
+              sales management system). End Users should refer to the privacy notice of the relevant Business Customer for
               information on how that organization uses their data; Trovix LLP's role in respect of this
               data is generally that of a data processor acting under contract.
             </p>
@@ -157,7 +157,7 @@ const PrivacyPolicy: React.FC = () => {
               retrieve the information submitted by a person through the relevant lead form via the Lead
               Ads API — which may include name, email address, phone number, and responses to custom
               questions configured by the Business Customer — solely for the purpose of delivering that
-              lead information into the Business Customer's CRM, automation workflow, or notification
+              lead information into the Business Customer's sales management system, automation workflow, or notification
               system. This data is not used by Trovix LLP for any purpose other than delivering it to the
               Business Customer that ran the relevant ad campaign.
             </p>
