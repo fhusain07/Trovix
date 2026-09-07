@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Cloud, BookOpen, Workflow, Zap, Code, ArrowRight } from 'lucide-react';
+import { Users, Cloud, BookOpen, Workflow, Zap, Code, MessageCircle, ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { GlassCard } from '@/components/shared/GlassCard';
 import { Button } from '@/components/ui/button';
@@ -50,12 +50,19 @@ const services = [
     features: ['React + TypeScript Frontends', '.NET Web API Backends', 'PostgreSQL Database Design', 'REST API Development'],
     href: '/services/web-application-development',
   },
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp Business Platform Integration',
+    description: 'Two-way customer communication and messaging automation built into your CRM or business software — using the official WhatsApp Business Platform, not a workaround.',
+    features: ['Two-Way Customer Messaging', 'Automated Notifications & Reminders', 'CRM & System Integration', 'Approved BSP Onboarding'],
+    href: '/services/whatsapp-business-platform',
+  },
 ];
 
 const Services: React.FC = () => {
   useSEO({
-    title: 'Services — Sales Management Software, SaaS, School Management & More | Trovix',
-    description: 'Custom Softwares development, SaaS platforms, school management systems, business automation, Meta Lead Ads integration, and web application development.',
+    title: 'Services — CRM, SaaS, Business Automation & WhatsApp Business Platform | Trovix',
+    description: 'Custom software, SaaS platforms, CRM and sales management systems, business automation, WhatsApp Business Platform integration, and Meta Lead Ads integration.',
     canonical: 'https://www.trovixtech.com/services',
   });
   return (
@@ -67,7 +74,7 @@ const Services: React.FC = () => {
               What We <span className="gradient-text">Build</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              We specialise in a focused set of software products for growing businesses, schools, and startups. Every project is custom-built — no templates, no off-the-shelf tools adapted to fit.
+              Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms for growing businesses, schools, and startups. Every project is custom-built — no templates, no off-the-shelf tools adapted to fit.
             </p>
           </div>
         </AnimatedSection>

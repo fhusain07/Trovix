@@ -27,6 +27,7 @@ const SchoolManagement = lazy(() => import("./pages/services/SchoolManagement"))
 const BusinessAutomation = lazy(() => import("./pages/services/BusinessAutomation"));
 const MetaLeadAds = lazy(() => import("./pages/services/MetaLeadAds"));
 const WebDevelopment = lazy(() => import("./pages/services/WebDevelopment"));
+const WhatsAppBusinessPlatform = lazy(() => import("./pages/services/WhatsAppBusinessPlatform"));
 
 // CODEROCKET
 const setupRouteChangeBridge = () => {
@@ -91,6 +92,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Route path="services/business-automation" element={<BusinessAutomation />} />
                 <Route path="services/meta-lead-ads" element={<MetaLeadAds />} />
                 <Route path="services/web-application-development" element={<WebDevelopment />} />
+                <Route path="services/whatsapp-business-platform" element={<WhatsAppBusinessPlatform />} />
                 <Route path="projects" element={<Projects />} />
                 <Route path="careers" element={<Careers />} />
                 <Route path="contact" element={<Contact />} />

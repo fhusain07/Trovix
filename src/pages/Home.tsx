@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Code, Users, Cloud, Workflow, BookOpen, Target, Clock, MessageSquare } from 'lucide-react';
+import { ArrowRight, Zap, Code, Users, Cloud, Workflow, BookOpen, Target, Clock, MessageSquare, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/shared/AnimatedSection';
 import { ParticleBackground } from '@/components/shared/ParticleBackground';
@@ -73,6 +73,12 @@ const services = [
     href: '/services/meta-lead-ads',
   },
   {
+    title: 'WhatsApp Business Platform Integration',
+    description: 'Two-way customer communication built into your CRM — automated order updates, reminders, and notifications via the official WhatsApp Business Platform.',
+    icon: MessageCircle,
+    href: '/services/whatsapp-business-platform',
+  },
+  {
     title: 'Web Application Development',
     description: 'React frontends with .NET Web API backends and PostgreSQL — scalable, maintainable, production-ready.',
     icon: Code,
@@ -105,8 +111,8 @@ const technologies = [
 
 const Home: React.FC = () => {
   useSEO({
-    title: 'Trovix — Custom Softwares, SaaS & School Management Systems | India',
-    description: 'We build custom softwares systems, SaaS platforms, and school management portals using React & .NET. Based in Nagpur, India. Free estimate in 24 hours.',
+    title: 'Trovix — Custom Software, SaaS, CRM & WhatsApp Business Automation | India',
+    description: 'Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms — including WhatsApp Business Platform integrations — using React & .NET. Based in Nagpur, India.',
     canonical: 'https://www.trovixtech.com/',
   });
   return (
@@ -129,8 +135,11 @@ const Home: React.FC = () => {
             <br />
             <span className="text-foreground">for Growing Businesses</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">
             We build web applications that automate your operations — sales management software, school portals, and business tools — using React &amp; .NET, delivered in weeks, not months.
+          </p>
+          <p className="text-base sm:text-lg text-muted-foreground/90 mb-8 max-w-3xl mx-auto">
+            Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms — including WhatsApp Business Platform integrations for two-way customer messaging and automated notifications — for businesses and organizations across industries.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">

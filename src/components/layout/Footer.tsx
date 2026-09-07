@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <BrandLogo />
             <p className="text-sm text-gray-400">
-              Custom Softwares, SaaS &amp; school management systems for growing businesses.<br />
+              Trovix LLP — a software &amp; SaaS technology company building CRM, communication, and workflow automation platforms.<br />
               Based in Nagpur, India. Founded in 2025.
             </p>
             <div className="flex space-x-4">
@@ -79,11 +79,13 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="font-semibold mb-4 text-white">Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Sales Management Software</Link></li>
-              <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Custom SaaS Development</Link></li>
-              <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">School Management Systems</Link></li>
-              <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Business Automation</Link></li>
-              <li><Link to="/services" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Meta Lead Ads Integration</Link></li>
+              <li><Link to="/services/sales-management-software" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Sales Management Software</Link></li>
+              <li><Link to="/services/saas-development" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Custom SaaS Development</Link></li>
+              <li><Link to="/services/school-management-system" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">School Management Systems</Link></li>
+              <li><Link to="/services/business-automation" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Business Automation</Link></li>
+              <li><Link to="/services/meta-lead-ads" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Meta Lead Ads Integration</Link></li>
+              <li><Link to="/services/whatsapp-business-platform" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">WhatsApp Business Platform</Link></li>
+              <li><Link to="/services/web-application-development" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Web Application Development</Link></li>
             </ul>
           </div>
 

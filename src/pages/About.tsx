@@ -30,8 +30,8 @@ const values = [
 
 const About: React.FC = () => {
   useSEO({
-    title: 'About Trovix — Custom Software Development Studio, Nagpur India',
-    description: 'Trovix is a software development studio in Nagpur, India. We build sales management software, SaaS platforms, and school management portals using React and .NET.',
+    title: 'About Trovix — Software & SaaS Technology Company, Nagpur India',
+    description: 'Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms, including WhatsApp Business Platform integrations. Based in Nagpur, India.',
     canonical: 'https://www.trovixtech.com/about',
   });
   return (
@@ -43,8 +43,11 @@ const About: React.FC = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
               About <span className="gradient-text">Trovix</span>
             </h1>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+              Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms for businesses and organizations.
+            </p>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Trovix is a custom software development studio based in Nagpur, Maharashtra, India. We build sales management software, SaaS platforms, school management portals, and automation tools for businesses that have outgrown their spreadsheets.
+              Trovix LLP is a registered Limited Liability Partnership based in Nagpur, Maharashtra, India. We build sales management software (CRM), SaaS platforms, school management portals, business automation, and WhatsApp Business Platform integrations for businesses that have outgrown their spreadsheets.
             </p>
           </div>
         </AnimatedSection>
@@ -65,7 +68,7 @@ const About: React.FC = () => {
                       Trovix was built to solve that specific problem. We build software that mirrors your exact process, integrates with the tools you already use, and is maintained long after it goes live.
                     </p>
                     <p>
-                      We focus on a narrow set of products — sales management software, school portals, SaaS platforms, and business automation — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
+                      We focus on a narrow set of products — CRM and sales management software, school portals, SaaS platforms, business automation, and customer communication tools including WhatsApp Business Platform integrations — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
                     </p>
                   </div>
                 </div>
@@ -94,11 +97,12 @@ const About: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold mb-4 text-white">What We Focus On</h3>
                   <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm">
-                    <li>Custom Web Application Development</li>
-                    <li>Enterprise Software Solutions</li>
+                    <li>Custom Software & SaaS Development</li>
+                    <li>CRM & Sales Management Systems</li>
+                    <li>Business & Workflow Automation</li>
+                    <li>Customer Communication & WhatsApp Business Platform Integration</li>
                     <li>API & Backend Architecture</li>
                     <li>Cloud-Ready Infrastructure</li>
-                    <li>Performance Optimization & Scalability</li>
                   </ul>
                 </div>
               </div>

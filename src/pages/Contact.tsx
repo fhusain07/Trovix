@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as Tabs from '@radix-ui/react-tabs';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Mail, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -89,18 +89,12 @@ const Contact: React.FC = () => {
       content: 'info@trovixtech.com',
       link: 'mailto:info@trovixtech.com',
     },
-    // {
-    //   icon: Phone,
-    //   title: 'WhatsApp / Phone',
-    //   content: '+91 89561 21778',
-    //   link: 'https://wa.me/918956121778?text=Hi%20Trovix%2C%20I%27d%20like%20to%20discuss%20a%20project.',
-    // },
-    // {
-    //   icon: Phone,
-    //   title: 'Alternate Phone',
-    //   content: '+91 93079 27612',
-    //   link: 'tel:+919307927612',
-    // },
+    {
+      icon: Phone,
+      title: 'WhatsApp / Phone',
+      content: '+91 89561 21778',
+      link: 'https://wa.me/918956121778?text=Hi%20Trovix%2C%20I%27d%20like%20to%20discuss%20a%20project.',
+    },
     {
       icon: MapPin,
       title: 'Location',
@@ -123,7 +117,7 @@ const Contact: React.FC = () => {
           </div>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
           {contactInfo.map((info, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <GlassCard hover={false} className="text-center">
@@ -270,6 +264,21 @@ const Contact: React.FC = () => {
               </GlassCard>
             </Tabs.Content>
           </Tabs.Root>
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.4}>
+          <GlassCard hover={false} className="max-w-3xl mx-auto mt-12 text-center text-sm text-muted-foreground">
+            <p>
+              <span className="font-semibold text-foreground">Trovix LLP</span> — a software and SaaS technology company registered in India as a Limited Liability Partnership. Nagpur, Maharashtra, India.
+            </p>
+            <p className="mt-2">
+              <Link to="/privacy-policy" className="text-gold hover:underline cursor-pointer">Privacy Policy</Link>
+              <span className="mx-2">·</span>
+              <Link to="/terms-of-service" className="text-gold hover:underline cursor-pointer">Terms of Service</Link>
+              <span className="mx-2">·</span>
+              <Link to="/account-deletion" className="text-gold hover:underline cursor-pointer">Data Deletion Instructions</Link>
+            </p>
+          </GlassCard>
         </AnimatedSection>
 
       </div>
