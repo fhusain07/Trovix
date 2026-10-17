@@ -1,21 +1,24 @@
-function App() {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0B0B1D] px-4 py-16">
-      <div className="flex flex-col items-center gap-6 text-center">
-        <div className="flex items-center gap-3">
-          <img
-            src="https://www.coderocket.app/logo-alternate.png"
-            alt="CodeRocket"
-            className="h-12 w-12"
-          />
-          <h1 className="text-[#FFFFFF] text-5xl font-bold">CodeRocket.app</h1>
-        </div>
-        <p className="text-[#FFFFFF] text-xl">
-          AI-powered Tailwind website builder
-        </p>
-      </div>
-    </div>
-  );
+import { lazy } from "react";
+import { SiteRoutes, type RoutePages } from "./routes";
+const pages: RoutePages = {
+  Home: lazy(() => import("@/pages/Home")),
+  Services: lazy(() => import("@/pages/Services")),
+  ServiceDetail: lazy(() => import("@/pages/ServiceDetail")),
+  Projects: lazy(() => import("@/pages/Projects")),
+  CaseStudy: lazy(() => import("@/pages/CaseStudy")),
+  About: lazy(() => import("@/pages/About")),
+  Technologies: lazy(() => import("@/pages/Technologies")),
+  Partners: lazy(() => import("@/pages/Partners")),
+  Contact: lazy(() => import("@/pages/Contact")),
+  Privacy: lazy(() => import("@/pages/PrivacyPolicy")),
+  Terms: lazy(() => import("@/pages/TermsOfService")),
+  AccountDeletion: lazy(() => import("@/pages/AccountDeletion")),
+  Careers: lazy(() => import("@/pages/Careers")),
+  ThankYou: lazy(() => import("@/pages/ThankYou")),
+  DraftPortfolio: import.meta.env.DEV
+    ? lazy(() => import("@/pages/DraftPortfolio"))
+    : null,
+};
+export default function App() {
+  return <SiteRoutes pages={pages} />;
 }
-
-export default App;

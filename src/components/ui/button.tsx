@@ -7,10 +7,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gold text-charcoal hover:bg-gold-dark shadow-lg hover:shadow-xl",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        default:
+          "bg-gold text-charcoal hover:bg-gold-dark shadow-lg hover:shadow-xl",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-gold underline-offset-4 hover:underline",
       },
@@ -25,10 +29,11 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
@@ -42,7 +47,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Button.displayName = "Button";
+// The shared variant factory is intentionally exported with the component.
+// eslint-disable-next-line react-refresh/only-export-components
 export { Button, buttonVariants };

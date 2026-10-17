@@ -1,136 +1,111 @@
-import React from 'react';
-import { Target, Code, MessageSquare, Handshake } from 'lucide-react';
-import { AnimatedSection } from '@/components/shared/AnimatedSection';
-import { GlassCard } from '@/components/shared/GlassCard';
-// import { FounderSection } from '@/components/sections/FounderSection';
-import { useSEO } from '@/hooks/useSEO';
-
-const values = [
-  {
-    icon: Target,
-    title: 'Custom Over Generic',
-    description: 'We build systems around your specific workflow — not the other way around. Every product is purpose-built.',
-  },
-  {
-    icon: Code,
-    title: 'Production Standards',
-    description: 'React + .NET + PostgreSQL. Clean architecture, typed code, tested endpoints, and documented APIs on every project.',
-  },
-  {
-    icon: MessageSquare,
-    title: 'Direct Communication',
-    description: 'You work directly with the developer. No project managers playing telephone — clear, fast decisions throughout.',
-  },
-  {
-    icon: Handshake,
-    title: 'Long-Term Partnership',
-    description: "We don't disappear after delivery. Post-launch support, maintenance, and WhatsApp access are part of every engagement.",
-  },
-];
-
-const About: React.FC = () => {
-  useSEO({
-    title: 'About Trovix — Software & SaaS Technology Company, Nagpur India',
-    description: 'Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms, including WhatsApp Business Platform integrations. Based in Nagpur, India.',
-    canonical: 'https://www.trovixtech.com/about',
-  });
+import { Check } from "lucide-react";
+import { services, site, technologies, differentiators } from "@/data/site";
+import {
+  ActionLink,
+  FinalCTA,
+  PageIntro,
+  SectionHeading,
+} from "@/components/shared/PageElements";
+import { HowWeWork } from "@/components/sections/HowWeWork";
+export default function About() {
   return (
-    <div className="min-h-screen pt-32 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
-              About <span className="gradient-text">Trovix</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
-              Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms for businesses and organizations.
+    <>
+      <PageIntro
+        eyebrow="MEET TROVIX"
+        title="Thoughtful engineering. Practical business progress."
+        description="Trovix is a software and SaaS technology company based in Nagpur, India. We focus on custom applications, CRM systems, communication integrations, and business workflow automation."
+      />
+      <section className="about-lead">
+        <div className="container">
+          <h2>Software should make your work clearer.</h2>
+          <p>
+            We build around the way people work: the information they need, the
+            decisions they make, and the tasks that slow them down. Our approach
+            connects considered interfaces with dependable backend systems,
+            using React, .NET Web API, and PostgreSQL.
+          </p>
+        </div>
+      </section>
+      <section className="container section">
+        <div className="mission-grid">
+          <article>
+            <p className="eyebrow">OUR MISSION</p>
+            <h2>Turn operational complexity into useful software.</h2>
+            <p>
+              Help businesses replace disconnected tools and repetitive tasks
+              with systems that reflect their needs, support their teams, and
+              can evolve over time.
             </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Trovix LLP is a registered Limited Liability Partnership based in Nagpur, Maharashtra, India. We build sales management software (CRM), SaaS platforms, school management portals, business automation, and WhatsApp Business Platform integrations for businesses that have outgrown their spreadsheets.
+          </article>
+          <article>
+            <p className="eyebrow">OUR VISION</p>
+            <h2>Technology that grows with the business it serves.</h2>
+            <p>
+              Make well-designed, maintainable software a practical foundation
+              for businesses and agencies building their next stage of growth.
             </p>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.2}>
-          <GlassCard className="mb-16">
-            <div className="space-y-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h2 className="text-2xl font-display font-bold mb-4">
-                    Why Trovix <span className="gradient-text">Exists</span>
-                  </h2>
-                  <div className="space-y-4 text-muted-foreground">
-                    <p>
-                      Most small businesses and growing companies hit the same wall: they're managing their operations in Excel, WhatsApp groups, and a mix of disconnected SaaS tools — none of which actually fits how they work.
-                    </p>
-                    <p>
-                      Trovix was built to solve that specific problem. We build software that mirrors your exact process, integrates with the tools you already use, and is maintained long after it goes live.
-                    </p>
-                    <p>
-                      We focus on a narrow set of products — CRM and sales management software, school portals, SaaS platforms, business automation, and customer communication tools including WhatsApp Business Platform integrations — because depth beats breadth. Every project we take on is something we've built before, in a domain we understand well.
-                    </p>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    { label: 'Projects Delivered', value: '10+' },
-                    { label: 'Years Building React + .NET', value: '3+' },
-                    { label: 'Average Project Timeline', value: '6–8 weeks' },
-                    { label: 'Response Time', value: 'Within 24 hours' },
-                  ].map((stat) => (
-                    <div key={stat.label} className="glass-effect rounded-xl px-6 py-4 flex items-center justify-between">
-                      <span className="text-muted-foreground text-sm">{stat.label}</span>
-                      <span className="font-bold text-gold">{stat.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-8 border-t border-slate-800/60 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-white">Our Mission</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Our mission is to engineer high-performance digital infrastructure that drives innovation, efficiency, and long-term growth. We combine modern frontend technologies, robust backend architectures, and cloud-native strategies to deliver reliable software solutions tailored to business needs.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-white">What We Focus On</h3>
-                  <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm">
-                    <li>Custom Software & SaaS Development</li>
-                    <li>CRM & Sales Management Systems</li>
-                    <li>Business & Workflow Automation</li>
-                    <li>Customer Communication & WhatsApp Business Platform Integration</li>
-                    <li>API & Backend Architecture</li>
-                    <li>Cloud-Ready Infrastructure</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </GlassCard>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.3}>
-          <h2 className="text-3xl sm:text-4xl font-display font-bold text-center mb-12">
-            How We <span className="gradient-text">Work</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {values.map((value, index) => (
-              <AnimatedSection key={index} delay={0.4 + index * 0.1}>
-                <GlassCard className="h-full text-center">
-                  <value.icon className="h-12 w-12 text-gold mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-                  <p className="text-muted-foreground text-sm">{value.description}</p>
-                </GlassCard>
-              </AnimatedSection>
+          </article>
+        </div>
+        <div className="about-capabilities">
+          <h2>What we focus on</h2>
+          <div className="tags">
+            {services.map((service) => (
+              <span key={service.slug}>{service.title}</span>
             ))}
           </div>
-        </AnimatedSection>
-
-        {/* <FounderSection /> */}
-
-      </div>
-    </div>
+        </div>
+      </section>
+      <section className="container section two-column">
+        <SectionHeading
+          eyebrow="ENGINEERING APPROACH"
+          title="Clear decisions. Maintainable foundations."
+          description="We prioritize scoped releases, documented interfaces, code review, testing, and a deliberate handover. Architecture choices follow the product’s requirements and constraints."
+        />
+        <ul className="check-list">
+          {differentiators.map(([title]) => (
+            <li key={title}>
+              <Check size={18} />
+              {title}
+            </li>
+          ))}
+        </ul>
+      </section>
+      <HowWeWork />
+      <section className="container section two-column">
+        <div>
+          <p className="eyebrow">OUR TOOLKIT</p>
+          <h2>Focused technical capabilities.</h2>
+          <div className="tags">
+            {technologies.map((tech) => (
+              <span key={tech.name}>{tech.name}</span>
+            ))}
+          </div>
+          <div className="hero-actions">
+            <ActionLink to="/technologies" secondary>
+              Explore technologies
+            </ActionLink>
+          </div>
+        </div>
+        <div>
+          <p className="eyebrow">LET’S CONNECT</p>
+          <h2>
+            Based in India.
+            <br />
+            Open to your next idea.
+          </h2>
+          <p className="section-description">
+            {site.location}
+            <br />
+            <a className="inline-link" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
+          </p>
+          <div className="hero-actions">
+            <ActionLink to="/contact">Start a conversation</ActionLink>
+          </div>
+        </div>
+      </section>
+      <FinalCTA />
+    </>
   );
-};
-export default About;
+}

@@ -1,98 +1,74 @@
-import React from 'react';
-import * as Accordion from '@radix-ui/react-accordion';
-import { ChevronDown } from 'lucide-react';
-import { AnimatedSection } from '@/components/shared/AnimatedSection';
-
+import type { ReactNode } from "react";
+import { Plus } from "lucide-react";
 export interface FAQItem {
   question: string;
   answer: string;
 }
-
-const defaultFAQs: FAQItem[] = [
+const defaults: FAQItem[] = [
   {
-    question: 'How long does a typical project take?',
+    question: "What does it cost to build custom software?",
     answer:
-      'Simple sales management software and automation tools typically take 4–6 weeks. School management portals and SaaS platforms with complex features take 8–16 weeks. We provide an accurate timeline in the proposal — not a vague range.',
+      "Cost depends on the workflows, integrations, user roles, and scope. We discuss priorities first and provide a proposal with an estimate and defined milestones. Rates and payment terms are agreed for each project.",
   },
   {
-    question: 'What does a project typically cost?',
+    question: "How long will my project take?",
     answer:
-      'Projects start from ₹50,000 for focused automation tools and simple sales management systems. Full school management systems and SaaS platforms typically range from ₹1,50,000–₹5,00,000 depending on scope. We provide a fixed-price quote upfront — no surprise invoices.',
+      "We estimate the schedule after reviewing requirements, dependencies, and delivery priorities. A focused first release can help you validate the product before committing to a wider roadmap.",
   },
   {
-    question: 'Do we own the code after delivery?',
+    question: "Can you support our agency behind the scenes?",
     answer:
-      "Completely. Upon final payment you receive the full source code and own it outright. We don't use proprietary platforms or lock you into a subscription with us. Host it anywhere, with any team.",
+      "White-label development, scoped project delivery, and technical collaboration are available engagement models. We agree on communication, confidentiality, responsibilities, and availability before starting.",
   },
   {
-    question: 'How do payments work?',
+    question: "Can you help after launch?",
     answer:
-      'We use a milestone-based structure — typically 30% on project kickoff, 40% at the mid-project demo, and 30% on final delivery. This protects both parties. We accept bank transfer, UPI, and international wire.',
+      "We can discuss ongoing maintenance, monitoring, and improvements. Coverage, availability, and any support commitments are documented in the engagement agreement.",
   },
   {
-    question: 'Do you offer post-launch support?',
+    question: "Can we discuss a confidential idea?",
     answer:
-      'Yes. Every project includes 30 days of free bug fixes after launch. Beyond that, we offer monthly maintenance packages covering hosting management, feature updates, and priority WhatsApp support.',
-  },
-  {
-    question: 'Can you work in our timezone?',
-    answer:
-      "We're based in Nagpur, India (IST, UTC+5:30). For international clients we schedule discovery and review calls during overlapping hours and manage day-to-day communication asynchronously via WhatsApp and email.",
-  },
-  {
-    question: 'Do you sign NDAs?',
-    answer:
-      "Yes. We sign NDAs before any project discussion when requested. Our standard client agreement includes a confidentiality clause — your business data, processes, and project details are always kept private.",
-  },
-  {
-    question: 'Can you integrate with tools we already use?',
-    answer:
-      "Yes. We commonly integrate with WhatsApp Business API, Razorpay, Stripe, Google Workspace, Meta Ads, Zoho, and custom REST APIs. Tell us what you use during the discovery call and we'll confirm compatibility.",
+      "Raise any NDA or confidentiality requirements before sharing sensitive material. We can review the required agreement and access arrangements as part of discovery.",
   },
 ];
-
-interface FAQSectionProps {
-  faqs?: FAQItem[];
-  heading?: React.ReactNode;
-}
-
-export const FAQSection: React.FC<FAQSectionProps> = ({
-  faqs = defaultFAQs,
+export function FAQSection({
+  faqs = defaults,
   heading,
-}) => (
-  <AnimatedSection>
-    <section className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
+}: {
+  faqs?: FAQItem[];
+  heading?: ReactNode;
+}) {
+  return (
+    <section className="container section faq-section">
+      <div>
+        <p className="eyebrow">
+          <span />A FEW THINGS YOU MIGHT ASK
+        </p>
         {heading ?? (
-          <h2 className="text-3xl sm:text-4xl font-display font-bold">
-            Frequently Asked <span className="gradient-text">Questions</span>
+          <h2>
+            Let’s clear
+            <br />a few things up.
           </h2>
         )}
+        <p className="section-description">
+          Have something else in mind?
+          <br />
+          <a className="inline-link" href="mailto:info@trovixtech.com">
+            We’re happy to talk.
+          </a>
+        </p>
       </div>
-
-      <Accordion.Root type="single" collapsible className="space-y-3">
-        {faqs.map((faq, index) => (
-          <Accordion.Item
-            key={index}
-            value={`faq-${index}`}
-            className="glass-effect rounded-xl overflow-hidden"
-          >
-            <Accordion.Header asChild>
-              <div>
-                <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold hover:text-gold transition-colors">
-                  <span>{faq.question}</span>
-                  <ChevronDown className="h-5 w-5 flex-shrink-0 text-gold transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                </Accordion.Trigger>
-              </div>
-            </Accordion.Header>
-            <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-              <p className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">
-                {faq.answer}
-              </p>
-            </Accordion.Content>
-          </Accordion.Item>
+      <div className="faq-list">
+        {faqs.map((faq) => (
+          <details key={faq.question}>
+            <summary>
+              {faq.question}
+              <Plus size={18} aria-hidden="true" />
+            </summary>
+            <p>{faq.answer}</p>
+          </details>
         ))}
-      </Accordion.Root>
+      </div>
     </section>
-  </AnimatedSection>
-);
+  );
+}

@@ -4,12 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "typecheck": "tsc --noEmit",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
+    "dev": "vite --config vite.config.ts",
+    "typecheck": "tsc --noEmit && tsc --noEmit --strict --noUnusedLocals --noUnusedParameters",
+    "build": "tsc -b && vite build --config vite.config.ts && node scripts/prerender.mjs",
+    "preview": "node scripts/preview.mjs",
     "lint": "eslint . --ext ts,tsx",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\""
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",

@@ -1,289 +1,62 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import * as Tabs from '@radix-ui/react-tabs';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { AnimatedSection } from '@/components/shared/AnimatedSection';
-import { GlassCard } from '@/components/shared/GlassCard';
-import { CalendlyEmbed } from '@/components/shared/CalendlyEmbed';
-import { useSEO } from '@/hooks/useSEO';
-import { trackEvent } from '@/lib/analytics';
-
-// Sign up at https://formspree.io, create a form, and replace this with your form ID.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID';
-
-interface ContactFormValues {
-  name: string;
-  email: string;
-  company: string;
-  phone: string;
-  message: string;
-}
-
-type FormStatus = 'idle' | 'success' | 'error';
-
-const validationSchema = Yup.object({
-  name: Yup.string()
-    .min(2, 'Name must be at least 2 characters')
-    .required('Name is required'),
-  email: Yup.string()
-    .email('Invalid email address')
-    .required('Email is required'),
-  company: Yup.string()
-    .min(2, 'Company name must be at least 2 characters'),
-  phone: Yup.string()
-    .matches(/^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/, 'Invalid phone number'),
-  message: Yup.string()
-    .min(10, 'Message must be at least 10 characters')
-    .required('Message is required'),
-});
-
-const Contact: React.FC = () => {
-  const navigate = useNavigate();
-  const [formStatus, setFormStatus] = useState<FormStatus>('idle');
-
-  useSEO({
-    title: 'Contact Trovix — Book a Free Discovery Call',
-    description: 'Book a free 30-minute discovery call or send us a message. We reply within 24 hours with a free project estimate. No commitment required.',
-    canonical: 'https://www.trovixtech.com/contact',
-  });
-
-  const formik = useFormik<ContactFormValues>({
-    initialValues: {
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      message: '',
-    },
-    validationSchema,
-    onSubmit: async (values, { setSubmitting, resetForm }) => {
-      setFormStatus('idle');
-      try {
-        const response = await fetch(FORMSPREE_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(values),
-        });
-        if (!response.ok) throw new Error('Submission failed');
-        trackEvent('contact_form_submitted');
-        resetForm();
-        navigate('/thank-you');
-      } catch {
-        setFormStatus('error');
-      } finally {
-        setSubmitting(false);
-      }
-    },
-  });
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      content: 'info@trovixtech.com',
-      link: 'mailto:info@trovixtech.com',
-    },
-    {
-      icon: Phone,
-      title: 'WhatsApp / Phone',
-      content: '+91 89561 21778',
-      link: 'https://wa.me/918956121778?text=Hi%20Trovix%2C%20I%27d%20like%20to%20discuss%20a%20project.',
-    },
-    {
-      icon: MapPin,
-      title: 'Location',
-      content: 'Nagpur, Maharashtra, India',
-      link: 'https://maps.google.com/?q=Nagpur,+Maharashtra,+India',
-    },
-  ];
-
+import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { site } from "@/data/site";
+import { PageIntro } from "@/components/shared/PageElements";
+import { InquiryForm } from "@/components/forms/InquiryForm";
+export default function Contact() {
   return (
-    <div className="min-h-screen pt-32 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection>
-          <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
-              Get in <span className="gradient-text">Touch</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Tell us about your project and we'll get back to you within 24 hours with a free estimate. No commitment required.
+    <>
+      <PageIntro
+        eyebrow="LET’S TALK"
+        title="Your next step starts with a conversation."
+        description="Tell us what you’re building, what needs to work better, or where you could use a technical partner. A rough idea is a perfectly good place to start."
+      />
+      <section className="container inquiry-layout">
+        <aside className="contact-aside">
+          <h2>
+            Bring the challenge.
+            <br />
+            We’ll explore the possibilities.
+          </h2>
+          <p>
+            Share a little context about your business and your priorities.
+            Scope, cost, availability, and delivery milestones are agreed after
+            we understand the project.
+          </p>
+          <div className="contact-method">
+            <Mail size={19} />
+            <div>
+              <span>EMAIL US</span>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </div>
+          </div>
+          <div className="contact-method">
+            <MessageCircle size={19} />
+            <div>
+              <span>START ON WHATSAPP</span>
+              <a href={site.whatsapp} target="_blank" rel="noopener noreferrer">
+                +91 89561 21778
+              </a>
+            </div>
+          </div>
+          <div className="contact-method">
+            <MapPin size={19} />
+            <div>
+              <span>BASED IN</span>
+              <p>{site.location}</p>
+            </div>
+          </div>
+          <div className="editorial-notice">
+            <p>
+              Looking for white-label development or technical delivery support?{" "}
+              <Link className="inline-link" to="/partners">
+                Explore agency partnerships.
+              </Link>
             </p>
           </div>
-        </AnimatedSection>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-          {contactInfo.map((info, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <GlassCard hover={false} className="text-center">
-                <info.icon className="h-10 w-10 text-gold mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">{info.title}</h3>
-                <a
-                  href={info.link}
-                  target={info.link.startsWith('http') ? '_blank' : undefined}
-                  rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-muted-foreground hover:text-gold transition-colors cursor-pointer text-sm"
-                >
-                  {info.content}
-                </a>
-              </GlassCard>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        <AnimatedSection delay={0.3}>
-          <Tabs.Root defaultValue="call" className="w-full">
-            <Tabs.List className="flex glass-effect rounded-xl p-1 mb-8 max-w-xs mx-auto">
-              <Tabs.Trigger
-                value="call"
-                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-gold data-[state=active]:text-charcoal cursor-pointer"
-              >
-                Book a Call
-              </Tabs.Trigger>
-              <Tabs.Trigger
-                value="message"
-                className="flex-1 py-2 px-4 rounded-lg text-sm font-medium text-muted-foreground transition-all data-[state=active]:bg-gold data-[state=active]:text-charcoal cursor-pointer"
-              >
-                Send a Message
-              </Tabs.Trigger>
-            </Tabs.List>
-
-            <Tabs.Content value="call">
-              <div className="max-w-3xl mx-auto">
-                <GlassCard className="p-0 overflow-hidden">
-                  <div className="p-6 border-b border-border">
-                    <h2 className="text-xl font-display font-bold text-center">Book a Free 30-Minute Discovery Call</h2>
-                    <p className="text-sm text-muted-foreground text-center mt-1">
-                      Pick a time that works for you — we'll discuss your project, ask the right questions, and give you honest advice.
-                    </p>
-                  </div>
-                  <CalendlyEmbed />
-                </GlassCard>
-              </div>
-            </Tabs.Content>
-
-            <Tabs.Content value="message">
-              <GlassCard className="max-w-3xl mx-auto">
-                <h2 className="text-2xl font-display font-bold mb-2 text-center">Send Us a Message</h2>
-                <p className="text-sm text-muted-foreground text-center mb-6">We reply within 24 hours.</p>
-
-                {formStatus === 'error' && (
-                  <div className="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm text-center">
-                    Something went wrong. Please email us directly at{' '}
-                    <a href="mailto:info@trovixtech.com" className="underline">
-                      info@trovixtech.com
-                    </a>
-                  </div>
-                )}
-
-                <form onSubmit={formik.handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="John Doe"
-                        value={formik.values.name}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.name && formik.errors.name ? formik.errors.name : undefined}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="john@example.com"
-                        value={formik.values.email}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.email && formik.errors.email ? formik.errors.email : undefined}
-                      />
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="company">Company</Label>
-                      <Input
-                        id="company"
-                        name="company"
-                        type="text"
-                        placeholder="Your Company"
-                        value={formik.values.company}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.company && formik.errors.company ? formik.errors.company : undefined}
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="phone">WhatsApp / Phone</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="+91 98765 43210"
-                        value={formik.values.phone}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        error={formik.touched.phone && formik.errors.phone ? formik.errors.phone : undefined}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <Label htmlFor="message">Tell us about your project *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Describe what you need — e.g. 'I need a sales management system for my 5-person sales team to track 200 leads per month' or 'I run a school with 300 students and need a fee and attendance system'."
-                      rows={6}
-                      value={formik.values.message}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      error={formik.touched.message && formik.errors.message ? formik.errors.message : undefined}
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full cursor-pointer"
-                    disabled={formik.isSubmitting}
-                  >
-                    {formik.isSubmitting ? 'Sending...' : 'Send Message'}
-                    <Send className="ml-2 h-5 w-5" />
-                  </Button>
-                </form>
-              </GlassCard>
-            </Tabs.Content>
-          </Tabs.Root>
-        </AnimatedSection>
-
-        <AnimatedSection delay={0.4}>
-          <GlassCard hover={false} className="max-w-3xl mx-auto mt-12 text-center text-sm text-muted-foreground">
-            <p>
-              <span className="font-semibold text-foreground">Trovix LLP</span> — a software and SaaS technology company registered in India as a Limited Liability Partnership. Nagpur, Maharashtra, India.
-            </p>
-            <p className="mt-2">
-              <Link to="/privacy-policy" className="text-gold hover:underline cursor-pointer">Privacy Policy</Link>
-              <span className="mx-2">·</span>
-              <Link to="/terms-of-service" className="text-gold hover:underline cursor-pointer">Terms of Service</Link>
-              <span className="mx-2">·</span>
-              <Link to="/account-deletion" className="text-gold hover:underline cursor-pointer">Data Deletion Instructions</Link>
-            </p>
-          </GlassCard>
-        </AnimatedSection>
-
-      </div>
-    </div>
+        </aside>
+        <InquiryForm kind="project" />
+      </section>
+    </>
   );
-};
-
-export default Contact;
+}

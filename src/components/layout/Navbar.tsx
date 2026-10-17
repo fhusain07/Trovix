@@ -1,131 +1,112 @@
-﻿import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
-import { Button } from '@/components/ui/button';
-import { BrandLogo } from '@/theme/BrandLogo';
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { BrandLogo } from "@/theme/BrandLogo";
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Careers', path: '/careers' },
-  { name: 'Contact', path: '/contact' },
+  ["Services", "/services"],
+  ["Our Work", "/portfolio"],
+  ["About", "/about"],
+  ["Technologies", "/technologies"],
+  ["For Agencies", "/partners"],
 ];
-
-export const Navbar: React.FC = () => {
+export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const location = useLocation();
-
+  const toggle = useRef<HTMLButtonElement>(null);
+  const panel = useRef<HTMLElement>(null);
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    if (!isOpen) return;
+    panel.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        toggle.current?.focus();
+      }
+      if (event.key === "Tab") {
+        const elements = [
+          toggle.current,
+          ...Array.from(
+            panel.current?.querySelectorAll<HTMLAnchorElement>("a") ?? [],
+          ),
+        ].filter(Boolean) as HTMLElement[];
+        const first = elements[0];
+        const last = elements[elements.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        }
+        if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+    const closeOnDesktop = () => {
+      if (window.innerWidth >= 1100) setIsOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+    window.addEventListener("resize", closeOnDesktop);
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      window.removeEventListener("resize", closeOnDesktop);
+    };
+  }, [isOpen]);
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link to="/" className="group cursor-pointer">
-            <BrandLogo className="group-hover:scale-110 transition-transform" />
+    <header className="site-header">
+      <div className="container header-inner">
+        <Link to="/" aria-label="Trovix home" onClick={() => setIsOpen(false)}>
+          <BrandLogo size={34} wordmarkClassName="brand-wordmark" />
+        </Link>
+        <nav className="desktop-navigation" aria-label="Main navigation">
+          {navLinks.map(([label, to]) => (
+            <NavLink key={to} to={to}>
+              {label}
+            </NavLink>
+          ))}
+        </nav>
+        <div className="header-actions">
+          <button
+            className="icon-button theme-toggle"
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+          >
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+          <Link to="/contact" className="header-cta">
+            Let’s Talk
+            <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
-
-          <div className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium transition-colors cursor-pointer hover:text-gold ${location.pathname === link.path
-                    ? 'text-gold'
-                    : 'text-foreground/70'
-                  }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="cursor-pointer"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-            <Link to="/contact">
-              <Button size="sm" className="cursor-pointer">
-                Book a Free Call
-              </Button>
-            </Link>
-          </div>
-
-          <div className="md:hidden flex items-center space-x-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="cursor-pointer"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className="cursor-pointer"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
+          <button
+            ref={toggle}
+            type="button"
+            className="icon-button menu-toggle"
+            aria-label={isOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
         </div>
       </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-effect border-t border-border"
-          >
-            <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`block py-2 text-base font-medium transition-colors cursor-pointer ${location.pathname === link.path
-                      ? 'text-gold'
-                      : 'text-foreground/70 hover:text-gold'
-                    }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
-                <Button className="cursor-pointer w-full mt-2">
-                  Book a Free Call
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+      {isOpen && (
+        <nav
+          id="mobile-navigation"
+          className="mobile-navigation"
+          ref={panel}
+          aria-label="Mobile navigation"
+        >
+          {[...navLinks, ["Contact", "/contact"]].map(([label, to]) => (
+            <NavLink key={to} to={to} onClick={() => setIsOpen(false)}>
+              {label}
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </NavLink>
+          ))}
+        </nav>
+      )}
+    </header>
   );
-};
+}

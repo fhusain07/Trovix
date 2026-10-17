@@ -1,110 +1,65 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Github, Linkedin, Mail } from 'lucide-react';
-import { BrandLogo } from '@/theme/BrandLogo';
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import { BrandLogo } from "@/theme/BrandLogo";
+import { services, site } from "@/data/site";
 
-const XIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-    className={className}
-  >
-    <path d="M18.244 2H21.5l-7.59 8.67L23 22h-7.16l-5.6-7.31L3.6 22H.34l8.11-9.27L1 2h7.29l5.05 6.61L18.244 2Zm-2.51 18h1.98L8.09 4h-2l9.644 16Z" />
-  </svg>
-);
-
-export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+export function Footer() {
   return (
-    <footer className="bg-charcoal text-white mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <BrandLogo />
-            <p className="text-sm text-gray-400">
-              Trovix LLP — a software &amp; SaaS technology company building CRM, communication, and workflow automation platforms.<br />
-              Based in Nagpur, India. Founded in 2025.
-            </p>
-            <div className="flex space-x-4">
-              <a
-                href="https://x.com/trovixtech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gold transition-colors cursor-pointer"
-                aria-label="X (Twitter)"
-              >
-                <XIcon className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/trovix-tech/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gold transition-colors cursor-pointer"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="https://github.com/trovixtech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-gold transition-colors cursor-pointer"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="mailto:info@trovixtech.com"
-                className="text-gray-400 hover:text-gold transition-colors cursor-pointer"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4 text-white">Company</h3>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">About Us</Link></li>
-              <li><Link to="/careers" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Careers</Link></li>
-              <li><Link to="/projects" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Our Work</Link></li>
-              <li><Link to="/privacy-policy" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Terms of Service</Link></li>
-              <li><Link to="/account-deletion" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Data Deletion Instructions</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4 text-white">Services</h3>
-            <ul className="space-y-2">
-              <li><Link to="/services/sales-management-software" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Sales Management Software</Link></li>
-              <li><Link to="/services/saas-development" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Custom SaaS Development</Link></li>
-              <li><Link to="/services/school-management-system" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">School Management Systems</Link></li>
-              <li><Link to="/services/business-automation" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Business Automation</Link></li>
-              <li><Link to="/services/meta-lead-ads" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Meta Lead Ads Integration</Link></li>
-              <li><Link to="/services/whatsapp-business-platform" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">WhatsApp Business Platform</Link></li>
-              <li><Link to="/services/web-application-development" className="text-sm text-gray-400 hover:text-gold transition-colors cursor-pointer">Web Application Development</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4 text-white">Contact</h3>
-            <ul className="space-y-2">
-              <li className="text-sm text-gray-400">info@trovixtech.com</li>
-              {/* <li className="text-sm text-gray-400">+91 89561 21778</li> */}
-              {/* <li className="text-sm text-gray-400">+91 93079 27612</li> */}
-              <li className="text-sm text-gray-400">Nagpur, Maharashtra, India</li>
-              <li><Link to="/contact" className="text-sm text-gold hover:underline cursor-pointer">Get in Touch →</Link></li>
-            </ul>
-          </div>
+    <footer className="site-footer">
+      <div className="container footer-grid">
+        <div className="footer-brand">
+          <Link to="/" aria-label="Trovix home">
+            <BrandLogo size={35} wordmarkClassName="brand-wordmark" />
+          </Link>
+          <p>
+            Thoughtful software.
+            <br />
+            Real business progress.
+          </p>
+          <a href={`mailto:${site.email}`}>
+            {site.email}
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+          <span>{site.location}</span>
         </div>
-
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-gray-400">
-          <p>&copy; {currentYear} Trovix. All rights reserved.</p>
+        <div>
+          <h2>Explore</h2>
+          <Link to="/about">About Trovix</Link>
+          <Link to="/portfolio">Our work</Link>
+          <Link to="/technologies">Technologies</Link>
+          <Link to="/partners">Agency partnerships</Link>
+          <Link to="/careers">Careers</Link>
+          <Link to="/contact">Contact us</Link>
         </div>
+        <div>
+          <h2>What we build</h2>
+          {services.map((service) => (
+            <Link key={service.slug} to={`/services/${service.slug}`}>
+              {service.shortTitle}
+            </Link>
+          ))}
+        </div>
+        <div className="footer-note">
+          <p className="eyebrow">A TECHNICAL PARTNER</p>
+          <h2>Good things start with a conversation.</h2>
+          <Link className="text-link" to="/contact">
+            Tell us what you’re thinking
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </Link>
+        </div>
+      </div>
+      <div className="container footer-bottom">
+        <span>© {new Date().getFullYear()} Trovix. All rights reserved.</span>
+        <div>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms">Terms & Conditions</Link>
+          <Link to="/account-deletion">Data Deletion</Link>
+        </div>
+        <span className="footer-location">
+          <span />
+          Built with purpose, in India.
+        </span>
       </div>
     </footer>
   );
-};
+}

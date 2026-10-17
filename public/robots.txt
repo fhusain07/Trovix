@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-
 Disallow: /thank-you
-
+Disallow: /__review
 Sitemap: https://www.trovixtech.com/sitemap.xml

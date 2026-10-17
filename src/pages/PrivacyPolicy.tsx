@@ -5,7 +5,7 @@ const PrivacyPolicy: React.FC = () => {
   const lastUpdated = 'July 14, 2026';
 
   return (
-    <main className="pt-24 pb-20">
+    <div className="container legal-copy">
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="mb-8">
           <h1 className="text-4xl sm:text-5xl font-display font-bold mb-4">Privacy Policy</h1>
@@ -537,7 +537,7 @@ const PrivacyPolicy: React.FC = () => {
           </p>
         </footer>
       </section>
-    </main>
+    </div>
   );
 };
 

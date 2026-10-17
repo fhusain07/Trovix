@@ -1,38 +1,33 @@
-﻿import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-
-const WHATSAPP_URL =
-  'https://wa.me/918956121778?text=Hi%20Trovix%2C%20I%27d%20like%20to%20discuss%20a%20project.';
-
-export const StickyMobileCTA: React.FC = () => {
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { site } from "@/data/site";
+export function StickyMobileCTA() {
   const [visible, setVisible] = useState(false);
-
+  const { pathname } = useLocation();
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const onScroll = () => setVisible(window.scrollY > 500);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  if (!visible) return null;
-
+  if (!visible || pathname === "/contact" || pathname === "/partners")
+    return null;
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden glass-effect border-t border-border p-3 flex gap-2">
-      <Link to="/contact" className="flex-1">
-        <Button size="sm" className="w-full cursor-pointer text-xs font-semibold">
-          Book a Free Call
-        </Button>
+    <div className="mobile-cta">
+      <Link to="/contact" className="action action-primary">
+        Discuss Your Project
+        <ArrowUpRight size={14} />
       </Link>
       <a
-        href={WHATSAPP_URL}
+        className="action action-secondary"
+        href={site.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex-1"
       >
-        <Button size="sm" variant="outline" className="w-full cursor-pointer text-xs font-semibold">
-          WhatsApp Us
-        </Button>
+        <MessageCircle size={14} />
+        WhatsApp us
       </a>
     </div>
   );
-};
+}

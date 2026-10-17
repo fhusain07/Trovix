@@ -1,135 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
-    <!-- Browser-chrome color read before any CSS/JS runs, so it can't derive from
-         theme.css at runtime — must stay a literal. Keep in sync with --brand-gold
-         in src/theme/theme.css (currently #D4AF37) if that value ever changes. -->
-    <meta name="theme-color" content="#D4AF37" />
-    <meta name="author" content="Trovix" />
-    <!-- Google Search Console — replace with your verification code from Search Console -->
-    <meta name="google-site-verification" content="REPLACE_WITH_SEARCH_CONSOLE_CODE" />
-    <meta name="description" content="Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms — including WhatsApp Business Platform integrations — using React and .NET. Based in Nagpur, India." />
-    <meta name="keywords" content="software and SaaS technology company, CRM software India, WhatsApp Business Platform integration, business automation India, custom SaaS development, school management system software, React .NET development company" />
-    <meta property="og:title" content="Trovix — Software, SaaS, CRM & WhatsApp Business Automation" />
-    <meta property="og:description" content="Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms, including WhatsApp Business Platform integrations. Based in Nagpur, India." />
+    <meta name="theme-color" content="#101210" />
+    <meta
+      name="description"
+      content="Trovix builds custom software, SaaS applications, CRM systems, and business automation using React and .NET. Based in Nagpur, India."
+    />
+    <meta
+      property="og:title"
+      content="Custom Software, SaaS &amp; CRM Development | Trovix"
+    />
+    <meta
+      property="og:description"
+      content="Thoughtful software. Real business progress. Custom development, SaaS, CRM, and business automation from Trovix."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.trovixtech.com" />
+    <meta property="og:site_name" content="Trovix" />
+    <meta property="og:url" content="https://www.trovixtech.com/" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:image" content="https://www.trovixtech.com/og-image.png" />
+    <meta
+      property="og:image"
+      content="https://www.trovixtech.com/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Trovix — thoughtful software, real business progress."
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Trovix — Software, SaaS, CRM & WhatsApp Business Automation" />
-    <meta name="twitter:description" content="Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms, including WhatsApp Business Platform integrations." />
-    <meta name="twitter:image" content="https://www.trovixtech.com/og-image.png" />
-    <link rel="canonical" href="https://www.trovixtech.com" />
+    <meta
+      name="twitter:title"
+      content="Custom Software, SaaS &amp; CRM Development | Trovix"
+    />
+    <meta
+      name="twitter:description"
+      content="Thoughtful software. Real business progress. Custom development, SaaS, CRM, and business automation from Trovix."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.trovixtech.com/og-image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Trovix — thoughtful software, real business progress."
+    />
+    <link rel="canonical" href="https://www.trovixtech.com/" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/trovix-icon-16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/trovix-icon-32.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/trovix-icon-192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/trovix-icon-512.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/trovix-icon-180.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/trovix-icon-32.png"
+    />
+    <link rel="apple-touch-icon" href="/trovix-icon-180.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <title>Trovix — Software, SaaS, CRM & WhatsApp Business Automation | India</title>
-
-    <!-- Structured Data: WebSite + Organization + LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "WebSite",
-          "@id": "https://www.trovixtech.com/#website",
-          "url": "https://www.trovixtech.com",
-          "name": "Trovix",
-          "description": "Software and SaaS technology company building CRM, communication, and workflow automation platforms for growing businesses",
-          "publisher": { "@id": "https://www.trovixtech.com/#organization" },
-          "inLanguage": "en-IN"
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://www.trovixtech.com/#organization",
-          "name": "Trovix",
-          "url": "https://www.trovixtech.com",
-          "logo": "https://www.trovixtech.com/og-image.png",
-          "email": "info@trovixtech.com",
-          "telephone": "+918956121778",
-          "foundingDate": "2025",
-          "description": "Trovix is a software and SaaS technology company building CRM, communication, and workflow automation platforms, including WhatsApp Business Platform integrations, using React and .NET. Based in Nagpur, India.",
-          "sameAs": [
-            "https://www.linkedin.com/company/trovix-tech",
-            "https://github.com/trovixtech",
-            "https://x.com/trovixtech"
-          ]
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://www.trovixtech.com/#localbusiness",
-          "name": "Trovix",
-          "url": "https://www.trovixtech.com",
-          "email": "info@trovixtech.com",
-          "telephone": "+918956121778",
-          "priceRange": "₹₹",
-          "description": "CRM and custom software systems, SaaS platforms, business and workflow automation, WhatsApp Business Platform integrations, and school management portals built with React, .NET, and PostgreSQL.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Nagpur",
-            "addressRegion": "Maharashtra",
-            "addressCountry": "IN"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "21.1458",
-            "longitude": "79.0882"
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "Worldwide"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Software Development Services",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sales Management Software" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom SaaS Development" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "School Management Systems" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Automation" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Lead Ads Integration" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Application Development" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WhatsApp Business Platform Integration" } }
-            ]
-          }
-        }
-      ]
-    }
-    </script>
-
-    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID from analytics.google.com -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', { anonymize_ip: true });
-    </script>
-
-    <!-- Microsoft Clarity — replace YOUR_CLARITY_ID with your project ID from clarity.microsoft.com -->
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
-    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Custom Software, SaaS &amp; CRM Development | Trovix</title>
+    <!--page-schema-->
   </head>
   <body>
     <div id="root"></div>
+    <noscript
+      ><p style="padding: 20px">
+        Interactive navigation and forms require JavaScript. You can contact
+        Trovix at <a href="mailto:info@trovixtech.com">info@trovixtech.com</a>.
+      </p></noscript
+    >
     <script type="module" src="/src/main.tsx"></script>
-    <!-- CODEROCKET -->
-    <!-- /CODEROCKET -->
   </body>
 </html>
