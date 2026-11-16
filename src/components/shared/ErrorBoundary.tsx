@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import { BrandLogo } from '@/theme/BrandLogo';
 
 interface Props {
   children: React.ReactNode;
@@ -32,7 +33,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
       return (
         <div className="min-h-screen flex items-center justify-center px-4 bg-background">
           <div className="text-center max-w-md">
-            <div className="text-6xl font-display font-bold text-gold mb-4">Oops</div>
+            <BrandLogo className="mb-6" />
             <h1 className="text-2xl font-display font-bold mb-3">Something went wrong</h1>
             <p className="text-muted-foreground mb-8 text-sm">
               An unexpected error occurred. Please try reloading the page or go back to the homepage.
@@ -40,7 +41,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                 onClick={this.handleReset}
-                className="px-6 py-2.5 rounded-lg bg-gold text-charcoal text-sm font-medium hover:bg-gold/90 transition-colors cursor-pointer"
+                className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary-hover transition-colors cursor-pointer"
               >
                 Try Again
               </button>

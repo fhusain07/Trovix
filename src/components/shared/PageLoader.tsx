@@ -1,4 +1,5 @@
 import React from 'react';
+import { logoAssets } from '@/theme/logoAssets';
 
 export const PageLoader: React.FC = () => (
   <div
@@ -7,6 +8,7 @@ export const PageLoader: React.FC = () => (
     aria-label="Loading page"
   >
     <div className="flex flex-col items-center gap-4">
+      <img src={logoAssets.iconBadge} alt="" width={64} height={64} aria-hidden="true" />
       <div className="relative w-12 h-12">
         <div className="absolute inset-0 rounded-full border-2 border-gold/20" />
         <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold animate-spin" />

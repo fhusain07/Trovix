@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <Link to="/" aria-label="Trovix home">
-            <BrandLogo size={35} wordmarkClassName="brand-wordmark" />
+            <BrandLogo className="brand-logo-footer" />
           </Link>
           <p>
             Thoughtful software.

@@ -25,7 +25,7 @@ const TermsOfService: React.FC = () => {
             <p>
               By accessing our website, creating an account, or otherwise using any Trovix LLP Service,
               you agree to be bound by these Terms and by our{' '}
-              <a href="/privacy-policy" className="text-gold hover:underline">Privacy Policy</a>,
+              <a href="/privacy-policy" className="text-brand-ink hover:underline">Privacy Policy</a>,
               which is incorporated into these Terms by reference. If you are entering into these Terms
               on behalf of a company, institution, or other legal entity, you represent that you have the
               authority to bind that entity, in which case "you" and "your" refers to that entity.
@@ -58,7 +58,7 @@ const TermsOfService: React.FC = () => {
               current, and complete information during registration and to keep it up to date. You are
               responsible for maintaining the confidentiality of your account credentials and for all
               activity that occurs under your account. You must notify us promptly at{' '}
-              <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
+              <a href="mailto:info@trovixtech.com" className="text-brand-ink hover:underline">
                 info@trovixtech.com
               </a>{' '}
               if you become aware of any unauthorized use of your account. We reserve the right to
@@ -285,7 +285,7 @@ const TermsOfService: React.FC = () => {
               Upon termination, your right to access and use the Services will end, and fees accrued but
               unpaid as of the effective date of termination will remain due. Handling of Customer Data
               following termination, including export and deletion, is addressed in our{' '}
-              <a href="/privacy-policy" className="text-gold hover:underline">Privacy Policy</a>.
+              <a href="/privacy-policy" className="text-brand-ink hover:underline">Privacy Policy</a>.
               Sections of these Terms that by their nature should survive termination — including
               Intellectual Property, Confidentiality, Disclaimer, Limitation of Liability, Indemnification,
               and Governing Law — will survive.
@@ -408,14 +408,14 @@ const TermsOfService: React.FC = () => {
               Trovix LLP<br />
               Nagpur, Maharashtra, India<br />
               Email:{' '}
-              <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
+              <a href="mailto:info@trovixtech.com" className="text-brand-ink hover:underline">
                 info@trovixtech.com
               </a>
               <br />
               Website:{' '}
               <a
                 href="https://www.trovixtech.com"
-                className="text-gold hover:underline"
+                className="text-brand-ink hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >

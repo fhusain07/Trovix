@@ -21,7 +21,7 @@ export const FounderSection: React.FC = () => (
           {/* Bio */}
           <div className="flex-1 text-center md:text-left">
             <h3 className="text-2xl font-display font-bold mb-1">Faizan Hussain</h3>
-            <p className="text-gold text-sm font-semibold mb-5">
+            <p className="text-brand-ink text-sm font-semibold mb-5">
               Founder &amp; Lead Developer — Trovix · Nagpur, India
             </p>
             <p className="text-muted-foreground mb-4 leading-relaxed">
@@ -35,7 +35,7 @@ export const FounderSection: React.FC = () => (
                 href="https://linkedin.com/in/faizanhussain"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-brand-ink transition-colors"
                 aria-label="Faizan Hussain on LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
@@ -45,7 +45,7 @@ export const FounderSection: React.FC = () => (
                 href="https://github.com/fhusain07"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-brand-ink transition-colors"
                 aria-label="Faizan Hussain on GitHub"
               >
                 <Github className="h-4 w-4" />
@@ -53,7 +53,7 @@ export const FounderSection: React.FC = () => (
               </a>
               <a
                 href="mailto:info@trovixtech.com"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-gold transition-colors"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-brand-ink transition-colors"
               >
                 <Mail className="h-4 w-4" />
                 info@trovixtech.com

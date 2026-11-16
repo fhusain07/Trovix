@@ -56,7 +56,7 @@ test("every sitemap route has meaningful prerendered content and unique metadata
       assert.ok(schema["@graph"].some((item) => item["@type"] === "Service"));
     for (const match of html.matchAll(/<img[^>]+src="([^"?]+)"/g))
       if (match[1].startsWith("/"))
-        await access(resolve("dist", "." + match[1]));
+        await access(resolve("dist", "." + decodeURIComponent(match[1])));
   }
 });
 test("legacy aliases canonicalize to the primary pages and are not indexed", async () => {

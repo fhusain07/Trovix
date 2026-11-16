@@ -424,7 +424,7 @@ const PrivacyPolicy: React.FC = () => {
             <ol className="list-decimal pl-6 mt-3 space-y-2">
               <li>
                 Emailing{' '}
-                <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
+                <a href="mailto:info@trovixtech.com" className="text-brand-ink hover:underline">
                   info@trovixtech.com
                 </a>{' '}
                 with the subject line "Data Deletion Request," including sufficient information for us to
@@ -433,7 +433,7 @@ const PrivacyPolicy: React.FC = () => {
               </li>
               <li>
                 Where applicable to the product you use, following the steps on our{' '}
-                <Link to="/account-deletion" className="text-gold hover:underline">
+                <Link to="/account-deletion" className="text-brand-ink hover:underline">
                   Data Deletion Instructions
                 </Link>{' '}
                 page.
@@ -469,7 +469,7 @@ const PrivacyPolicy: React.FC = () => {
             <p className="mt-3">
               Grievance Officer, Trovix LLP<br />
               Email:{' '}
-              <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
+              <a href="mailto:info@trovixtech.com" className="text-brand-ink hover:underline">
                 info@trovixtech.com
               </a>
             </p>
@@ -513,14 +513,14 @@ const PrivacyPolicy: React.FC = () => {
               Trovix LLP<br />
               India<br />
               Email:{' '}
-              <a href="mailto:info@trovixtech.com" className="text-gold hover:underline">
+              <a href="mailto:info@trovixtech.com" className="text-brand-ink hover:underline">
                 info@trovixtech.com
               </a>
               <br />
               Website:{' '}
               <a
                 href="https://www.trovixtech.com"
-                className="text-gold hover:underline"
+                className="text-brand-ink hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >

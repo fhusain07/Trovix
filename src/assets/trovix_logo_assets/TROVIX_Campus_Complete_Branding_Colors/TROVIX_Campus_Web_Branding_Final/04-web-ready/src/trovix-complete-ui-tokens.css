@@ -1,0 +1,79 @@
+/* TROVIX Campus brand + recommended default UI token layer.
+   Do not overwrite tenant/theme sidebar, navigation, or other persisted user preference variables.
+   Wire this as fallback tokens only after inspecting the existing theme architecture. */
+:root {
+  --trovix-brand-gold: #EBB00B;
+  --trovix-brand-gold-deep: #AB7029;
+  --trovix-brand-charcoal: #2B2A29;
+  --trovix-brand-dark-canvas: #1C1B17;
+  --trovix-brand-light-canvas: #F8F9FB;
+  --trovix-brand-ink: #202124;
+  --trovix-brand-white: #FEFEFE;
+  --trovix-brand-soft-gold: #FFF5D6;
+  --trovix-ui-background: #F8F9FB;
+  --trovix-ui-surface: #FFFFFF;
+  --trovix-ui-surface-elevated: #FFFFFF;
+  --trovix-ui-text-primary: #202124;
+  --trovix-ui-text-secondary: #626873;
+  --trovix-ui-text-muted: #737985;
+  --trovix-ui-border: #E1E4E8;
+  --trovix-ui-divider: #E8E9EC;
+  --trovix-ui-input-background: #FFFFFF;
+  --trovix-ui-hover: #FFF5D6;
+  --trovix-ui-selected: #FFF0C2;
+  --trovix-ui-modal: #FFFFFF;
+  --trovix-ui-tooltip-background: #202124;
+  --trovix-ui-tooltip-text: #FFFFFF;
+  --trovix-ui-primary-button: #8A6000;
+  --trovix-ui-primary-button-hover: #704D00;
+  --trovix-ui-primary-button-text: #FFFFFF;
+  --trovix-ui-secondary-button: #2B2A29;
+  --trovix-ui-secondary-button-text: #FFFFFF;
+  --trovix-ui-link: #886000;
+  --trovix-ui-focus-ring: #C58B00;
+  --trovix-ui-disabled-background: #E5E7EB;
+  --trovix-ui-disabled-text: #747B85;
+  --trovix-status-success: #15803D;
+  --trovix-status-success-background: #DCFCE7;
+  --trovix-status-error: #B91C1C;
+  --trovix-status-error-background: #FEE2E2;
+  --trovix-status-warning: #92400E;
+  --trovix-status-warning-background: #FEF3C7;
+  --trovix-status-info: #1D4ED8;
+  --trovix-status-info-background: #DBEAFE;
+  --trovix-charts-gold: #C58B00;
+  --trovix-charts-blue: #2563EB;
+  --trovix-charts-teal: #0F766E;
+  --trovix-charts-purple: #7C3AED;
+  --trovix-charts-orange: #EA580C;
+  --trovix-charts-green: #15803D;
+  --trovix-charts-red: #DC2626;
+  --trovix-charts-gray: #64748B;
+}
+/* Adapt selectors to the app’s actual theme system; examples only. */
+[data-theme="dark"] {
+  --trovix-ui-background: #1C1B17;
+  --trovix-ui-surface: #252420;
+  --trovix-ui-surface-elevated: #302E29;
+  --trovix-ui-text-primary: #F9FAFB;
+  --trovix-ui-text-secondary: #B7B9BE;
+  --trovix-ui-text-muted: #A2A5AC;
+  --trovix-ui-border: #45433E;
+  --trovix-ui-divider: #3D3B36;
+  --trovix-ui-input-background: #302E29;
+  --trovix-ui-hover: #40351F;
+  --trovix-ui-selected: #4B391B;
+  --trovix-ui-modal: #292823;
+  --trovix-ui-tooltip-background: #F3F4F6;
+  --trovix-ui-tooltip-text: #202124;
+  --trovix-ui-primary-button: #EBB00B;
+  --trovix-ui-primary-button-hover: #FFD15A;
+  --trovix-ui-primary-button-text: #1C1B17;
+  --trovix-ui-secondary-button: #45433E;
+  --trovix-ui-secondary-button-text: #FFFFFF;
+  --trovix-ui-link: #FFD15A;
+  --trovix-ui-focus-ring: #FFD15A;
+  --trovix-ui-disabled-background: #34332F;
+  --trovix-ui-disabled-text: #A2A5AC;
+}
+/* DO NOT define --sidebar-*, --school-*, --tenant-*, or existing theme vars here. */
