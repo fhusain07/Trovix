@@ -57,7 +57,7 @@ export function Navbar() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" aria-label="Trovix home" onClick={() => setIsOpen(false)}>
-          <BrandLogo size={34} wordmarkClassName="brand-wordmark" />
+          <BrandLogo />
         </Link>
         <nav className="desktop-navigation" aria-label="Main navigation">
           {navLinks.map(([label, to]) => (

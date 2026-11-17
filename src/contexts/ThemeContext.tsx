@@ -33,6 +33,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       /* In-memory preference still works. */
     }
   };
+  useEffect(() => {
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      "content",
+      getComputedStyle(document.body).backgroundColor,
+    );
+  }, [theme]);
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

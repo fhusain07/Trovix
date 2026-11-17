@@ -1,80 +1,113 @@
 /**
- * Trovix design tokens — single source of truth for brand color, surfaces,
- * borders, and shadows. Change the brand here; Tailwind (tailwind.config.js),
- * globals.css utilities (.gradient-text/.glow-effect/.glass-effect), and
- * src/theme/tokens.ts all read from these values.
- *
- * All color tokens are raw "H S% L%" triplets (no hsl() wrapper) so they can
- * be consumed as `hsl(var(--token))` or `hsl(var(--token) / <alpha>)`.
+ * Final supplied Trovix Campus palette, adapted to the existing .dark theme.
+ * Raw HSL triplets keep Tailwind opacity and canvas consumers compatible.
+ * Source: TROVIX_Campus_Web_Branding_Final/06-guides/COMPLETE-UI-COLOR-SYSTEM.json.
+ * Input borders and the light focus ring use stronger supplied colors for contrast.
  */
-
 @layer base {
   :root {
-    /* ---- Brand primitives ------------------------------------------- */
-    --brand-gold: 46 65% 52%;        /* #D4AF37 */
-    --brand-gold-light: 45 74% 65%;  /* #E8C766 */
-    --brand-gold-dark: 43 61% 45%;   /* #B8912C */
-    --brand-charcoal: 221 39% 11%;   /* #111827 */
-    --brand-charcoal-light: 215 28% 17%; /* #1F2937 */
-    --brand-white: 0 0% 100%;
-    --brand-surface: 220 14% 96%;    /* #F3F4F6 */
-    --brand-border: 220 13% 90%;
-
-    /* ---- Semantic role tokens (light theme) -------------------------- */
-    --background: var(--brand-white);
-    --foreground: var(--brand-charcoal);
+    --brand-gold: 44.1964 91.0569% 48.2353%; /* #EBB00B */
+    --brand-gold-light: 43.2727 100% 67.6471%; /* #FFD15A */
+    --brand-gold-dark: 32.7692 61.3208% 41.5686%; /* #AB7029 */
+    --brand-dark: 48 9.8039% 10%; /* #1C1B17 */
+    --brand-charcoal: 30 2.381% 16.4706%; /* #2B2A29 */
+    --brand-charcoal-light: 42.8571 5.3435% 25.6863%; /* #45433E */
+    --brand-surface: 0 0% 100%; /* #FFFFFF */
+    --brand-border: 214.2857 13.2075% 89.6078%; /* #E1E4E8 */
+    --brand-ink: 42.3529 100% 26.6667%; /* #886000 */
+    --brand-white: 0 0% 99.6078%; /* #FEFEFE */
+    --brand-light-canvas: 220 27.2727% 97.8431%; /* #F8F9FB */
+    --brand-text-ink: 225 5.8824% 13.3333%; /* #202124 */
+    --font-body: Inter, Arial, sans-serif;
+    --font-display: "Space Grotesk", Inter, sans-serif;
+    --background: var(--brand-light-canvas);
+    --foreground: var(--brand-text-ink);
     --muted: var(--brand-surface);
-    --muted-foreground: 220 9% 40%;
-    --popover: var(--brand-white);
-    --popover-foreground: var(--brand-charcoal);
+    --muted-foreground: 218.8235 7.9812% 41.7647%; /* #626873 */
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: var(--foreground);
     --border: var(--brand-border);
-    --input: var(--brand-border);
-    --card: 220 20% 98%;
-    --card-foreground: var(--brand-charcoal);
-    --primary: var(--brand-gold);
-    --primary-foreground: var(--brand-charcoal);
-    --primary-hover: var(--brand-gold-dark);
-    --secondary: var(--brand-surface);
-    --secondary-foreground: var(--brand-charcoal);
-    --accent: var(--brand-surface);
-    --accent-foreground: var(--brand-charcoal);
-    --destructive: 0 84% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: var(--brand-gold);
+    --input: 220 7.2581% 48.6275%; /* #737985 */
+    --input-background: 0 0% 100%; /* #FFFFFF */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: var(--foreground);
+    --primary: 41.7391 100% 27.0588%; /* #8A6000 */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    --primary-hover: 41.25 100% 21.9608%; /* #704D00 */
+    --secondary: 30 2.381% 16.4706%; /* #2B2A29 */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+    --accent: 45.3659 100% 91.9608%; /* #FFF5D6 */
+    --accent-foreground: var(--brand-ink);
+    --destructive: 0 73.7089% 41.7647%; /* #B91C1C */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+    --ring: 41.7391 100% 27.0588%; /* #8A6000 */
     --radius: 0.5rem;
+    --shadow-color: 0 0% 0%;
+    --disabled-background: 220 13.0435% 90.9804%; /* #E5E7EB */
+    --disabled-foreground: 215.2941 6.8273% 48.8235%; /* #747B85 */
+    --visual-bg: hsl(var(--brand-dark));
+    --visual-surface-hsl: 48 7.2464% 13.5294%; /* #252420 */
+    --visual-raised-hsl: 42.8571 7.8652% 17.451%; /* #302E29 */
+    --visual-surface: hsl(var(--visual-surface-hsl));
+    --visual-raised: hsl(var(--visual-raised-hsl));
+    --visual-text-hsl: 210 20% 98.0392%; /* #F9FAFB */
+    --visual-text: hsl(var(--visual-text-hsl));
+    --visual-muted-hsl: 222.8571 5.1095% 73.1373%; /* #B7B9BE */
+    --visual-muted: hsl(var(--visual-muted-hsl));
+    --visual-line: hsl(var(--brand-charcoal-light));
+    --visual-accent-hsl: 40 34.7368% 18.6275%; /* #40351F */
+    --visual-accent: hsl(var(--visual-accent-hsl));
+    --status-success: 142.4299 71.8121% 29.2157%; /* #15803D */
+    --status-info: 224.2781 76.3265% 48.0392%; /* #1D4ED8 */
+    --status-success-on-dark: 140.625 84.2105% 92.549%; /* #DCFCE7 */
+    --status-info-on-dark: 214.2857 94.5946% 92.7451%; /* #DBEAFE */
+    --agency-bg: hsl(var(--background));
+    --agency-surface: hsl(var(--muted));
+    --agency-card: hsl(var(--card));
+    --agency-text: hsl(var(--foreground));
+    --agency-muted: hsl(var(--muted-foreground));
+    --agency-line: hsl(var(--border));
+    --agency-gold: hsl(var(--brand-ink));
+    --agency-soft-gold: hsl(var(--accent));
+    --agency-header: hsl(var(--background) / 0.96);
+    --agency-error: hsl(var(--destructive));
   }
 
   .dark {
-    --background: 222 39% 6%;
-    --foreground: 210 20% 97%;
-    --muted: 222 25% 14%;
-    --muted-foreground: 220 10% 65%;
-    --accent: 222 25% 16%;
-    --accent-foreground: 210 20% 97%;
-    --popover: 222 35% 8%;
-    --popover-foreground: 210 20% 97%;
-    --border: 222 20% 20%;
-    --input: 222 20% 20%;
-    --card: 222 30% 10%;
-    --card-foreground: 210 20% 97%;
+    --background: var(--brand-dark);
+    --foreground: var(--visual-text-hsl);
+    --muted: var(--visual-surface-hsl);
+    --muted-foreground: var(--visual-muted-hsl);
+    --popover: 50 7.8947% 14.902%; /* #292823 */
+    --popover-foreground: var(--foreground);
+    --border: var(--brand-charcoal-light);
+    --input-background: var(--visual-raised-hsl);
+    --card: var(--visual-raised-hsl);
+    --card-foreground: var(--foreground);
     --primary: var(--brand-gold);
-    --primary-foreground: var(--brand-charcoal);
+    --primary-foreground: var(--brand-dark);
     --primary-hover: var(--brand-gold-light);
-    --secondary: 222 25% 16%;
-    --secondary-foreground: 210 20% 97%;
-    --destructive: 0 63% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: var(--brand-gold);
+    --secondary: 42.8571 5.3435% 25.6863%; /* #45433E */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+    --accent: var(--visual-accent-hsl);
+    --accent-foreground: 43.2727 100% 67.6471%; /* #FFD15A */
+    --brand-ink: 43.2727 100% 67.6471%; /* #FFD15A */
+    --destructive: 0 93.3333% 94.1176%; /* #FEE2E2 */
+    --destructive-foreground: var(--brand-dark);
+    --ring: 43.2727 100% 67.6471%; /* #FFD15A */
+    --disabled-background: 48 5.0505% 19.4118%; /* #34332F */
+    --disabled-foreground: 222 5.6818% 65.4902%; /* #A2A5AC */
+    --status-success: var(--status-success-on-dark);
+    --status-info: var(--status-info-on-dark);
   }
 
-  /* ---- Brand utility classes -------------------------------------- */
   .glass-effect {
     @apply bg-card/90 backdrop-blur-xl border border-border;
   }
   .gradient-text {
-    @apply bg-gradient-to-r from-gold-dark via-gold-light to-gold-dark bg-clip-text text-transparent;
+    color: hsl(var(--brand-ink));
   }
   .glow-effect {
-    box-shadow: 0 0 20px hsl(var(--brand-gold) / 0.35);
+    box-shadow: 0 0 20px hsl(var(--brand-gold) / 0.2);
   }
 }

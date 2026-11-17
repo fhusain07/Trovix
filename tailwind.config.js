@@ -49,6 +49,7 @@ module.exports = {
           light: "hsl(var(--brand-gold-light))",
           dark: "hsl(var(--brand-gold-dark))",
         },
+        'brand-ink': "hsl(var(--brand-ink))",
         charcoal: {
           DEFAULT: "hsl(var(--brand-charcoal))",
           light: "hsl(var(--brand-charcoal-light))",
@@ -60,8 +61,8 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-        display: ['Space Grotesk', 'Inter', 'ui-sans-serif'],
+        sans: ['var(--font-body)'],
+        display: ['var(--font-display)'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

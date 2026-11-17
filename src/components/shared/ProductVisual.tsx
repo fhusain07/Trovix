@@ -123,8 +123,8 @@ export function ProductVisual() {
                 <svg viewBox="0 0 460 140" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#d4af37" stopOpacity=".26" />
-                      <stop offset="100%" stopColor="#d4af37" stopOpacity="0" />
+                      <stop offset="0%" stopColor="hsl(var(--brand-gold))" stopOpacity=".26" />
+                      <stop offset="100%" stopColor="hsl(var(--brand-gold))" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   {[20, 55, 90, 125].map((y) => (
@@ -144,7 +144,7 @@ export function ProductVisual() {
                   />
                   <path
                     d="M0 120 C30 120 28 82 65 91 S100 110 133 79 S165 105 195 68 S225 87 260 53 S290 74 322 37 S360 61 390 22 S428 38 460 7"
-                    stroke="#d4af37"
+                    stroke="hsl(var(--brand-gold))"
                     strokeWidth="2.5"
                     fill="none"
                   />

@@ -1,5 +1,6 @@
 import { site, services } from "./site";
 import { projects } from "./portfolio";
+import { logoAssets } from "@/theme/logoAssets";
 export interface PageMetadata {
   title: string;
   description: string;
@@ -134,7 +135,7 @@ export function getStructuredData(pathname: string) {
     "@id": site.url + "/#organization",
     name: site.name,
     url: site.url,
-    logo: site.url + "/trovix-icon-512.png",
+    logo: new URL(logoAssets.wordmarkOnDark, site.url).href,
     email: site.email,
     address: {
       "@type": "PostalAddress",

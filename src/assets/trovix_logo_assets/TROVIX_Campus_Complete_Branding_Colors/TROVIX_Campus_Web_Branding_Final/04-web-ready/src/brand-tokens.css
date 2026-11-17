@@ -1,0 +1,19 @@
+/* Brand identity tokens ONLY. Do NOT override the existing theme/sidebar variables. */
+:root {
+  --trovix-brand-gold: #EBB00B;
+  --trovix-brand-gold-deep: #AB7029;
+  --trovix-brand-charcoal: #2B2A29;
+  --trovix-brand-ink: #202124;
+  --trovix-brand-dark-canvas: #1C1B17;
+  --trovix-brand-light-canvas: #F8F9FB;
+  --trovix-brand-white: #FEFEFE;
+  --trovix-logo-url: url('/branding/logo-light.svg'); /* logo-light = suitable for light UI */
+}
+/* Match to the app's actual theme attribute; do not assume this selector exists. */
+[data-theme="dark"] { --trovix-logo-url: url('/branding/logo-dark.svg'); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --trovix-logo-url: url('/branding/logo-dark.svg');
+  }
+}
+/* Logo selection is separate from tenant-selected sidebar background and navigation styles. */

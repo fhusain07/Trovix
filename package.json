@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite --config vite.config.ts",
     "typecheck": "tsc --noEmit && tsc --noEmit --strict --noUnusedLocals --noUnusedParameters",
-    "build": "tsc -b && vite build --config vite.config.ts && node scripts/prerender.mjs",
+    "brand:assets": "node scripts/prepare-brand-assets.mjs",
+    "brand:render": "node scripts/render-brand-assets.mjs",
+    "build": "node scripts/prepare-brand-assets.mjs && tsc -b && vite build --config vite.config.ts && node scripts/prerender.mjs",
     "preview": "node scripts/preview.mjs",
     "lint": "eslint . --ext ts,tsx",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
