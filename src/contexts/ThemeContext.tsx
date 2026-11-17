@@ -2,7 +2,9 @@ import {
   createContext,
   useContext,
   useEffect,
+  useLayoutEffect,
   useState,
+  startTransition,
   type ReactNode,
 } from "react";
 type Theme = "light" | "dark";
@@ -12,28 +14,46 @@ const ThemeContext = createContext<
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("dark");
   useEffect(() => {
-    let saved: string | null = null;
-    try {
-      saved = localStorage.getItem("theme");
-    } catch {
-      /* Storage may be unavailable. */
-    }
-    if (saved === "light" || saved === "dark") {
-      document.documentElement.classList.toggle("dark", saved === "dark");
-      requestAnimationFrame(() => setTheme(saved));
-    }
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    let frame = 0;
+    const syncPreference = () => {
+      let saved: string | null = null;
+      try {
+        saved = localStorage.getItem("theme");
+      } catch {
+        /* Storage may be unavailable; use the system preference. */
+      }
+      const next =
+        saved === "light" || saved === "dark"
+          ? saved
+          : systemTheme.matches ? "dark" : "light";
+      cancelAnimationFrame(frame);
+      // Preserve prerendered content while lazy route modules finish hydrating.
+      frame = requestAnimationFrame(() => startTransition(() => setTheme(next)));
+    };
+    syncPreference();
+    systemTheme.addEventListener("change", syncPreference);
+    return () => {
+      cancelAnimationFrame(frame);
+      systemTheme.removeEventListener("change", syncPreference);
+    };
   }, []);
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    document.documentElement.classList.toggle("dark", next === "dark");
+    startTransition(() => setTheme(next));
     try {
       localStorage.setItem("theme", next);
     } catch {
       /* In-memory preference still works. */
     }
   };
-  useEffect(() => {
+  // Apply surface colors, logos, and browser icons in the same paint.
+  useLayoutEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.querySelectorAll<HTMLLinkElement>("link[data-theme-icon]")
+      .forEach(link => {
+        link.href = `/branding/company/${theme}/${link.dataset.themeIcon}`;
+      });
     document.querySelector('meta[name="theme-color"]')?.setAttribute(
       "content",
       getComputedStyle(document.body).backgroundColor,

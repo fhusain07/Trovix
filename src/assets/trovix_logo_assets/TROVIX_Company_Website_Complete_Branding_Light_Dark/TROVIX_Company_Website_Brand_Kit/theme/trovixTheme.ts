@@ -1,0 +1,56 @@
+// Data-only example. Integrate into the existing theme provider; do not add a second one.
+export const trovixTheme = {
+  "brand": {
+    "gold": "#D4AF37",
+    "goldHover": "#B88913",
+    "goldHighlight": "#F5D778",
+    "goldDeep": "#8A650C",
+    "goldOriginalLogo": "#EBB00B",
+    "goldOriginalDeep": "#AB7029",
+    "charcoal": "#2B2A29"
+  },
+  "light": {
+    "canvas": "#F8F9FB",
+    "surface": "#FFFFFF",
+    "surfaceAlt": "#F1F3F6",
+    "surfaceElevated": "#FFFFFF",
+    "text": "#17191D",
+    "textSecondary": "#5C6472",
+    "muted": "#7B8290",
+    "border": "#E5E7EB",
+    "divider": "#E9ECF0",
+    "hover": "#F4F5F7",
+    "selected": "#FFF1C2",
+    "input": "#FFFFFF",
+    "focus": "#A47700",
+    "link": "#886000",
+    "primaryButton": "#805A00",
+    "primaryButtonText": "#FFFFFF"
+  },
+  "dark": {
+    "canvas": "#0F0F11",
+    "surface": "#1B1B1F",
+    "surfaceAlt": "#242429",
+    "surfaceElevated": "#29292F",
+    "text": "#F8F9FA",
+    "textSecondary": "#B5B8C2",
+    "muted": "#969BA6",
+    "border": "#35353B",
+    "divider": "#303036",
+    "hover": "#303036",
+    "selected": "#4A3915",
+    "input": "#242429",
+    "focus": "#F5D778",
+    "link": "#F5D778",
+    "primaryButton": "#D4AF37",
+    "primaryButtonText": "#18140B"
+  },
+  "semantic": {
+    "success": "#22C55E",
+    "danger": "#EF4444",
+    "info": "#3B82F6",
+    "warning": "#F59E0B",
+    "purple": "#8B5CF6",
+    "teal": "#14B8A6"
+  }
+} as const;

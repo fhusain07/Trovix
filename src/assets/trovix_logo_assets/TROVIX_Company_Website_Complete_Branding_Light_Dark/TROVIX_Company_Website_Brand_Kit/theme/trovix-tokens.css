@@ -1,0 +1,52 @@
+/* TROVIX company website theme tokens — separate from TROVIX Campus. */
+:root, [data-theme="light"] {
+  --trovix-gold: #D4AF37;
+  --trovix-goldHover: #B88913;
+  --trovix-goldHighlight: #F5D778;
+  --trovix-goldDeep: #8A650C;
+  --trovix-goldOriginalLogo: #EBB00B;
+  --trovix-goldOriginalDeep: #AB7029;
+  --trovix-charcoal: #2B2A29;
+  --trovix-canvas: #F8F9FB;
+  --trovix-surface: #FFFFFF;
+  --trovix-surfaceAlt: #F1F3F6;
+  --trovix-surfaceElevated: #FFFFFF;
+  --trovix-text: #17191D;
+  --trovix-textSecondary: #5C6472;
+  --trovix-muted: #7B8290;
+  --trovix-border: #E5E7EB;
+  --trovix-divider: #E9ECF0;
+  --trovix-hover: #F4F5F7;
+  --trovix-selected: #FFF1C2;
+  --trovix-input: #FFFFFF;
+  --trovix-focus: #A47700;
+  --trovix-link: #886000;
+  --trovix-primaryButton: #805A00;
+  --trovix-primaryButtonText: #FFFFFF;
+}
+[data-theme="dark"] {
+  --trovix-canvas: #0F0F11;
+  --trovix-surface: #1B1B1F;
+  --trovix-surfaceAlt: #242429;
+  --trovix-surfaceElevated: #29292F;
+  --trovix-text: #F8F9FA;
+  --trovix-textSecondary: #B5B8C2;
+  --trovix-muted: #969BA6;
+  --trovix-border: #35353B;
+  --trovix-divider: #303036;
+  --trovix-hover: #303036;
+  --trovix-selected: #4A3915;
+  --trovix-input: #242429;
+  --trovix-focus: #F5D778;
+  --trovix-link: #F5D778;
+  --trovix-primaryButton: #D4AF37;
+  --trovix-primaryButtonText: #18140B;
+}
+:root { --trovix-success: #22C55E; }
+:root { --trovix-danger: #EF4444; }
+:root { --trovix-info: #3B82F6; }
+:root { --trovix-warning: #F59E0B; }
+:root { --trovix-purple: #8B5CF6; }
+:root { --trovix-teal: #14B8A6; }
+/* Adapt the selector to the application's existing theme provider.
+   Do not overwrite user-selected mode or convert this file into an app-wide reset. */

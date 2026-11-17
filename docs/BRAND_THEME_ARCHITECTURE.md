@@ -1,83 +1,72 @@
-# Trovix branding and theme architecture
+# Trovix company branding and theme architecture
 
-Current source: `src/assets/trovix_logo_assets/TROVIX_Campus_Complete_Branding_Colors/TROVIX_Campus_Web_Branding_Final/`.
+Current source: `src/assets/trovix_logo_assets/TROVIX_Company_Website_Complete_Branding_Light_Dark/TROVIX_Company_Website_Brand_Kit/`.
 
-This pack supplies the readable light-mode logo and dedicated T-only icons. The earlier eight-file `trovix-new-branding` folder and 15 loose legacy logo/icon files are preserved for future use in [the legacy branding backup](../backups/trovix-legacy-branding-2026-11-15.zip), outside the active website assets. All 70 files in the current pack remain in place and unchanged; the active public favicons continue to use this pack's exports.
+Applied on November 17, 2026. This is the company website identity: the T emblem, TROVIX wordmark, and gold arc. Campus artwork is retained in its original folder for future use; active website branding uses the company kit. The [23-file legacy ZIP backup](../backups/trovix-legacy-branding-2026-11-15.zip) remains unchanged.
 
-## Asset audit and selection
+## Supplied assets and selected placements
 
-The pack contains 51 PNGs, 6 SVGs, 2 ICO files, and supporting guides, color registries, CSS examples, and manifest examples. All 57 image files were previewed, including the duplicate web-ready exports and the original source SVGs.
+Inspected all 46 files and previewed all 40 image/icon files: 36 PNGs, two embedded-PNG SVGs, and two ICOs. Supporting files include the README, implementation guide, example head markup, and JSON/CSS/TypeScript color registries.
 
-| Group | Available artwork | Selected use |
+| Available variation | Selected use |
+| --- | --- |
+| Light transparent company wordmark: 600/1200/2400/4000px PNGs and embedded-PNG SVG | 600px PNG with supplied 1200px 2x export in light header, mobile header, footer, and error fallback |
+| Dark transparent company wordmark: same sizes and SVG wrapper | Corresponding 600px/1200px exports on dark surfaces |
+| Source company PNG, 2172 × 724 | Preserved master reference |
+| Light/dark transparent T icons, 64/128/256/512/1024px | Corresponding 128px export displayed at 64px in the loader |
+| Light/dark favicons: ICO and 16/32/48/64/180/192/512px PNGs | Theme-specific browser ICO and 16/32/48px PNGs; 180px touch icon; all sizes available under the public company paths |
+| Light/dark 1200 × 630 social cards | Supplied light card is the Open Graph/Twitter default; dark card is also retained publicly |
+| PREVIEW.png | Audit reference only |
+
+Both logo variants have transparent backgrounds and use the same frame. Header frames remain 196 × 72px on desktop and 160 × 60px on mobile; the footer remains 230 × 84px. Images retain their aspect ratios, original whitespace, and supplied bytes. No artwork is cropped, recolored, or redrawn. The SVGs in this kit embed raster PNGs; they are not native editable path vectors. PNG imports avoid the larger wrapper downloads.
+
+## Theme and palette mapping
+
+The existing `.dark` selector and ThemeProvider remain the theme system. Saved user preference wins; absent a valid saved preference, the provider follows system mode and subsequent system changes. Theme restoration uses a React transition to preserve prerendered page content while lazy routes hydrate. Root colors, shared logo state, browser icons, and theme-color metadata update together before paint.
+
+The supplied `theme/trovix-colors.json` is mapped into the existing HSL tokens in `src/theme/theme.css`. Tailwind, agency styles, canvas consumers, and generated standalone illustrations continue to read those centralized tokens. No competing provider or parallel token stylesheet was introduced.
+
+| Role | Previous HEX | Current HEX |
 | --- | --- | --- |
-| `01-full-logos/light/` | Transparent, dark-lettered full logo; SVG viewBox 3770.2 × 928.26; 1200/2400/4000px PNGs | Header, footer, and error fallback in light mode |
-| `01-full-logos/dark/` | Original ivory-lettered full logo with dark backing and original spacing; SVG viewBox 4689.79 × 1705.04; 1200/2400/4000px PNGs | Header, footer, and error fallback in dark mode; organization schema and social card |
-| `02-T-icon/` | Transparent, dark-badge, and light-badge PNG variants, each in 16/32/48/64/128/180/192/256/512/1024px sizes | Dark-badge 128px PNG displayed at 64px in the loading state |
-| `03-favicons/` | Dedicated ICO; 16/32/48px browser PNGs; 180px touch icon; 192/512px app icons; light/dark variants | Supplied dark-badge ICO and PNGs copied byte-for-byte to existing public icon URLs |
-| `04-web-ready/` | Duplicate web assets plus suggested CSS and integration examples | Audited; actual integration uses this website's existing theme architecture |
-| `06-guides/` | Brand and complete UI JSON registries, readme, implementation notes, acceptance checklist | Source for palette and usage decisions |
-| `original-source/` | Original dark and pale-lettered full SVGs | Preserved source references |
+| UI gold | #EBB00B | #D4AF37 |
+| Gold highlight / dark links | #FFD15A | #F5D778 |
+| Deep UI gold | #AB7029 | #8A650C |
+| Dark canvas | #1C1B17 | #0F0F11 |
+| Dark surface | #252420 | #1B1B1F |
+| Dark cards / inputs | #302E29 | #242429 |
+| Dark body text | #F9FAFB | #F8F9FA |
+| Dark secondary text | #B7B9BE | #B5B8C2 |
+| Dark borders | #45433E | #35353B |
+| Light canvas | #F8F9FB | #F8F9FB |
+| Light cards / inputs | #FFFFFF | #FFFFFF |
+| Light body text | #202124 | #17191D |
+| Light secondary text | #626873 | #5C6472 |
+| Light borders | #E1E4E8 | #E5E7EB |
+| Light primary button | #8A6000 | #805A00 |
+| Light primary hover | #704D00 | #8A650C |
+| Dark primary hover | #FFD15A | #B88913 |
+| Input boundary | #737985 | #7B8290 |
+| Light focus ring | #8A6000 | #A47700 |
+| Light link | #886000 | #886000 |
+| Light selected surface | #FFF5D6 | #FFF1C2 |
+| Dark selected surface | #40351F | #4A3915 |
 
-Full wordmarks remain original vector SVGs. The supplied T-only artwork is raster PNG. Browser tabs use the supplied ICO and size-specific PNGs. The existing `/favicon.svg` URL is retained as a compatibility wrapper around the supplied 512px PNG badge; it is not described as a vector T icon.
+Logo gradients retain their supplied colors. UI accents use the new kit's UI gold. Input boundaries use the supplied muted shade to meet 3:1 contrast. Existing accessible error text shades (#B91C1C light, #FEE2E2 dark) and pale success/info text tints are retained for readable small text. Neutral backgrounds, decorative borders, dark product illustrations, shadows, hover states, and focus treatment all follow the semantic roles.
 
-## Effective theme and layout
+Inter remains the body font and Space Grotesk remains the display font. The new kit does not supply a replacement font. Original content and page layouts are preserved.
 
-`BrandLogo.tsx` reads the existing `useTheme()` context. The saved application preference selects the logo, independently of the operating-system color scheme. The shared component renders exactly one image per placement.
+## Public assets and metadata
 
-Light-mode logos now have transparent backing with readable dark lettering. Dark-mode logos retain their supplied dark canvas and internal spacing. Neither SVG has been cropped, recolored, or edited. Fixed logo frames and proportional image sizing keep header and footer placement stable when switching themes.
+`scripts/prepare-brand-assets.mjs` copies the supplied exports byte-for-byte into `public/branding/company/{light,dark}/` and copies both social cards into `public/branding/company/`. The build runs this automatically. `brand:render` remains a compatible alias and now copies the finished supplied social artwork without browser rasterization.
 
-Desktop header frames are 196 × 72px; mobile frames are 160 × 60px. Footer frames are 230 × 84px. Each SVG retains its natural aspect ratio inside its frame. Original content, navigation, forms, and responsive layout structure are retained.
+The existing head links have `data-theme-icon` filenames. ThemeProvider updates their URLs from the actual selected application mode, including the touch icon. This also gives the company artwork fresh URLs instead of reusing cached Campus URLs. The default social URL is `/branding/company/og-light.png`. Organization schema uses the supplied readable light 1200px PNG on all 35 generated pages. Company image alt text is Trovix.
 
-## Color audit: previous integration to final pack
+Legacy public favicon, PNG icon, and social URLs remain available with the company artwork. The favicon.svg and og-card.svg compatibility URLs wrap original supplied PNGs. The portfolio abstract SVG is regenerated from the updated shared palette. Earlier source packs and ZIP backups are outside the deployed public output.
 
-Values follow `06-guides/COMPLETE-UI-COLOR-SYSTEM.json`, adapted to existing semantic roles.
+## Components and page scope
 
-| Role | Previous | Final |
-| --- | --- | --- |
-| Brand gold | #EBB00B | #EBB00B |
-| Brand bronze | #AB7029 | #AB7029 |
-| Dark canvas | #1C1B17 | #1C1B17 |
-| Light canvas | #FAF9F6 | #F8F9FB |
-| Light body text | #2B2A29 | #202124 |
-| Dark body text | #FEFEFE | #F9FAFB |
-| Light secondary text | #656157 | #626873 |
-| Dark secondary text | #B8B4A8 | #B7B9BE |
-| Light link/accent ink | #80531E | #886000 |
-| Dark link/accent ink | #EBB00B | #FFD15A |
-| Light filled button / label | #EBB00B / #1C1B17 | #8A6000 / #FFFFFF |
-| Light filled-button hover | #F2C34B | #704D00 |
-| Dark filled button / label | #EBB00B / #1C1B17 | #EBB00B / #1C1B17 |
-| Dark filled-button hover | #F2C34B | #FFD15A |
-| Light card | #FEFEFE | #FFFFFF |
-| Dark secondary surface / card | #23221D / #292821 | #252420 / #302E29 |
-| Light border | #DDD8CB | #E1E4E8 |
-| Dark border | #464337 | #45433E |
-| Light accent surface | #F5EBCD | #FFF5D6 |
+Direct changes: BrandLogo, logoAssets, PageLoader, ThemeContext, organization metadata, index head markup, shared theme/agency styles, public icon/social assets, and asset preparation/rendering scripts. Header, mobile navigation, footer, error fallback, calls to action, cards, forms, legal text, and decorative elements inherit the shared identity.
 
-The supplied focus example #C58B00 has 2.82:1 contrast against the light canvas. The implemented shared focus-ring role uses the supplied #8A6000 button shade for 5.31:1 contrast. Form boundaries use the supplied #737985 gray, giving 4.37:1 against white and 3.10:1 against the dark input surface. Secondary text uses #626873 in light mode rather than the lower-contrast muted example.
+All 35 production routes are covered: Home; services and eight service details; portfolio and ten case studies; About, Technologies, Partners, Contact, Careers; privacy, terms and deletion pages; thank-you, 404, and existing aliases. Layouts, copy, canonical URLs, forms, analytics, and business logic are preserved. No dependencies were added. No other project or Campus application was edited.
 
-Success, information, and error roles remain semantic colors. The product illustration keeps dark surfaces in both themes, with separate readable status tints. Its gold action label explicitly retains dark ink when the rest of the light theme uses white button labels.
-
-## Files and responsibilities
-
-- `src/theme/logoAssets.ts`: direct imports from the new pack.
-- `src/theme/BrandLogo.tsx`: selects the appropriate original SVG using the actual application theme.
-- `src/theme/theme.css`: centralized HSL primitives, theme roles, typography, focus/input, and illustration tokens.
-- `src/styles/agency.css`: existing page presentation, responsive logo frames, and semantic button/input styling.
-- `src/components/layout/Footer.tsx`: shared footer logo sizing.
-- `src/components/shared/PageLoader.tsx`: supplied T-only loading badge.
-- `index.html`: supplied ICO and 16/32/48px favicon URLs plus the touch icon.
-- `scripts/prepare-brand-assets.mjs`: copies supplied icons unchanged and embeds the original full dark SVG in the site-specific share card.
-- `scripts/render-brand-assets.mjs`: renders only the social PNG; it does not recreate supplied icons.
-- `scripts/lib/brand-colors.mjs`: reads centralized palette values for standalone artwork.
-- `src/data/metadata.ts`: existing organization logo mapping now resolves to the new registry's dark SVG.
-
-Inter body text and Space Grotesk headings are retained through the existing font tokens. No new font files or package dependencies are required.
-
-## Regeneration and application scope
-
-`npm run brand:assets` copies the supplied favicon/touch/app icon exports and regenerates SVG share artwork. It also runs before production builds. `npm run brand:render` additionally refreshes the 1200 × 630 social PNG using an installed Chrome/Chromium/Edge browser.
-
-This repository is the public marketing website. The pack's SMS-specific tenant, authentication, sidebar-customization, and PWA instructions are examples for a separate application. No tenant settings, preference resets, routes, API behavior, hosting configuration, or install behavior are introduced here. The provided manifest example remains unchanged in the source pack.
-
-Final verification is recorded in `docs/REBRANDING_VERIFICATION.md`. Local previews and measurements for this pack are under `.trovix-review/new-pack/`.
+See [verification results](REBRANDING_VERIFICATION.md) for checks and limits.

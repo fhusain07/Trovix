@@ -135,7 +135,7 @@ export function getStructuredData(pathname: string) {
     "@id": site.url + "/#organization",
     name: site.name,
     url: site.url,
-    logo: new URL(logoAssets.wordmarkOnDark, site.url).href,
+    logo: new URL(logoAssets.wordmarkOnLight, site.url).href,
     email: site.email,
     address: {
       "@type": "PostalAddress",

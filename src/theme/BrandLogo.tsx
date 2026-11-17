@@ -6,17 +6,18 @@ export interface BrandLogoProps {
   className?: string;
 }
 
-/** Complete supplied artwork, including the Campus descriptor. */
+/** Approved company-only wordmark, with its original proportions and spacing. */
 export function BrandLogo({ className }: BrandLogoProps) {
   const { theme } = useTheme();
   const dark = theme === 'dark';
   return (
-    <span className={cn('brand-logo', dark && 'brand-logo-dark', className)}>
+    <span className={cn('brand-logo', className)}>
       <img
-        src={dark ? logoAssets.wordmarkOnDark : logoAssets.wordmarkOnLight}
-        alt="Trovix Campus"
-        width={dark ? 4690 : 3770}
-        height={dark ? 1705 : 928}
+        src={dark ? logoAssets.wordmarkOnDarkSmall : logoAssets.wordmarkOnLightSmall}
+        srcSet={`${dark ? logoAssets.wordmarkOnDark : logoAssets.wordmarkOnLight} 2x`}
+        alt="Trovix"
+        width={600}
+        height={194}
         decoding="async"
       />
     </span>
