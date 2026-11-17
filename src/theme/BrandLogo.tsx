@@ -13,11 +13,10 @@ export function BrandLogo({ className }: BrandLogoProps) {
   return (
     <span className={cn('brand-logo', className)}>
       <img
-        src={dark ? logoAssets.wordmarkOnDarkSmall : logoAssets.wordmarkOnLightSmall}
-        srcSet={`${dark ? logoAssets.wordmarkOnDark : logoAssets.wordmarkOnLight} 2x`}
+        src={dark ? logoAssets.wordmarkOnDark : logoAssets.wordmarkOnLight}
         alt="Trovix"
-        width={600}
-        height={194}
+        width={3770}
+        height={928}
         decoding="async"
       />
     </span>
