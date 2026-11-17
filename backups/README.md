@@ -4,4 +4,4 @@
 
 The archive retains original filenames and folder structure, with a README and a SHA-256 manifest. All 23 archived assets were verified after compression. The eight-file pack also matches the original checksums recorded before deletion. The adjacent `.zip.sha256` file contains the archive's checksum.
 
-Extract to a separate folder to browse or reuse these assets. The website now uses `TROVIX_Company_Website_Brand_Kit`; these archived assets are retained for future use. The earlier Campus pack also remains in its original source folder.
+Extract to a separate folder to browse or reuse these assets. The website now uses `TROVIX_Company_Website_Logo_Kit_FIXED`; these archived assets are retained for future use. The earlier Campus pack also remains in its original source folder.
