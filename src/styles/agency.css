@@ -194,7 +194,7 @@ h3 {
   background: transparent;
 }
 .action-secondary:hover {
-  background: var(--agency-surface);
+  background: var(--agency-hover);
   border-color: var(--agency-muted);
 }
 .text-link {
@@ -220,7 +220,7 @@ summary:focus-visible,
 select:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--agency-gold);
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 5px;
 }
 .skip-link {
@@ -263,19 +263,14 @@ textarea:focus-visible {
 }
 .brand-logo img {
   display: block;
-  width: calc(100% - 24px);
-  height: auto;
-  object-fit: contain;
-}
-.brand-logo-dark img {
   width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
 }
 .brand-logo-footer {
   width: 230px;
   height: 84px;
-}
-.brand-logo-footer:not(.brand-logo-dark) img {
-  width: calc(100% - 30px);
 }
 .desktop-navigation {
   display: flex;
@@ -321,7 +316,7 @@ textarea:focus-visible {
   color: var(--agency-muted);
 }
 .icon-button:hover {
-  background: var(--agency-surface);
+  background: var(--agency-hover);
   color: var(--agency-text);
 }
 .menu-toggle,

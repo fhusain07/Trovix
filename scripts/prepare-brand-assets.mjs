@@ -1,28 +1,29 @@
-import { copyFile, readFile, writeFile } from 'node:fs/promises';
-import { readBrandColors } from './lib/brand-colors.mjs';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 
-// Full-logo social artwork embeds the supplied SVG unchanged.
-// The legacy favicon.svg URL wraps the supplied PNG badge; it is not vector art.
-const branding = 'src/assets/trovix_logo_assets/TROVIX_Campus_Complete_Branding_Colors/TROVIX_Campus_Web_Branding_Final/';
-// Copy supplied raster exports byte-for-byte; never recreate the T icon.
-const faviconFiles = [
-  ['favicon.ico', 'favicon.ico'],
-  ['favicon-16.png', 'trovix-icon-16.png'],
-  ['favicon-32.png', 'trovix-icon-32.png'],
-  ['favicon-48.png', 'trovix-icon-48.png'],
-  ['apple-touch-icon.png', 'trovix-icon-180.png'],
-  ['icon-192.png', 'trovix-icon-192.png'],
-  ['icon-512.png', 'trovix-icon-512.png'],
-];
-for (const [source, target] of faviconFiles) {
-  await copyFile(branding + '03-favicons/' + source, 'public/' + target);
+const branding = 'src/assets/trovix_logo_assets/TROVIX_Company_Website_Complete_Branding_Light_Dark/TROVIX_Company_Website_Brand_Kit/';
+const publicBranding = 'public/branding/company';
+const sizes = [16, 32, 48, 64, 180, 192, 512];
+
+// Copy the approved exports unchanged. Site-selected mode chooses the public URL.
+for (const theme of ['light', 'dark']) {
+  const destination = `${publicBranding}/${theme}`;
+  await mkdir(destination, { recursive: true });
+  await copyFile(`${branding}favicons/favicon-${theme}.ico`, `${destination}/favicon.ico`);
+  for (const size of sizes) {
+    await copyFile(`${branding}favicons/trovix-favicon-${theme}-${size}.png`, `${destination}/icon-${size}.png`);
+  }
+  await copyFile(`${branding}social/trovix-og-${theme}-1200x630.png`, `${publicBranding}/og-${theme}.png`);
 }
-const badge = 'data:image/png;base64,' + (await readFile(branding + '03-favicons/icon-512.png')).toString('base64');
-const colors = await readBrandColors();
-const darkLogo = await readFile(branding + '01-full-logos/dark/trovix-campus-dark-original.svg');
-const source = 'data:image/svg+xml;base64,' + darkLogo.toString('base64');
-const { dark, gold, text: white, muted, line: border } = colors;
 
-await writeFile('public/favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><title>Trovix Campus</title><image href="${badge}" width="512" height="512" preserveAspectRatio="xMidYMid meet"/></svg>\n`);
-await writeFile('public/og-card.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><rect width="1200" height="630" fill="${dark}"/><g fill="none" stroke="${border}"><circle cx="1040" cy="315" r="300"/><circle cx="1040" cy="315" r="250"/><circle cx="1040" cy="315" r="200"/><circle cx="1040" cy="315" r="150"/></g><path d="M0 550h1200" stroke="${border}"/><image href="${source}" x="50" y="28" width="340" height="124" preserveAspectRatio="xMidYMid meet"/><text x="75" y="265" font-family="Arial,sans-serif" font-size="59" letter-spacing="-2" fill="${white}">Thoughtful software.</text><text x="75" y="345" font-family="Arial,sans-serif" font-size="59" letter-spacing="-2" fill="${gold}">Real business progress.</text><text x="79" y="423" font-family="Arial,sans-serif" font-size="22" fill="${muted}">Custom software · SaaS · CRM · Business automation</text><text x="79" y="592" font-family="Arial,sans-serif" font-size="18" fill="${muted}">trovixtech.com</text><circle cx="1070" cy="586" r="4" fill="${gold}"/></svg>\n`);
-console.log('Prepared supplied T-icon favicons and full-logo social artwork.');
+// Retain existing public URLs for bookmarks and older pages; these now use company artwork.
+await copyFile(`${publicBranding}/dark/favicon.ico`, 'public/favicon.ico');
+for (const size of sizes.filter(size => size !== 64)) {
+  await copyFile(`${publicBranding}/dark/icon-${size}.png`, `public/trovix-icon-${size}.png`);
+}
+await copyFile(`${publicBranding}/og-light.png`, 'public/og-image.png');
+
+// Compatibility SVG URLs wrap the original PNGs; they are not native vector artwork.
+const wrapper = (image, width, height) => `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}"><title>Trovix</title><image href="data:image/png;base64,${image.toString('base64')}" width="${width}" height="${height}" preserveAspectRatio="xMidYMid meet"/></svg>\n`;
+await writeFile('public/favicon.svg', wrapper(await readFile(`${publicBranding}/dark/icon-512.png`), 512, 512));
+await writeFile('public/og-card.svg', wrapper(await readFile(`${publicBranding}/og-light.png`), 1200, 630));
+console.log('Prepared unchanged company favicons and supplied light/dark social cards.');

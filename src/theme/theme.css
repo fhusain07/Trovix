@@ -1,66 +1,69 @@
 /**
- * Final supplied Trovix Campus palette, adapted to the existing .dark theme.
- * Raw HSL triplets keep Tailwind opacity and canvas consumers compatible.
- * Source: TROVIX_Campus_Web_Branding_Final/06-guides/COMPLETE-UI-COLOR-SYSTEM.json.
- * Input borders and the light focus ring use stronger supplied colors for contrast.
+ * Company website palette from TROVIX_Company_Website_Brand_Kit/theme/trovix-colors.json.
+ * Adapted to the existing .dark selector and HSL consumers (Tailwind and canvas).
+ * Input boundaries use the supplied muted shade to reach 3:1 contrast.
+ * Existing accessible error/status text shades are retained for small text.
  */
 @layer base {
   :root {
-    --brand-gold: 44.1964 91.0569% 48.2353%; /* #EBB00B */
-    --brand-gold-light: 43.2727 100% 67.6471%; /* #FFD15A */
-    --brand-gold-dark: 32.7692 61.3208% 41.5686%; /* #AB7029 */
-    --brand-dark: 48 9.8039% 10%; /* #1C1B17 */
-    --brand-charcoal: 30 2.381% 16.4706%; /* #2B2A29 */
-    --brand-charcoal-light: 42.8571 5.3435% 25.6863%; /* #45433E */
+    color-scheme: light;
+    --brand-gold: 45.859873 64.609053% 52.352941%; /* #D4AF37 */
+    --brand-gold-light: 45.6 86.206897% 71.568627%; /* #F5D778 */
+    --brand-gold-dark: 42.380952 84% 29.411765%; /* #8A650C */
+    --brand-dark: 240 6.25% 6.27451%; /* #0F0F11 */
+    --brand-charcoal: 30 2.380952% 16.470588%; /* #2B2A29 */
+    --brand-charcoal-light: 240 5.357143% 21.960784%; /* #35353B */
     --brand-surface: 0 0% 100%; /* #FFFFFF */
-    --brand-border: 214.2857 13.2075% 89.6078%; /* #E1E4E8 */
-    --brand-ink: 42.3529 100% 26.6667%; /* #886000 */
-    --brand-white: 0 0% 99.6078%; /* #FEFEFE */
-    --brand-light-canvas: 220 27.2727% 97.8431%; /* #F8F9FB */
-    --brand-text-ink: 225 5.8824% 13.3333%; /* #202124 */
+    --brand-border: 220 13.043478% 90.980392%; /* #E5E7EB */
+    --brand-ink: 42.352941 100% 26.666667%; /* #886000 */
+    --brand-white: 210 16.666667% 97.647059%; /* #F8F9FA */
+    --brand-light-canvas: 220 27.272727% 97.843137%; /* #F8F9FB */
+    --brand-text-ink: 220 11.538462% 10.196078%; /* #17191D */
     --font-body: Inter, Arial, sans-serif;
     --font-display: "Space Grotesk", Inter, sans-serif;
     --background: var(--brand-light-canvas);
     --foreground: var(--brand-text-ink);
-    --muted: var(--brand-surface);
-    --muted-foreground: 218.8235 7.9812% 41.7647%; /* #626873 */
+    --muted: 216 21.73913% 95.490196%; /* #F1F3F6 */
+    --muted-foreground: 218.181818 10.679612% 40.392157%; /* #5C6472 */
     --popover: 0 0% 100%; /* #FFFFFF */
     --popover-foreground: var(--foreground);
     --border: var(--brand-border);
-    --input: 220 7.2581% 48.6275%; /* #737985 */
+    --input: 220 8.641975% 52.352941%; /* #7B8290 */
     --input-background: 0 0% 100%; /* #FFFFFF */
     --card: 0 0% 100%; /* #FFFFFF */
     --card-foreground: var(--foreground);
-    --primary: 41.7391 100% 27.0588%; /* #8A6000 */
+    --primary: 42.1875 100% 25.098039%; /* #805A00 */
     --primary-foreground: 0 0% 100%; /* #FFFFFF */
-    --primary-hover: 41.25 100% 21.9608%; /* #704D00 */
-    --secondary: 30 2.381% 16.4706%; /* #2B2A29 */
-    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
-    --accent: 45.3659 100% 91.9608%; /* #FFF5D6 */
-    --accent-foreground: var(--brand-ink);
-    --destructive: 0 73.7089% 41.7647%; /* #B91C1C */
+    --primary-hover: 42.380952 84% 29.411765%; /* #8A650C */
+    --secondary: 216 21.73913% 95.490196%; /* #F1F3F6 */
+    --secondary-foreground: 220 11.538462% 10.196078%; /* #17191D */
+    --accent: 46.229508 100% 88.039216%; /* #FFF1C2 */
+    --accent-foreground: 42.352941 100% 26.666667%; /* #886000 */
+    --destructive: 0 73.70892% 41.764706%; /* #B91C1C */
     --destructive-foreground: 0 0% 100%; /* #FFFFFF */
-    --ring: 41.7391 100% 27.0588%; /* #8A6000 */
+    --ring: 43.536585 100% 32.156863%; /* #A47700 */
     --radius: 0.5rem;
     --shadow-color: 0 0% 0%;
-    --disabled-background: 220 13.0435% 90.9804%; /* #E5E7EB */
-    --disabled-foreground: 215.2941 6.8273% 48.8235%; /* #747B85 */
+    --disabled-background: 220 13.043478% 90.980392%; /* #E5E7EB */
+    --disabled-foreground: 220 8.641975% 52.352941%; /* #7B8290 */
+    --hover: 220 15.789474% 96.27451%; /* #F4F5F7 */
+    --divider: 214.285714 18.918919% 92.745098%; /* #E9ECF0 */
     --visual-bg: hsl(var(--brand-dark));
-    --visual-surface-hsl: 48 7.2464% 13.5294%; /* #252420 */
-    --visual-raised-hsl: 42.8571 7.8652% 17.451%; /* #302E29 */
+    --visual-surface-hsl: 240 6.896552% 11.372549%; /* #1B1B1F */
+    --visual-raised-hsl: 240 6.493506% 15.098039%; /* #242429 */
     --visual-surface: hsl(var(--visual-surface-hsl));
     --visual-raised: hsl(var(--visual-raised-hsl));
-    --visual-text-hsl: 210 20% 98.0392%; /* #F9FAFB */
+    --visual-text-hsl: 210 16.666667% 97.647059%; /* #F8F9FA */
     --visual-text: hsl(var(--visual-text-hsl));
-    --visual-muted-hsl: 222.8571 5.1095% 73.1373%; /* #B7B9BE */
+    --visual-muted-hsl: 226.153846 9.62963% 73.529412%; /* #B5B8C2 */
     --visual-muted: hsl(var(--visual-muted-hsl));
     --visual-line: hsl(var(--brand-charcoal-light));
-    --visual-accent-hsl: 40 34.7368% 18.6275%; /* #40351F */
+    --visual-accent-hsl: 40.754717 55.789474% 18.627451%; /* #4A3915 */
     --visual-accent: hsl(var(--visual-accent-hsl));
-    --status-success: 142.4299 71.8121% 29.2157%; /* #15803D */
-    --status-info: 224.2781 76.3265% 48.0392%; /* #1D4ED8 */
-    --status-success-on-dark: 140.625 84.2105% 92.549%; /* #DCFCE7 */
-    --status-info-on-dark: 214.2857 94.5946% 92.7451%; /* #DBEAFE */
+    --status-success: 142.08589 70.562771% 45.294118%; /* #22C55E */
+    --status-info: 217.219251 91.219512% 59.803922%; /* #3B82F6 */
+    --status-success-on-dark: 140.625 84.210526% 92.54902%; /* #DCFCE7 */
+    --status-info-on-dark: 214.285714 94.594595% 92.745098%; /* #DBEAFE */
     --agency-bg: hsl(var(--background));
     --agency-surface: hsl(var(--muted));
     --agency-card: hsl(var(--card));
@@ -69,34 +72,38 @@
     --agency-line: hsl(var(--border));
     --agency-gold: hsl(var(--brand-ink));
     --agency-soft-gold: hsl(var(--accent));
+    --agency-hover: hsl(var(--hover));
     --agency-header: hsl(var(--background) / 0.96);
     --agency-error: hsl(var(--destructive));
   }
 
   .dark {
+    color-scheme: dark;
     --background: var(--brand-dark);
     --foreground: var(--visual-text-hsl);
     --muted: var(--visual-surface-hsl);
     --muted-foreground: var(--visual-muted-hsl);
-    --popover: 50 7.8947% 14.902%; /* #292823 */
+    --popover: 240 6.818182% 17.254902%; /* #29292F */
     --popover-foreground: var(--foreground);
     --border: var(--brand-charcoal-light);
-    --input-background: var(--visual-raised-hsl);
-    --card: var(--visual-raised-hsl);
+    --input-background: 240 6.493506% 15.098039%; /* #242429 */
+    --card: 240 6.493506% 15.098039%; /* #242429 */
     --card-foreground: var(--foreground);
-    --primary: var(--brand-gold);
-    --primary-foreground: var(--brand-dark);
-    --primary-hover: var(--brand-gold-light);
-    --secondary: 42.8571 5.3435% 25.6863%; /* #45433E */
-    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
-    --accent: var(--visual-accent-hsl);
-    --accent-foreground: 43.2727 100% 67.6471%; /* #FFD15A */
-    --brand-ink: 43.2727 100% 67.6471%; /* #FFD15A */
-    --destructive: 0 93.3333% 94.1176%; /* #FEE2E2 */
+    --primary: 45.859873 64.609053% 52.352941%; /* #D4AF37 */
+    --primary-foreground: 41.538462 37.142857% 6.862745%; /* #18140B */
+    --primary-hover: 42.909091 81.280788% 39.803922%; /* #B88913 */
+    --secondary: 240 6.818182% 17.254902%; /* #29292F */
+    --secondary-foreground: 210 16.666667% 97.647059%; /* #F8F9FA */
+    --accent: 40.754717 55.789474% 18.627451%; /* #4A3915 */
+    --accent-foreground: 45.6 86.206897% 71.568627%; /* #F5D778 */
+    --brand-ink: 45.6 86.206897% 71.568627%; /* #F5D778 */
+    --destructive: 0 93.333333% 94.117647%; /* #FEE2E2 */
     --destructive-foreground: var(--brand-dark);
-    --ring: 43.2727 100% 67.6471%; /* #FFD15A */
-    --disabled-background: 48 5.0505% 19.4118%; /* #34332F */
-    --disabled-foreground: 222 5.6818% 65.4902%; /* #A2A5AC */
+    --ring: 45.6 86.206897% 71.568627%; /* #F5D778 */
+    --disabled-background: 240 5.882353% 20%; /* #303036 */
+    --disabled-foreground: 221.25 8.247423% 61.960784%; /* #969BA6 */
+    --hover: 240 5.882353% 20%; /* #303036 */
+    --divider: 240 5.882353% 20%; /* #303036 */
     --status-success: var(--status-success-on-dark);
     --status-info: var(--status-info-on-dark);
   }
