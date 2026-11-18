@@ -7,10 +7,13 @@ import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { useSEO } from "@/hooks/useSEO";
 import { getPageMetadata } from "@/data/metadata";
 import { PageLoader } from "@/components/shared/PageLoader";
+import { usePageMotion } from "@/hooks/usePageMotion";
 
 export function Layout() {
   const location = useLocation();
   const previousPath = useRef(location.pathname);
+  const main = useRef<HTMLElement>(null);
+  usePageMotion(main, location.pathname);
   useSEO(getPageMetadata(location.pathname));
   useEffect(() => {
     if (location.hash) {
@@ -31,7 +34,7 @@ export function Layout() {
         Skip to content
       </a>
       <Navbar key={location.pathname} />
-      <main id="main-content" tabIndex={-1}>
+      <main id="main-content" tabIndex={-1} ref={main}>
         <Suspense fallback={<PageLoader />}>
           <Outlet />
         </Suspense>

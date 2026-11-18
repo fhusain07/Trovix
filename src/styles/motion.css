@@ -1,0 +1,147 @@
+/* Motion changes presentation only; no element needs animation to be visible. */
+:root {
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-title-line {
+  display: block;
+}
+
+@keyframes trovix-rise {
+  from { opacity: 0; translate: 0 24px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes trovix-dashboard {
+  from { opacity: 0; translate: 0 30px; rotate: y -3deg; }
+  to { opacity: 1; translate: 0 0; rotate: y 0deg; }
+}
+
+@keyframes trovix-gold-pass {
+  from, to {
+    color: transparent;
+    background-image: linear-gradient(110deg, var(--agency-gold) 38%, var(--agency-text) 50%, var(--agency-gold) 62%);
+  }
+  from { background-position: 180% 0; }
+  to { background-position: -80% 0; }
+}
+
+@keyframes trovix-chart-line {
+  from { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  to { stroke-dasharray: 1; stroke-dashoffset: 0; }
+}
+
+@keyframes trovix-menu {
+  from { opacity: 0; translate: 0 -6px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-title-line {
+    animation: trovix-rise 780ms var(--motion-ease) backwards;
+  }
+  .hero-title-line:nth-child(2) { animation-delay: 120ms; }
+  .hero-title-line:nth-child(3) { animation-delay: 240ms; }
+  .hero-title-line .gold-text {
+    background-clip: text;
+    background-size: 240% 100%;
+    animation: trovix-gold-pass 900ms ease 1050ms;
+  }
+  .hero-description {
+    animation: trovix-rise 600ms var(--motion-ease) 360ms backwards;
+  }
+  .hero-copy .hero-actions > .action {
+    animation: trovix-rise 600ms var(--motion-ease) 480ms backwards;
+  }
+  .hero-copy .hero-actions > .action:nth-child(2) { animation-delay: 580ms; }
+  .hero-footnote {
+    animation: trovix-rise 600ms var(--motion-ease) 640ms backwards;
+  }
+  .hero .product-window {
+    animation: trovix-dashboard 1100ms var(--motion-ease) 120ms backwards;
+  }
+  .hero .product-float {
+    animation: trovix-rise 700ms var(--motion-ease) 650ms backwards;
+  }
+  .chart-reveal-line {
+    animation: trovix-chart-line 1100ms var(--motion-ease) 450ms backwards;
+  }
+  .mobile-navigation {
+    animation: trovix-menu 240ms var(--motion-ease);
+  }
+
+  .action, .header-cta {
+    transition: background 200ms ease, transform 250ms var(--motion-ease), box-shadow 250ms ease;
+  }
+  .action > svg, .text-link > svg, .header-cta > svg,
+  .card-link > svg, .mobile-navigation a > svg {
+    transition: transform 250ms var(--motion-ease);
+  }
+  .service-card, .project-card {
+    transition: background 200ms ease, border-color 250ms ease, transform 300ms var(--motion-ease);
+  }
+  .project-image-link { transition: border-color 250ms ease; }
+
+  @media (min-width: 768px) {
+    .hero .product-window {
+      transform: translateY(var(--dashboard-y, 0px))
+        rotateY(calc(-6deg + var(--dashboard-yaw, 0deg)))
+        rotateX(calc(3deg + var(--dashboard-pitch, 0deg))) rotateZ(-1deg);
+    }
+  }
+  @media (min-width: 768px) and (max-width: 1099px) {
+    .hero .product-window { animation-name: trovix-rise; }
+  }
+  @media (max-width: 767px) {
+    .hero .product-window { animation-name: trovix-rise; animation-duration: 800ms; }
+    .hero-title-line .gold-text { animation: none; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .action:hover, .header-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px hsl(var(--shadow-color) / 0.12);
+    }
+    .action:hover > svg, .header-cta:hover > svg { transform: translate(2px, -2px); }
+    .text-link:hover > svg, .card-link:hover > svg,
+    .service-card:hover .card-link > svg, .mobile-navigation a:hover > svg {
+      transform: translateX(3px);
+    }
+    .service-card:hover, .project-card:hover { transform: translateY(-3px); }
+    .service-card:hover, .project-card:hover .project-image-link {
+      border-color: var(--agency-gold);
+    }
+  }
+  @media (hover: none) {
+    .action:active, .header-cta:active, .service-card:active, .project-card:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.desktop-navigation a {
+  position: relative;
+  transition: color 200ms ease;
+}
+.desktop-navigation a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -6px;
+  height: 1px;
+  background: var(--agency-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 250ms var(--motion-ease);
+}
+.desktop-navigation a:is(:hover, :focus-visible, .active)::after { transform: scaleX(1); }
+
+/* A focused control must never wait for its decorative entrance. */
+.hero :is(.action, .hero-description, .hero-title-line):focus-within {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .product-window, .action:hover, .header-cta:hover,
+  .service-card:hover, .project-card:hover, .project-card:hover img {
+    transform: none;
+  }
+}
