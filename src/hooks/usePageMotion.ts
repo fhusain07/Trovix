@@ -2,12 +2,11 @@ import { useEffect, type RefObject } from "react";
 
 // Target existing presentation elements, never form fields or legal copy. Keeping
 // content visible by default also makes prerendering and animation failures safe.
+// Above-the-fold hero and page intros animate in CSS (motion.css) at first paint.
 const revealTargets = [
   "[data-motion-reveal]",
   ".section-heading > div > *",
   ".section-heading > .text-link",
-  ".page-intro > :is(.eyebrow, h1, .intro-description, .hero-actions)",
-  ".case-intro > :is(.eyebrow, h1, .intro-description, .case-facts)",
   ".service-card", ".project-card", ".technology-card", ".content-panel",
   ".process-grid > li", ".mission-grid > article", ".partner-process > li",
   ".differentiators > div", ".portfolio-empty > *", ".case-image",
@@ -85,12 +84,15 @@ function dashboardParallax(hero: HTMLElement, visual: HTMLElement) {
   };
 }
 
+const PENDING = "data-motion-pending";
+
 export function usePageMotion(scope: RefObject<HTMLElement | null>, route: string) {
   useEffect(() => {
     const root = scope.current;
     if (!root || typeof IntersectionObserver !== "function" || !Element.prototype.animate) return;
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     const seen = new WeakSet<Element>();
+    const pending = new Set<HTMLElement>();
     const active = new Map<Element, Animation>();
     let observer: IntersectionObserver | undefined;
     let mutations: MutationObserver | undefined;
@@ -98,24 +100,41 @@ export function usePageMotion(scope: RefObject<HTMLElement | null>, route: strin
     let dashboard: Element | null = null;
     let frame = 0;
 
+    const release = (target: HTMLElement) => {
+      target.removeAttribute(PENDING);
+      pending.delete(target);
+      observer?.unobserve(target);
+    };
     const finish = (target: Element) => {
       active.get(target)?.cancel(); // Underlying styles are always fully visible.
       active.delete(target);
     };
     const focus = (event: FocusEvent) => {
       if (!(event.target instanceof Element)) return;
+      for (const target of pending) if (target.contains(event.target)) release(target);
       for (const target of active.keys()) if (target.contains(event.target)) finish(target);
     };
     const scan = () => {
       frame = 0;
+      const fresh: HTMLElement[] = [];
       root.querySelectorAll<HTMLElement>(revealTargets).forEach(target => {
         if (seen.has(target)) return;
+        seen.add(target);
         // Avoid compounded reveals when a reusable wrapper already owns motion.
         const parent = target.parentElement?.closest(revealTargets);
         if (parent && root.contains(parent)) return;
-        seen.add(target);
-        observer?.observe(target);
+        fresh.push(target);
       });
+      // Read every position first, then write, so a scan costs one layout pass.
+      // Only content that starts below the fold is held back: anything already on
+      // screen (prerendered first paint, restored scroll, deep links) stays put.
+      const fold = window.innerHeight;
+      const below = fresh.filter(target => target.getBoundingClientRect().top >= fold);
+      for (const target of below) {
+        target.setAttribute(PENDING, "");
+        pending.add(target);
+        observer?.observe(target);
+      }
       const next = root.querySelector<HTMLElement>(".hero .product-window");
       if (next !== dashboard) {
         stopParallax?.();
@@ -130,36 +149,48 @@ export function usePageMotion(scope: RefObject<HTMLElement | null>, route: strin
       stopParallax?.();
       dashboard = null;
       cancelAnimationFrame(frame);
+      frame = 0;
+      for (const target of [...pending]) release(target);
       for (const target of active.keys()) finish(target);
+    };
+    const reveal = (entries: IntersectionObserverEntry[]) => {
+      const batches = new Map<Element | null, number>();
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const target = entry.target as HTMLElement;
+        const viewport = entry.rootBounds?.height ?? window.innerHeight;
+        const fromAbove = entry.boundingClientRect.top < 0;
+        // Tall blocks can never reach 15%; a quarter of the viewport is enough.
+        const enough = entry.intersectionRatio >= 0.15 || entry.intersectionRect.height >= viewport * 0.25;
+        if (!fromAbove && !enough) continue;
+        release(target);
+        // Jumping past content (End key, anchors) shows it without replaying motion.
+        if (fromAbove || target.contains(document.activeElement)) continue;
+        // Stagger only siblings that arrive together, so a lone late card is not delayed.
+        const group = target.parentElement;
+        const index = batches.get(group) ?? 0;
+        batches.set(group, index + 1);
+        const delay = Number(target.dataset.motionDelay) || Math.min(index, 4) * 90;
+        try {
+          const animation = target.animate([
+            { opacity: 0, translate: "0 24px" },
+            { opacity: 1, translate: "0 0" },
+          ], {
+            duration: 680,
+            delay: Math.min(360, delay),
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            fill: "backwards",
+          });
+          active.set(target, animation);
+          animation.onfinish = () => finish(target);
+        } catch { /* Unsupported animation properties leave content visible. */ }
+      }
     };
     const start = () => {
       if (preference.matches) return;
-      observer = new IntersectionObserver(entries => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting || entry.intersectionRatio < 0.15) continue;
-          const target = entry.target as HTMLElement;
-          observer?.unobserve(target);
-          // Restored scroll positions, deep links and keyboard focus show at once.
-          if (entry.boundingClientRect.top < 0 || target.contains(document.activeElement) ||
-              (location.hash && target.closest("[id]")?.id === decodeURIComponent(location.hash.slice(1)))) continue;
-          const siblings = [...(target.parentElement?.children ?? [])].filter(el => el.matches(revealTargets));
-          const delay = Math.min(4, Math.max(0, siblings.indexOf(target))) * 80;
-          try {
-            const animation = target.animate([
-              { opacity: 0, translate: "0 22px" },
-              { opacity: 1, translate: "0 0" },
-            ], {
-              duration: 650,
-              delay: Math.min(320, Number(target.dataset.motionDelay) || delay),
-              easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-              fill: "backwards",
-            });
-            active.set(target, animation);
-            animation.onfinish = () => finish(target);
-          } catch { /* Unsupported animation properties leave content visible. */ }
-        }
-      }, { threshold: 0.15, rootMargin: "0px 0px -24px 0px" });
-      scan();
+      observer = new IntersectionObserver(reveal, { threshold: [0, 0.15, 0.3] });
+      // Measure after the layout's route-change scroll reset has been applied.
+      frame = requestAnimationFrame(scan);
       mutations = new MutationObserver(() => {
         if (!frame) frame = requestAnimationFrame(scan);
       });
@@ -167,13 +198,16 @@ export function usePageMotion(scope: RefObject<HTMLElement | null>, route: strin
       mutations.observe(root, { childList: true, subtree: true });
     };
     const change = () => { stop(); start(); };
+    const print = () => { for (const target of [...pending]) release(target); };
     root.addEventListener("focusin", focus);
     preference.addEventListener("change", change);
+    window.addEventListener("beforeprint", print);
     start();
     return () => {
       stop();
       root.removeEventListener("focusin", focus);
       preference.removeEventListener("change", change);
+      window.removeEventListener("beforeprint", print);
     };
   }, [scope, route]);
 }
