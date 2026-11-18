@@ -144,6 +144,8 @@ export function ProductVisual() {
                   />
                   <path
                     d="M0 120 C30 120 28 82 65 91 S100 110 133 79 S165 105 195 68 S225 87 260 53 S290 74 322 37 S360 61 390 22 S428 38 460 7"
+                    className="chart-reveal-line"
+                    pathLength={1}
                     stroke="hsl(var(--brand-gold))"
                     strokeWidth="2.5"
                     fill="none"

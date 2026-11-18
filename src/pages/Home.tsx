@@ -47,11 +47,11 @@ export default function Home() {
             SOFTWARE, WITH A PURPOSE.
           </p>
           <h1>
-            We Build Software
-            <br />
-            That Moves
-            <br />
-            Businesses <span className="gold-text">Forward.</span>
+            <span className="hero-title-line">We Build Software</span>
+            <span className="hero-title-line">That Moves</span>
+            <span className="hero-title-line">
+              Businesses <span className="gold-text">Forward.</span>
+            </span>
           </h1>
           <p className="hero-description">
             Custom software. Connected systems. Clearer possibilities.
